@@ -2,7 +2,7 @@
 
 **Distill a teacher's teaching style into a reusable digital asset — then let students learn from an AI teacher that actually teaches like them.**
 
-[中文文档 →](README_zh.md)
+🌐 **[Live project page with demo videos →](https://mikemengtr.github.io/EduNUWA/)** · [中文文档 →](README_zh.md)
 
 EduNUWA is a research prototype that turns recorded lectures into a structured, callable "TeacherSkill", and uses it to drive a streaming virtual classroom: a student asks a question, and a digital teacher answers **in that teacher's explanatory style** — speaking with a cloned (or synthetic) voice while writing structured notes, formulas and figures on a virtual blackboard, sentence by sentence, in real time.
 
