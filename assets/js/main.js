@@ -1,15 +1,12 @@
-/* EduNUWA 展示页交互：i18n / 星系视差与火星 / 产品画廊 / 灯箱 */
+/* EduNUWA 展示页交互：i18n / 虚拟课堂 hero（粉笔标题 + 对话循环 + 黑板作图）/ 产品画廊 / 灯箱 */
 (function () {
   "use strict";
 
   /* ============ i18n ============ */
-  const HTML_KEYS = new Set(["hero.headline"]);
-
   const I18N = {
     zh: {
       "nav.what": "它做什么", "nav.pipeline": "链路", "nav.product": "产品", "nav.demos": "演示", "nav.start": "上手",
       "hero.kicker": "EDUNUWA · 开源研究原型",
-      "hero.headline": '<span class="ln">把教师的教学能力，</span><span class="ln"><em class="ignite">蒸馏</em>为数字资产<span class="dot">。</span></span>',
       "hero.desc": "学生提出问题，数字教师以真实教师的讲解风格作答——克隆音色开口讲课，虚拟黑板逐句写下提纲、公式与插图，边生成边播放。",
       "hero.watch": "看看产品",
       "stats.modules": "模块流水线", "stats.events": "类教学事件", "stats.teachers": "位示例教师",
@@ -66,12 +63,38 @@
         { img: "m6-teacher-dash", url: "edutwin.local / teacher",         t: "教师端 · 能力工作台",     d: "素材、文字库、风格 Skill、专属音色、课程与插图——从素材到分身的每一步。" },
         { img: "m6-skill",        url: "edutwin.local / teacher/skill",   t: "Skill 档案 · 风格指纹",   d: "六维风格指纹 + 可溯源标签 + 七段 TeacherSkill 契约，每条都有课堂引证。" },
         { img: "m6-imagelib",     url: "edutwin.local / teacher/images",  t: "教学插图库 · PPT 抽图",   d: "拖入 PPT 自动抽图，视觉模型判断是否适合教学并自动标注，讲课时按问题检索配图。" }
-      ]
+      ],
+      "_cls": {
+        headline: [
+          { t: "把教师的教学能力，" }, { br: 1 },
+          { t: "蒸馏", cls: "ignite" }, { t: "为数字资产" }, { t: "。", cls: "dot" }
+        ],
+        statusIdle: "待命中", statusLive: "开讲中",
+        name: "示范教师 01", subject: "概率论", stageName: "示范教师 01 · 概率论",
+        tagsLabel: "风 格 标 签", tagsMore: "展开全部 · 7",
+        tags: ["设问自答", "实例驱动", "生活类比", "符号严谨", "结构总结"],
+        hint: "输入问题，AI 将按这位老师的风格开讲",
+        placeholder: "输入问题，试试让老师开讲…", send: "演示",
+        scripts: [
+          { q: "什么是高斯分布？", fig: "gauss", formula: "f(x) = e^-(x-μ)²/2σ² / √(2πσ²)",
+            a: "同学们好！我们从掷骰子说起——把大量微小的随机误差叠加起来，一条优雅的钟形曲线就会浮现。它关于 x = μ 对称，中间高、两边低……",
+            outline: "本节提纲 · 正态（高斯）分布" },
+          { q: "勾股定理怎么证明？", fig: "pyth", formula: "a² + b² = c²",
+            a: "别急着背公式，先画一个直角三角形。我们在三条边上各搭一个正方形，比一比面积——大正方形恰好等于两个小正方形之和。",
+            outline: "本节提纲 · 勾股定理" },
+          { q: "电容是什么？", fig: "cap", formula: "C = Q / U",
+            a: "你可以把电容想象成一个「电荷的蓄水池」：两块平行板隔空相望，电压一推，电荷就在板上积蓄起来，需要时再放出去。",
+            outline: "本节提纲 · 电容与电场" }
+        ],
+        custom: {
+          a: "这个问题问得好！不过我只是着陆页上的示范分身——把仓库跑起来，真正的数字教师会开口讲课、逐句板书，认真回答你。",
+          outline: "本节提纲 · 先把仓库跑起来 ↓"
+        }
+      }
     },
     en: {
       "nav.what": "What", "nav.pipeline": "Pipeline", "nav.product": "Product", "nav.demos": "Demos", "nav.start": "Get Started",
       "hero.kicker": "EDUNUWA · OPEN-SOURCE RESEARCH PROTOTYPE",
-      "hero.headline": '<span class="ln"><em class="ignite">Distilling</em> teaching ability</span><span class="ln">into digital assets<span class="dot">.</span></span>',
       "hero.desc": "A student asks a question; a digital teacher answers in a real teacher's explanatory style — speaking with a cloned voice while writing notes, formulas and figures on a virtual blackboard, streamed sentence by sentence.",
       "hero.watch": "See the product",
       "stats.modules": "module pipeline", "stats.events": "teaching event types", "stats.teachers": "demo teachers",
@@ -128,11 +151,39 @@
         { img: "m6-teacher-dash", url: "edutwin.local / teacher",         t: "Teacher · capability workbench",    d: "Materials, transcripts, style Skill, personal voice, courses and figures — every step from footage to twin." },
         { img: "m6-skill",        url: "edutwin.local / teacher/skill",   t: "Skill archive · style fingerprint", d: "Six-dimension fingerprint + evidence-backed tags + the seven-section TeacherSkill contract." },
         { img: "m6-imagelib",     url: "edutwin.local / teacher/images",  t: "Figure library · PPT extraction",   d: "Drop in a PPT; a vision model filters teaching-worthy figures and annotates them for retrieval." }
-      ]
+      ],
+      "_cls": {
+        headline: [
+          { t: "Distilling", cls: "ignite" }, { t: " teaching ability" }, { br: 1 },
+          { t: "into digital assets" }, { t: ".", cls: "dot" }
+        ],
+        statusIdle: "Standing by", statusLive: "Teaching live",
+        name: "Demo Teacher 01", subject: "Probability", stageName: "Demo Teacher 01 · Probability",
+        tagsLabel: "S T Y L E   T A G S", tagsMore: "all · 7",
+        tags: ["Socratic asks", "Example-driven", "Everyday analogies", "Rigorous notation", "Structured recaps"],
+        hint: "Ask anything — the AI teaches in this teacher's style",
+        placeholder: "Type a question, watch the teacher teach…", send: "Ask",
+        scripts: [
+          { q: "What is a Gaussian distribution?", fig: "gauss", formula: "f(x) = e^-(x-μ)²/2σ² / √(2πσ²)",
+            a: "Great question! Start with dice: pile up many small random errors and an elegant bell curve emerges — symmetric about x = μ, high in the middle, low at both tails…",
+            outline: "Outline · The normal distribution" },
+          { q: "How do I prove the Pythagorean theorem?", fig: "pyth", formula: "a² + b² = c²",
+            a: "Don't memorize it — draw a right triangle first. Build a square on each side and compare areas: the big one exactly equals the other two combined.",
+            outline: "Outline · Pythagorean theorem" },
+          { q: "What is a capacitor?", fig: "cap", formula: "C = Q / U",
+            a: "Think of it as a reservoir for charge: two plates facing each other across a gap. Push a voltage, and charge piles up on the plates, ready to be released.",
+            outline: "Outline · Capacitors & fields" }
+        ],
+        custom: {
+          a: "Good question! I'm just the demo twin on this landing page — clone the repo and a real digital teacher will speak up, write on the board, and answer you properly.",
+          outline: "Outline · Run the repo first ↓"
+        }
+      }
     }
   };
 
   let lang = localStorage.getItem("edunuwa-lang") || "zh";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function applyLang() {
     const dict = I18N[lang];
@@ -141,13 +192,12 @@
       const key = el.getAttribute("data-i18n");
       if (dict[key] !== undefined) el.textContent = dict[key];
     });
-    const headline = document.getElementById("headline");
-    if (headline) headline.innerHTML = dict["hero.headline"];
     document.getElementById("langToggle").textContent = lang === "zh" ? "EN" : "中";
     document.title = lang === "zh"
       ? "EduNUWA — 把教学能力蒸馏为数字资产"
       : "EduNUWA — Distilling Teaching Ability into Digital Assets";
     buildGallery();
+    startClassroom();
   }
 
   document.getElementById("langToggle").addEventListener("click", () => {
@@ -155,6 +205,276 @@
     localStorage.setItem("edunuwa-lang", lang);
     applyLang();
   });
+
+  /* ============ 虚拟课堂 hero ============ */
+  const hero = document.querySelector(".hero");
+  const headlineEl = document.getElementById("headline");
+  const stageDot = document.getElementById("stageDot");
+  const stageStatus = document.getElementById("stageStatus");
+  const stageName = document.getElementById("stageName");
+  const panelName = document.getElementById("panelName");
+  const panelSubject = document.getElementById("panelSubject");
+  const tagsLabel = document.getElementById("tagsLabel");
+  const tagsMore = document.getElementById("tagsMore");
+  const tagChips = document.getElementById("tagChips");
+  const chatArea = document.getElementById("chatArea");
+  const askChips = document.getElementById("askChips");
+  const askForm = document.getElementById("askForm");
+  const askInput = document.getElementById("askInput");
+  const askBtn = document.getElementById("askBtn");
+  const figFormula = document.getElementById("figFormula");
+  const figs = document.querySelectorAll("#boardFigure .fig");
+
+  let timers = [], typeIv = null;
+  function later(fn, ms) { const id = setTimeout(fn, ms); timers.push(id); return id; }
+  function stopClassroom() {
+    timers.forEach(clearTimeout); timers = [];
+    if (typeIv) { clearInterval(typeIv); typeIv = null; }
+    hero.classList.remove("speaking");
+    stageDot.classList.remove("live");
+    // 若标题仍在书写，瞬间写完（用户提前交互时不留残句）
+    headlineEl.querySelectorAll(".ch:not(.show)").forEach(s => s.classList.add("show"));
+    headlineEl.querySelectorAll(".chalk-caret").forEach(s => s.remove());
+    const em = headlineEl.querySelector(".ignite");
+    if (em && headlineEl.querySelector(".ch")) em.classList.add("lit");
+  }
+
+  function C() { return I18N[lang]._cls; }
+
+  /* --- 粉笔标题逐字书写 --- */
+  function buildHeadline(done) {
+    headlineEl.innerHTML = "";
+    const chars = [];
+    C().headline.forEach(seg => {
+      if (seg.br) { headlineEl.appendChild(document.createElement("br")); return; }
+      let parent = headlineEl;
+      if (seg.cls) {
+        parent = document.createElement(seg.cls === "ignite" ? "em" : "span");
+        parent.className = seg.cls;
+        headlineEl.appendChild(parent);
+      }
+      for (const ch of seg.t) {
+        const s = document.createElement("span");
+        s.className = "ch";
+        // inline-block 会剥离首尾空白，空格须用 NBSP 占位
+        s.textContent = ch === " " ? " " : ch;
+        parent.appendChild(s);
+        chars.push({ el: s, parent });
+      }
+    });
+    const caret = document.createElement("span");
+    caret.className = "chalk-caret";
+    const finish = () => {
+      caret.remove();
+      const em = headlineEl.querySelector(".ignite");
+      if (em) em.classList.add("lit");
+      done && done();
+    };
+    if (reduceMotion) {
+      chars.forEach(c => c.el.classList.add("show"));
+      finish();
+      return;
+    }
+    headlineEl.appendChild(caret);
+    let i = 0;
+    const speed = lang === "zh" ? 72 : 34;
+    typeIv = setInterval(() => {
+      if (i >= chars.length) { clearInterval(typeIv); typeIv = null; finish(); return; }
+      const c = chars[i++];
+      c.el.classList.add("show");
+      c.el.after(caret);
+    }, speed);
+  }
+
+  /* --- 黑板作图 --- */
+  function showFigure(figKey, formula) {
+    if (!figKey) return;
+    figs.forEach(f => {
+      const on = f.getAttribute("data-fig") === figKey;
+      f.classList.toggle("on", on);
+      f.classList.remove("draw");
+      if (on) { void f.getBoundingClientRect(); f.classList.add("draw"); }
+    });
+    figFormula.classList.remove("show");
+    figFormula.textContent = formula || "";
+    void figFormula.offsetWidth;
+    if (formula) figFormula.classList.add("show");
+  }
+
+  /* --- 对话气泡 --- */
+  function addMsg(cls, text) {
+    const div = document.createElement("div");
+    div.className = "msg " + cls;
+    const p = document.createElement("p");
+    p.textContent = text;
+    div.appendChild(p);
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return div;
+  }
+  function addTyping() {
+    const div = document.createElement("div");
+    div.className = "msg msg--tea msg--typing";
+    div.innerHTML = "<i></i><i></i><i></i>";
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return div;
+  }
+  function addOutline(text) {
+    const div = document.createElement("div");
+    div.className = "mini-outline";
+    div.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>';
+    div.appendChild(document.createTextNode(text));
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return div;
+  }
+  function typeMsg(text, done) {
+    const div = document.createElement("div");
+    div.className = "msg msg--tea";
+    const p = document.createElement("p");
+    const node = document.createTextNode("");
+    const caret = document.createElement("span");
+    caret.className = "type-caret";
+    p.appendChild(node); p.appendChild(caret);
+    div.appendChild(p);
+    chatArea.appendChild(div);
+    if (reduceMotion) {
+      node.nodeValue = text; caret.remove();
+      chatArea.scrollTop = chatArea.scrollHeight;
+      done && done(); return;
+    }
+    let i = 0;
+    typeIv = setInterval(() => {
+      if (i >= text.length) {
+        clearInterval(typeIv); typeIv = null; caret.remove();
+        done && done(); return;
+      }
+      node.nodeValue += text[i++];
+      chatArea.scrollTop = chatArea.scrollHeight;
+    }, lang === "zh" ? 46 : 22);
+  }
+
+  function setLive(on) {
+    hero.classList.toggle("speaking", on);
+    stageDot.classList.toggle("live", on);
+    stageStatus.textContent = on ? C().statusLive : C().statusIdle;
+  }
+
+  /* --- 一次完整问答（脚本或自定义） --- */
+  function playExchange(q, entry, next) {
+    stopClassroom();
+    chatArea.innerHTML = "";
+    const hint = document.createElement("p");
+    hint.className = "chat-hint";
+    hint.textContent = C().hint;
+    chatArea.appendChild(hint);
+
+    addMsg("msg--stu", q);
+    later(() => {
+      const ty = addTyping();
+      later(() => {
+        ty.remove();
+        setLive(true);
+        if (entry.fig) showFigure(entry.fig, entry.formula);
+        typeMsg(entry.a, () => {
+          later(() => addOutline(entry.outline), 350);
+          later(() => setLive(false), 900);
+          later(next, 4600);
+        });
+      }, 1250);
+    }, 550);
+  }
+
+  let scriptIdx = 0;
+  function playLoop() {
+    const s = C().scripts[scriptIdx % C().scripts.length];
+    playExchange(s.q, s, () => { scriptIdx++; playLoop(); });
+  }
+
+  function buildPanel() {
+    const c = C();
+    stageStatus.textContent = c.statusIdle;
+    stageName.textContent = c.stageName;
+    panelName.textContent = c.name;
+    panelSubject.textContent = c.subject;
+    tagsLabel.textContent = c.tagsLabel;
+    tagsMore.textContent = c.tagsMore;
+    askInput.placeholder = c.placeholder;
+    askBtn.textContent = c.send;
+    tagChips.innerHTML = "";
+    c.tags.forEach((t, i) => {
+      const s = document.createElement("span");
+      s.textContent = t;
+      s.style.setProperty("--cd", (0.35 + i * 0.12) + "s");
+      tagChips.appendChild(s);
+    });
+    askChips.innerHTML = "";
+    c.scripts.forEach((sc, k) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "qchip";
+      b.textContent = sc.q;
+      b.addEventListener("click", () => {
+        scriptIdx = k;
+        playExchange(sc.q, sc, () => { scriptIdx++; playLoop(); });
+      });
+      askChips.appendChild(b);
+    });
+  }
+
+  askForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const text = askInput.value.trim();
+    askInput.value = "";
+    if (!text) {
+      const s = C().scripts[scriptIdx % C().scripts.length];
+      playExchange(s.q, s, () => { scriptIdx++; playLoop(); });
+      return;
+    }
+    playExchange(text, C().custom, () => playLoop());
+  });
+
+  function startClassroom() {
+    stopClassroom();
+    buildPanel();
+    figs.forEach(f => f.classList.remove("on", "draw"));
+    figFormula.classList.remove("show");
+    buildHeadline(() => later(playLoop, 500));
+  }
+
+  /* 粉笔尘埃 */
+  const motesBox = document.getElementById("boardMotes");
+  if (motesBox && !reduceMotion) {
+    for (let i = 0; i < 14; i++) {
+      const m = document.createElement("i");
+      m.className = "mote";
+      const sz = 1.5 + Math.random() * 2;
+      m.style.width = m.style.height = sz + "px";
+      m.style.left = (3 + Math.random() * 94) + "%";
+      m.style.top = (30 + Math.random() * 65) + "%";
+      m.style.animationDuration = (6 + Math.random() * 8) + "s";
+      m.style.animationDelay = (-Math.random() * 12) + "s";
+      motesBox.appendChild(m);
+    }
+  }
+
+  /* 暖光视差 */
+  const stageBg = document.getElementById("heroStage");
+  if (hero && stageBg && !reduceMotion) {
+    let tx = 0, ty = 0, x = 0, y = 0;
+    hero.addEventListener("mousemove", e => {
+      const r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * -22;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * -22;
+    });
+    hero.addEventListener("mouseleave", () => { tx = 0; ty = 0; });
+    (function loop() {
+      x += (tx - x) * 0.06; y += (ty - y) * 0.06;
+      stageBg.style.transform = "translate(" + x.toFixed(2) + "px," + y.toFixed(2) + "px)";
+      requestAnimationFrame(loop);
+    })();
+  }
 
   /* ============ 产品画廊 ============ */
   const galleryMain = document.getElementById("galleryMain");
@@ -243,38 +563,6 @@
       });
     });
   });
-
-  /* ============ 讲义星系：火星 + 视差 ============ */
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const sparksBox = document.getElementById("sparks");
-  if (sparksBox && !reduceMotion) {
-    for (let i = 0; i < 16; i++) {
-      const s = document.createElement("i");
-      s.className = "spark";
-      s.style.left = (4 + Math.random() * 92) + "%";
-      s.style.top = (35 + Math.random() * 60) + "%";
-      s.style.animationDuration = (5 + Math.random() * 7) + "s";
-      s.style.animationDelay = (-Math.random() * 10) + "s";
-      sparksBox.appendChild(s);
-    }
-  }
-
-  const hero = document.querySelector(".hero");
-  const stage = document.getElementById("heroStage");
-  if (hero && stage && !reduceMotion) {
-    let tx = 0, ty = 0, x = 0, y = 0;
-    hero.addEventListener("mousemove", e => {
-      const r = hero.getBoundingClientRect();
-      tx = ((e.clientX - r.left) / r.width - 0.5) * -26;
-      ty = ((e.clientY - r.top) / r.height - 0.5) * -26;
-    });
-    hero.addEventListener("mouseleave", () => { tx = 0; ty = 0; });
-    (function loop() {
-      x += (tx - x) * 0.06; y += (ty - y) * 0.06;
-      stage.style.transform = "translate(" + x.toFixed(2) + "px," + y.toFixed(2) + "px)";
-      requestAnimationFrame(loop);
-    })();
-  }
 
   /* ============ 管线描边动画 ============ */
   const pipeBox = document.getElementById("pipelineBox");

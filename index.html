@@ -8,7 +8,7 @@
 <meta property="og:title" content="EduNUWA — 教学风格蒸馏 · 流式虚拟课堂">
 <meta property="og:description" content="把教师的教学能力蒸馏为可复用的数字资产，让 AI 教师真正「像那位老师」一样讲课。">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316100A'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23D85A30' font-family='Georgia'%3E%E5%A8%B2%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
 <!-- ====== 导航 ====== -->
 <nav class="nav" id="nav">
   <a class="nav-brand" href="#top">
-    <span class="brand-mark">娲</span>
+    <span class="brand-mark"><img src="assets/img/logo.svg" alt="EduNUWA logo"></span>
     <span class="brand-name">EduNUWA</span>
   </a>
   <div class="nav-links">
@@ -37,59 +37,98 @@
   </div>
 </nav>
 
-<!-- ====== HERO：讲义星系 ====== -->
+<!-- ====== HERO：虚拟课堂 ====== -->
 <header id="top" class="hero">
   <div class="hero-stage" id="heroStage" aria-hidden="true">
     <div class="hero-glow"></div>
     <div class="hero-glow hero-glow--cool"></div>
-    <svg class="hero-field" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
-      <g transform="translate(760,430)">
-        <g class="orbit orbit--1">
-          <circle class="ring" r="150"/>
-          <circle class="node" cx="150" cy="0" r="3"/>
-          <circle class="node node--hot" cx="-104" cy="108" r="4.5"/>
-        </g>
-        <g class="orbit orbit--2">
-          <circle class="ring" r="255"/>
-          <circle class="node" cx="255" cy="0" r="3"/>
-          <circle class="node node--brass" cx="-180" cy="-181" r="4"/>
-          <circle class="node" cx="-45" cy="251" r="2.5"/>
-        </g>
-        <g class="orbit orbit--3">
-          <circle class="ring" r="375"/>
-          <circle class="node node--hot" cx="375" cy="0" r="3.5"/>
-          <circle class="node" cx="-263" cy="267" r="3"/>
-        </g>
-        <g class="orbit orbit--4">
-          <circle class="ring" r="520"/>
-          <circle class="node" cx="520" cy="0" r="3"/>
-          <circle class="node node--brass" cx="-368" cy="-367" r="3.5"/>
-          <circle class="node" cx="96" cy="-511" r="2.5"/>
-        </g>
-      </g>
-    </svg>
-    <div class="hero-sparks" id="sparks"></div>
   </div>
 
-  <div class="hero-in">
-    <p class="hero-kicker"><span class="kicker-flame">◆</span><span data-i18n="hero.kicker">EDUNUWA · 开源研究原型</span></p>
-    <h1 class="hero-headline" id="headline">
-      <span class="ln">把教师的教学能力，</span>
-      <span class="ln"><em class="ignite">蒸馏</em>为数字资产<span class="dot">。</span></span>
-    </h1>
-    <p class="hero-desc" data-i18n="hero.desc">
-      学生提出问题，数字教师以真实教师的讲解风格作答——克隆音色开口讲课，虚拟黑板逐句写下提纲、公式与插图，边生成边播放。
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-accent" href="#product"><span data-i18n="hero.watch">看看产品</span><span class="ar">→</span></a>
-      <a class="btn btn-ghost-dark" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub</a>
+  <div class="room">
+    <!-- 舞台：木框黑板 -->
+    <div class="stage">
+      <div class="stage-tag"><span class="dot" id="stageDot"></span><span id="stageStatus">待命中</span></div>
+      <div class="board-frame">
+        <div class="board">
+          <div class="board-motes" id="boardMotes" aria-hidden="true"></div>
+          <p class="hero-kicker"><span class="kicker-flame">◆</span><span data-i18n="hero.kicker">EDUNUWA · 开源研究原型</span></p>
+          <h1 class="hero-headline" id="headline" aria-label="把教师的教学能力，蒸馏为数字资产。"></h1>
+          <p class="hero-desc" data-i18n="hero.desc">
+            学生提出问题，数字教师以真实教师的讲解风格作答——克隆音色开口讲课，虚拟黑板逐句写下提纲、公式与插图，边生成边播放。
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-accent" href="#product"><span data-i18n="hero.watch">看看产品</span><span class="ar">→</span></a>
+            <a class="btn btn-ghost-dark" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub</a>
+          </div>
+
+          <!-- 黑板粉笔图（随右侧对话切换、描边作画） -->
+          <div class="board-figure" id="boardFigure" aria-hidden="true">
+            <svg class="fig" data-fig="gauss" viewBox="0 0 340 230">
+              <path class="dr dr0" pathLength="600" d="M22 192 H 318"/>
+              <path class="dr dr1" pathLength="600" d="M32 189 C 95 186 122 52 170 52 C 218 52 245 186 308 189"/>
+              <path class="dash" d="M170 58 V 190"/>
+              <path class="dr dr2" pathLength="600" d="M170 124 H 222 M214 118 l8 6 -8 6"/>
+              <text class="ft" x="163" y="213">μ</text>
+              <text class="ft" x="190" y="115">σ</text>
+            </svg>
+            <svg class="fig" data-fig="pyth" viewBox="0 0 340 230">
+              <path class="dr dr0" pathLength="600" d="M70 192 H 250 V 66 Z"/>
+              <path class="dr dr1" pathLength="600" d="M232 192 V 174 H 250"/>
+              <text class="ft" x="152" y="215">a</text>
+              <text class="ft" x="262" y="134">b</text>
+              <text class="ft" x="136" y="118">c</text>
+            </svg>
+            <svg class="fig" data-fig="cap" viewBox="0 0 340 230">
+              <path class="dr dr0" pathLength="600" d="M28 120 H 148 M192 120 H 312"/>
+              <path class="dr dr1" pathLength="600" d="M148 58 V 182 M192 58 V 182"/>
+              <path class="dr dr2" pathLength="600" d="M158 88 H 182 M176 83 l7 5 -7 5 M158 120 H 182 M176 115 l7 5 -7 5 M158 152 H 182 M176 147 l7 5 -7 5"/>
+              <text class="ft" x="122" y="50">+</text>
+              <text class="ft" x="200" y="50">−</text>
+            </svg>
+            <p class="fig-formula" id="figFormula"></p>
+          </div>
+
+          <div class="board-stats">
+            <div class="stat"><em>6</em><span data-i18n="stats.modules">模块流水线</span></div>
+            <div class="stat"><em>7</em><span data-i18n="stats.events">类教学事件</span></div>
+            <div class="stat"><em>12</em><span data-i18n="stats.teachers">位示例教师</span></div>
+            <div class="stat"><em data-i18n="stats.streamNum">秒级</em><span data-i18n="stats.stream">首句开口延迟</span></div>
+          </div>
+        </div>
+        <div class="tray"><i class="chalk-stick"></i><i class="duster"></i></div>
+      </div>
+
+      <!-- 数字人浮层 -->
+      <div class="avatar-float" id="avatarFloat">
+        <div class="avatar-card">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8.2"/><circle class="lens" cx="20.7" cy="15.9" r="2.7"/><circle class="lens" cx="27.3" cy="15.9" r="2.7"/><path d="M23.4 15.9h1.2"/><path d="M21.2 20.9q2.8 2 5.6 0"/><path d="M9 41c0-8.6 6.8-12.6 15-12.6S39 32.4 39 41"/></svg>
+        </div>
+        <div class="stage-name">
+          <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span id="stageName">示范教师 01 · 概率论</span>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><em>6</em><span data-i18n="stats.modules">模块流水线</span></div>
-      <div class="stat"><em>7</em><span data-i18n="stats.events">类教学事件</span></div>
-      <div class="stat"><em>12</em><span data-i18n="stats.teachers">位示例教师</span></div>
-      <div class="stat"><em data-i18n="stats.streamNum">秒级</em><span data-i18n="stats.stream">首句开口延迟</span></div>
-    </div>
+
+    <!-- 右侧对话面板 -->
+    <aside class="panel" aria-label="virtual classroom demo">
+      <div class="panel-head">
+        <div class="p-avatar">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8.2"/><circle class="lens" cx="20.7" cy="15.9" r="2.7"/><circle class="lens" cx="27.3" cy="15.9" r="2.7"/><path d="M23.4 15.9h1.2"/><path d="M21.2 20.9q2.8 2 5.6 0"/><path d="M9 41c0-8.6 6.8-12.6 15-12.6S39 32.4 39 41"/></svg>
+        </div>
+        <div class="p-id"><b id="panelName">示范教师 01</b><span class="p-chip" id="panelSubject">概率论</span></div>
+      </div>
+      <div class="panel-tags">
+        <div class="pt-head"><span id="tagsLabel">风 格 标 签</span><i id="tagsMore">展开全部 · 7</i></div>
+        <div class="pt-chips" id="tagChips"></div>
+      </div>
+      <div class="panel-chat" id="chatArea"></div>
+      <div class="panel-ask" id="askChips"></div>
+      <form class="panel-input" id="askForm">
+        <input id="askInput" type="text" maxlength="60" autocomplete="off" placeholder="输入问题，试试让老师开讲…">
+        <button type="submit" class="ask-btn" id="askBtn">演示</button>
+      </form>
+    </aside>
   </div>
   <p class="hero-foot">EDUNUWA · TEACHING-STYLE DISTILLATION · MIT</p>
 </header>
