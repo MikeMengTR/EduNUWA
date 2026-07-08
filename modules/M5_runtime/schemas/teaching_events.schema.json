@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Teaching Events",
+  "description": "Schema for teaching_events.json — M4 Orchestrator output consumed by M5 Runtime",
+  "type": "object",
+  "required": ["event_file_id", "question_id", "events"],
+  "properties": {
+    "event_file_id": { "type": "string" },
+    "question_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "turn": { "type": "integer", "minimum": 1 },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/event" }
+    }
+  },
+  "definitions": {
+    "event": {
+      "type": "object",
+      "required": ["event_id", "type", "seq"],
+      "properties": {
+        "event_id": { "type": "string", "pattern": "^evt_\\d{4}$" },
+        "type": {
+          "type": "string",
+          "enum": ["speak", "board", "formula", "table", "pause", "quiz"]
+        },
+        "seq": { "type": "integer", "minimum": 1 }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "const": "speak" } } }, "then": { "required": ["text"] } },
+        { "if": { "properties": { "type": { "const": "board" } } }, "then": { "required": ["action", "content"] } },
+        { "if": { "properties": { "type": { "const": "formula" } } }, "then": { "required": ["latex", "display_mode"] } },
+        { "if": { "properties": { "type": { "const": "table" } } }, "then": { "required": ["title", "columns", "rows"] } },
+        { "if": { "properties": { "type": { "const": "pause" } } }, "then": { "required": ["duration_sec"] } },
+        { "if": { "properties": { "type": { "const": "quiz" } } }, "then": { "required": ["question", "options"] } }
+      ]
+    }
+  }
+}

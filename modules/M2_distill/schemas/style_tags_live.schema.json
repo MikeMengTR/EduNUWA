@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edunuwa/schemas/style_tags_live.schema.json",
+  "title": "EduNUWA style_tags_live",
+  "description": "Crowd style tags distilled from student feedback. Produced by M2 refresh_crowd_tags, consumed by M3. Lives at data/teachers/{tid}/style_tags_live.json, accumulates across skill versions (NOT inside skill_profile snapshot). Phase 2 feature.",
+  "type": "object",
+  "required": ["teacher_id", "tags", "style_embeddings_model", "updated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "teacher_id":      { "type": "string", "pattern": "^T_[0-9]{8}_[0-9]+$" },
+    "style_embeddings_model": {
+      "type": "string",
+      "description": "Must match M3 query embedding model and skill_profile.style_embeddings_model (M2 H6 / M3 H6). Same field name as skill_profile for unified loading."
+    },
+    "updated_at":      { "type": "string", "format": "date-time" },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source", "support", "confidence", "first_seen", "last_seen"],
+        "properties": {
+          "text":      { "type": "string", "minLength": 1 },
+          "dimension": { "type": ["string", "null"] },
+          "source":    { "const": "crowd" },
+          "support":   {
+            "type": "integer", "minimum": 1,
+            "description": "Number of distinct students (deduped by student_hash) who expressed this tag."
+          },
+          "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "cluster_id": {
+            "description": "Owned by M3 global clustering; M2 writes null, M3 backfills in its own index.",
+            "type": ["string", "null"]
+          },
+          "embedding_ref": {
+            "description": "Optional Phase-2 vector-store handle; MVP computes at load time.",
+            "type": "string"
+          },
+          "first_seen": { "type": "string" },
+          "last_seen":  { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

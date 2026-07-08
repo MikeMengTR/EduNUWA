@@ -1,0 +1,174 @@
+/* =========================================================================
+   教师工作台 —— 分区 + 等高能力磁贴
+   ========================================================================= */
+
+/* 编辑表单 · 头像上传 */
+.tdash-avatar-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.tdash-avatar-preview {
+  width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--line); flex-shrink: 0;
+}
+.tdash-avatar-preview--fallback {
+  display: flex; align-items: center; justify-content: center; border: none;
+  background: var(--board); color: var(--paper);
+  font-family: var(--font-display); font-size: 24px; font-weight: 500;
+}
+.tdash-avatar-btn { width: auto; cursor: pointer; }
+.tdash-avatar-hint { font-size: 12px; color: var(--ink-3); }
+
+/* —— 身份头卡：编辑入口 —— */
+.tdash-hero-edit { flex-shrink: 0; align-self: flex-start; }
+.tp2-head-bio { color: var(--ink-2); font-size: 13.5px; margin-top: 8px; line-height: 1.6; max-width: 70ch; }
+
+/* —— 标签页 —— */
+.tdash-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin: 2px 0 26px; }
+.tdash-tab {
+  background: none; border: none; cursor: pointer; padding: 11px 18px;
+  font-size: 14.5px; color: var(--ink-3); font-weight: 500;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tdash-tab:hover { color: var(--ink); }
+.tdash-tab.on { color: var(--orange-deep); border-bottom-color: var(--orange); font-weight: 600; }
+
+/* —— 分区 + eyebrow —— */
+.tdash-section { margin-top: 36px; }
+.tdash-section:first-of-type { margin-top: 8px; }
+.tdash-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.tdash-eyebrow__t {
+  font-size: 12.5px; letter-spacing: .15em; font-weight: 700; text-transform: uppercase;
+  color: var(--ink); flex-shrink: 0;
+}
+.tdash-eyebrow__rule { flex: 1; height: 1px; background: var(--line); }
+.tdash-eyebrow__hint { font-size: 12.5px; color: var(--ink-3); flex-shrink: 0; }
+
+/* —— 能力磁贴：等高网格 —— */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
+  gap: 16px;
+}
+.cap-tile {
+  display: flex; flex-direction: column;
+  background: var(--paper-white); border: 1px solid var(--line);
+  border-radius: 16px; padding: 20px 20px 18px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.cap-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(60, 46, 30, .08); border-color: #e6dcca; }
+.cap-tile__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+.cap-tile__icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; }
+.cap-tile__icon.a-blue { background: var(--blue-soft); color: var(--blue); }
+.cap-tile__icon.a-teal { background: #e7f0ec; color: #2e7468; }
+.cap-tile__icon.a-purple { background: var(--purple-soft); color: var(--purple); }
+.cap-tile__icon.a-orange { background: #fdeede; color: var(--orange-deep); }
+.cap-tile__icon.a-rose { background: #f6e9ef; color: #9c5476; }
+
+.cap-pill { font-size: 11.5px; padding: 3px 10px; border-radius: 999px; font-weight: 500; flex-shrink: 0; }
+.cap-pill.on { background: var(--green-soft); color: #3c6b53; }
+.cap-pill.off { background: var(--paper); color: var(--ink-3); border: 1px solid var(--line); }
+.cap-pill.warn { background: #fef6e6; color: #c98a16; }
+
+.cap-tile__title { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 5px; }
+.cap-tile__meta { font-size: 12.5px; color: var(--ink-3); line-height: 1.55; flex: 1; margin-bottom: 16px; }
+.cap-tile__foot { margin-top: auto; }
+.cap-tile__foot .btn { width: 100%; justify-content: center; }
+.cap-relink {
+  display: block; width: 100%; text-align: center; margin-top: 8px;
+  background: none; border: none; cursor: pointer; color: var(--ink-3); font-size: 12px; padding: 2px 0;
+}
+.cap-relink:hover { color: var(--orange-deep); }
+
+/* —— 虚拟课堂试讲入口 —— */
+.tdash-tryout {
+  width: 100%; display: flex; align-items: center; gap: 16px; text-align: left;
+  background: linear-gradient(100deg, #fff6ec, #fdeede);
+  border: 1px solid #f0dcc4; border-radius: 16px; padding: 18px 22px; cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.tdash-tryout:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(200, 120, 40, .12); }
+.tdash-tryout__icon {
+  width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+  background: #fff; color: var(--orange-deep); display: grid; place-items: center;
+  box-shadow: 0 2px 6px rgba(200, 120, 40, .14);
+}
+.tdash-tryout__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.tdash-tryout__text b { font-family: var(--font-display); font-size: 16px; color: var(--ink); }
+.tdash-tryout__text span { font-size: 12.5px; color: var(--ink-2); }
+.tdash-tryout__cta { flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; font-weight: 600; color: var(--orange-deep); }
+@media (max-width: 560px) { .tdash-tryout__cta { display: none; } }
+
+/* —— 账户区 —— */
+.tdash-account {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px;
+  background: var(--paper); border: 1px solid var(--line-soft); border-radius: 14px; padding: 18px 22px;
+}
+.tdash-account__item { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.tdash-account__item label { font-size: 11px; letter-spacing: .04em; color: var(--ink-3); }
+.tdash-account__item span { font-size: 13px; color: var(--ink-2); }
+.tdash-account__item--wide { grid-column: 1 / -1; }
+.tdash-account .prompt-preview { line-height: 1.6; }
+
+/* —— 「我的主页」预览提示条 —— */
+.tdash-preview-note {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--ink-3);
+  background: var(--blue-soft); border-radius: var(--radius-sm);
+  padding: 10px 14px; margin-bottom: 16px;
+}
+
+/* =========================================================================
+   通用卡片（Skill标签进化卡复用）
+   ========================================================================= */
+.tdash-card {
+  display: flex; flex-direction: column;
+  background: var(--paper-white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm);
+}
+.tdash-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.tdash-card__icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.tdash-card__icon.flask { background: var(--purple-soft); color: var(--purple); }
+.tdash-card__head h3 { font-size: 17px; margin-bottom: 5px; }
+.tdash-badge { font-size: 12px; padding: 2px 11px; border-radius: 999px; font-weight: 500; }
+.tdash-badge.on { background: var(--green-soft); color: #3c6b53; }
+.tdash-badge.off { background: var(--paper); color: var(--ink-3); border: 1px solid var(--line); }
+.tdash-card__sub { font-size: 12.5px; color: var(--ink-3); margin-top: 2px; line-height: 1.6; }
+.tdash-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tdash-msg { font-size: 13px; padding: 10px 13px; border-radius: var(--radius-sm); margin: 6px 0; }
+.tdash-msg.ok { background: var(--green-soft); color: #3c6b53; }
+.tdash-msg.err { background: #f8e6e0; color: #a23c24; }
+
+/* —— Skill标签进化卡 —— */
+.evo-card__count { margin-left: auto; text-align: right; flex-shrink: 0; }
+.evo-card__count b { font-family: var(--font-display); font-size: 22px; color: var(--orange-deep); }
+.evo-card__count span { font-size: 11px; color: var(--ink-3); margin-left: 4px; }
+
+.evo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 16px; }
+.evo-col { min-width: 0; }
+.evo-col__h { font-size: 12px; color: var(--ink-3); font-weight: 600; margin-bottom: 10px; }
+.evo-empty { font-size: 12.5px; color: var(--ink-3); line-height: 1.6; }
+
+.evo-pending { display: flex; flex-direction: column; }
+.evo-pending__item { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line-soft); font-size: 12.5px; }
+.evo-pending__item:first-child { border-top: none; }
+.evo-pending__rate { color: var(--orange); letter-spacing: -1px; font-size: 11px; flex-shrink: 0; }
+.evo-pending__txt { color: var(--ink-2); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.evo-pending__date { color: var(--ink-3); font-size: 11px; flex-shrink: 0; }
+
+.tags-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* —— 待确认修订 diff —— */
+.evo-revision { margin-top: 16px; padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.evo-revision h4 { font-size: 13px; margin-bottom: 10px; }
+.evo-change { padding: 8px 0; border-bottom: 1px solid var(--line-soft); font-size: 12.5px; }
+.evo-change:last-of-type { border-bottom: none; }
+.evo-change__section { font-weight: 600; color: var(--ink); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.evo-change__before { color: #b04a4a; background: #fbf0f0; padding: 3px 8px; border-radius: 6px; margin: 3px 0; }
+.evo-change__after { color: #3f7d4e; background: #eef7f0; padding: 3px 8px; border-radius: 6px; margin: 3px 0; }
+.evo-change__why { color: var(--ink-3); font-size: 12px; margin-top: 3px; }
+.evo-revision__actions { display: flex; gap: 8px; margin-top: 12px; }
+
+@media (max-width: 720px) {
+  .evo-grid { grid-template-columns: 1fr; gap: 16px; }
+  .tdash-account { grid-template-columns: 1fr; }
+}

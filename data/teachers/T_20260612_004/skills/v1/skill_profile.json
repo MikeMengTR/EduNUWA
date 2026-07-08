@@ -1,0 +1,147 @@
+{
+  "skill_id": "S_T20260612004_v1",
+  "teacher_id": "T_20260612_004",
+  "teacher_name": "",
+  "display_name": "管理学_某高校",
+  "subject": "管理学",
+  "version": 1,
+  "generated_at": "2026-06-12T09:10:53.762577+00:00",
+  "fingerprint": {
+    "pace": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "detail": {
+      "value": 0.7,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "abstraction": {
+      "value": 0.8,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "interactivity": {
+      "value": 0.3,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "humor": {
+      "value": 0.2,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "rigor": {
+      "value": 0.9,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    }
+  },
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0007",
+        "f2_seg_0008"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用字源拆解",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "经典引证权威",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0002",
+        "f0_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "结构化框架清晰",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0003",
+        "f3_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "善用生活类比",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f2_seg_0046",
+        "f2_seg_0061"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "辩证思维",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0002",
+        "f1_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "语速适中偏慢",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f2_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "结尾留白提问",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.6,
+      "evidence": [
+        "f1_seg_0005",
+        "f3_seg_0006"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "pedagogy": {},
+  "tags": [],
+  "quality": {
+    "overall_grade": "NA"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "skill_id": "S_T20260612002_v1",
+  "teacher_id": "T_20260612_002",
+  "teacher_name": "",
+  "display_name": "示范教师08",
+  "subject": "物理",
+  "version": 1,
+  "generated_at": "2026-06-12T09:09:54.698215+00:00",
+  "fingerprint": {
+    "pace": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "detail": {
+      "value": 0.8,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "abstraction": {
+      "value": 0.7,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "interactivity": {
+      "value": 0.4,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "humor": {
+      "value": 0.1,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "rigor": {
+      "value": 0.9,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    }
+  },
+  "style_tags": [
+    {
+      "text": "历史故事引入",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0018"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "思想实验推演",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.95,
+      "evidence": [
+        "f1_seg_0056"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "逻辑严密",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "从日常到物理",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f1_seg_0027"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "对比参照系",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0068"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "概念定义清晰",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0001"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "pedagogy": {},
+  "tags": [],
+  "quality": {
+    "overall_grade": "NA"
+  }
+}

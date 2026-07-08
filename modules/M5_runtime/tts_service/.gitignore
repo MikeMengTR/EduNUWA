@@ -1,0 +1,11 @@
+# 模型文件 (通过下载获取)
+*.ckpt
+*.pth
+*.onnx
+*.bin
+*.pickle
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

@@ -1,0 +1,192 @@
+.blackboard {
+  flex: 1;
+  min-height: 0;          /* 可收缩 → 内容超出时黑板内部滚动，而非整体变长 */
+  width: 100%;
+  padding: 28px 26px 64px; /* 底部留白避让左下角播放控制 */
+  border-radius: 8px;
+  background:                          /* 暖墨绿板面 + 顶部暖光晕 */
+    radial-gradient(130% 95% at 50% 26%, rgba(255, 255, 255, 0.06), transparent 58%),
+    #232a20;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 14px 40px rgba(0, 0, 0, 0.45);
+  overflow-y: auto;
+  position: relative;
+}
+.blackboard::before {                  /* 粉笔灰噪点纹理 */
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 8px;
+  mix-blend-mode: overlay; opacity: 0.05; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.blackboard-surface {
+  min-height: 400px;
+  color: #e8e2d6;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.board-item-wrapper {
+  animation: boardFadeIn 0.4s ease-out;
+  margin-bottom: 12px;
+}
+
+@keyframes boardFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.board-item--highlighted {
+  background: rgba(222, 94, 57, 0.14);
+  border-left: 4px solid #de5e39;
+  padding-left: 12px;
+  border-radius: 4px;
+}
+
+/* === 聚焦放大：当前正在讲解的一组板书（文字板书）放大显示以聚焦注意力，
+   讲到下一段、新板书写出时旧组平滑缩回正常字号并自然回流归位。
+   字号用 rem 不随父级级联，故对各板书类逐一显式给放大值；font-size 过渡放在基类上，
+   class 切换（is-focus 增/删）即触发缩放动画。
+   speak 字幕、公式、表格、插图不参与放大（公式仍算板书、仍触发换组，但本身字号不变）。 === */
+.board-title,
+.board-subtitle,
+.board-bullet-item,
+.board-step-item,
+.board-summary {
+  transition: font-size 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.board-item-wrapper.is-focus .board-title       { font-size: 2.4rem; }
+.board-item-wrapper.is-focus .board-subtitle    { font-size: 1.9rem; }
+.board-item-wrapper.is-focus .board-bullet-item { font-size: 1.55rem; }
+.board-item-wrapper.is-focus .board-step-item   { font-size: 1.55rem; }
+.board-item-wrapper.is-focus .board-summary     { font-size: 1.5rem; }
+
+/* --- Title --- */
+.board-title {
+  font-family: 'Songti SC', 'STSong', 'Noto Serif SC', serif;
+  font-size: 2rem;
+  color: #fbf7ef;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #de5e39;    /* 暖橙下划线 */
+}
+
+/* --- Subtitle --- */
+.board-subtitle {
+  font-family: 'Songti SC', 'STSong', 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  color: #e0d7ca;
+  margin: 12px 0 8px;
+}
+
+/* --- Bullets --- */
+.board-bullets {
+  margin: 8px 0 8px 20px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+.board-bullet-item {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d8d0c2;
+}
+
+/* --- Steps --- */
+.board-steps {
+  margin: 8px 0 8px 24px;
+  padding: 0;
+}
+
+.board-step-item {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #d8d0c2;
+  padding: 2px 0;
+}
+
+/* --- Summary --- */
+.board-summary {
+  border: 2px solid #5a8a72;           /* 绿 */
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(90, 138, 114, 0.12);
+  font-size: 1.15rem;
+  color: #fbf7ef;
+}
+
+/* --- Formula --- */
+.board-formula-block {
+  padding: 12px 16px;
+  background: rgba(243, 238, 229, 0.07);
+  border-radius: 6px;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+
+.board-formula-inline {
+  font-size: 1.05em;
+}
+
+/* --- Table --- */
+.board-table-container {
+  margin: 16px 0;
+}
+
+.board-table-title {
+  color: #fbf7ef;
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.board-table th {
+  background: rgba(243, 238, 229, 0.12);
+  color: #fbf7ef;
+  padding: 8px 12px;
+  border: 1px solid rgba(224, 215, 202, 0.22);
+  text-align: left;
+}
+
+.board-table td {
+  padding: 8px 12px;
+  border: 1px solid rgba(224, 215, 202, 0.15);
+  color: #d8d0c2;
+}
+
+/* --- Image（教学插图） --- */
+.board-image {
+  margin: 16px auto;
+  max-width: 70%;
+  text-align: center;
+}
+
+.board-image img {
+  max-width: 100%;
+  max-height: 40vh;                    /* 黑板是垂直流式布局，限高防溢出 */
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid rgba(224, 215, 202, 0.25);
+  filter: brightness(0.92);            /* 白底图在墨绿板面上压一点亮度 */
+  background: rgba(243, 238, 229, 0.05);
+}
+
+.board-image-caption {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #c9bfae;
+  font-style: italic;
+}
+
+/* --- Speak text（字幕） --- */
+.board-speak-text {
+  font-size: 1.15rem;
+  color: #ecc06a;                      /* 暖粉笔黄 */
+  margin: 8px 0;
+  font-style: italic;
+}

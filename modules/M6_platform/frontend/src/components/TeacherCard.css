@@ -1,0 +1,88 @@
+/* =========================================================================
+   教师卡片 — 排版三件套：思源宋体(姓名) · 等宽 Space Mono(元信息) · 思源黑体(风格)
+   层级：姓名 ~20 / 风格 ~13.5 / 元信息 ~11.5；字重每种字体最多 2 档
+   ========================================================================= */
+.tcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  cursor: pointer;
+  transition: transform .18s, box-shadow .2s, border-color .2s;
+  animation: fade-up .5s ease both;
+}
+.tcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--orange); }
+
+.tcard__head { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 4px; }
+.tcard__avatar {
+  width: 46px; height: 46px; border-radius: 12px; object-fit: cover;
+  flex-shrink: 0; border: 1px solid var(--line);
+}
+.tcard__avatar--fallback {
+  border: none;
+  background: linear-gradient(155deg, var(--board), #3c2b1b);
+  color: var(--paper-white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 20px; font-weight: 700;
+}
+.tcard__id { min-width: 0; padding-top: 1px; }
+
+/* 姓名：焦点，思源宋体放大 */
+.tcard__name {
+  font-family: var(--font-serif); font-weight: 800;
+  font-size: 21px; line-height: 1.25; letter-spacing: -.01em;
+  color: var(--ink); margin: 0;
+}
+/* 元信息：等宽小字、字距开一点、中点分隔；学科用颜色而非粗细强调 */
+.tcard__meta {
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .4px;
+  color: var(--ink-3); margin-top: 5px; line-height: 1.4;
+}
+.tcard__meta-subject { color: var(--orange-deep); }
+
+/* 风格：正文思源黑体，行高松一点；关键点用字重 500 + 颜色强调，绝不用斜体 */
+.tcard__style {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 13.5px; line-height: 1.65; color: var(--ink-2);
+  margin: 15px 0 0; min-height: 44px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.tcard__style b { font-weight: 500; color: var(--ink); font-style: normal; }
+
+/* 页脚：左侧分身状态(等宽) + 右侧动作 */
+.tcard__foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 16px; padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.tcard__twin {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .5px; color: var(--ink-3);
+}
+.tcard__twin-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #4f9e6a;
+  box-shadow: 0 0 0 0 rgba(79,158,106,.5); animation: tcardPulse 2.6s infinite;
+}
+@keyframes tcardPulse {
+  0% { box-shadow: 0 0 0 0 rgba(79,158,106,.45); }
+  70% { box-shadow: 0 0 0 6px rgba(79,158,106,0); }
+  100% { box-shadow: 0 0 0 0 rgba(79,158,106,0); }
+}
+.tcard__actions { display: flex; align-items: center; gap: 16px; }
+.tcard__course {
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 400; color: var(--ink-2);
+  transition: color .15s;
+}
+.tcard__course:hover { color: var(--ink); }
+.tcard__enter {
+  display: flex; align-items: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font-sans); font-size: 13.5px; font-weight: 500; color: var(--orange-deep);
+  transition: gap .2s;
+}
+.tcard__enter:hover { gap: 9px; }
+.tcard__enter .icon { color: var(--orange-deep); }

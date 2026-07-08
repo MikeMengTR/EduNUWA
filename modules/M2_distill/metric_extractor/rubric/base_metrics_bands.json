@@ -1,0 +1,18 @@
+{
+  "_comment": "基础指标 数字↔文字对照表（label 的唯一 SSOT，M2 算 label / M3 展示档位都读此文件）。区间为左开右闭，按 max 升序匹配，max=null 表示无上界。",
+  "speech_rate": [
+    { "max": 180,  "label": "偏慢",     "polarity": "slow" },
+    { "max": 280,  "label": "适中",     "polarity": "mid"  },
+    { "max": null, "label": "偏快",     "polarity": "fast" }
+  ],
+  "question_freq": [
+    { "max": 2,    "label": "偏少互动", "polarity": "low"  },
+    { "max": 5,    "label": "时常提问", "polarity": "mid"  },
+    { "max": null, "label": "频繁互动", "polarity": "high" }
+  ],
+  "info_density": [
+    { "max": 0.4,  "label": "从容",     "polarity": "low"  },
+    { "max": 0.8,  "label": "适中",     "polarity": "mid"  },
+    { "max": null, "label": "密集",     "polarity": "high" }
+  ]
+}

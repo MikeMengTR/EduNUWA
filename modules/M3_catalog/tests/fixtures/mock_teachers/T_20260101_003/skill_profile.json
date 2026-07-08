@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101003_v1",
+  "teacher_id": "T_20260101_003",
+  "teacher_name": "王逗",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.376395+08:00",
+  "style_tags": [
+    {
+      "text": "风趣幽默",
+      "dimension": "humor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱讲段子",
+      "dimension": "humor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "活跃气氛",
+      "dimension": "humor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "贴近生活",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 240.0,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 4.0,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "phenomenon-driven"
+    },
+    "intuition_building": {
+      "order": "interleaved",
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "high"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "mind-map"
+    },
+    "misconception_alert": {
+      "mode": "proactive-implicit"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "B+",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "大学物理",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

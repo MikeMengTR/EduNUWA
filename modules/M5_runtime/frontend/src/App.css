@@ -1,0 +1,184 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+  background: #1c1a16;       /* 浓咖，与父页舞台无缝 */
+  color: #e8e2d6;
+}
+
+.app {
+  max-width: none;
+  margin: 0;
+  padding: 16px 24px 24px;
+  height: 100vh;             /* 固定视口高 + 内部滚动：黑板不随内容变长 */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 1.1rem;
+  color: #a59c8e;
+  font-family: 'Songti SC', 'STSong', serif;
+  letter-spacing: 1px;
+}
+
+/* --- 播放控制：黑板左下角，图标式 --- */
+.board-controls {
+  position: absolute; left: 18px; bottom: 16px; z-index: 3;
+  display: flex; align-items: center; gap: 10px;
+}
+.board-ctl-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(233, 228, 214, 0.28);
+  background: rgba(233, 228, 214, 0.08);
+  color: #e9e4d6; cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, transform 0.15s;
+}
+.board-ctl-btn:hover:not(:disabled) {
+  background: rgba(233, 228, 214, 0.18);
+  border-color: rgba(233, 228, 214, 0.5);
+  transform: scale(1.06);
+}
+.board-ctl-btn:disabled { opacity: 0.4; cursor: default; }
+.board-ctl-speed {
+  padding: 5px 9px; border-radius: 8px;
+  border: 1px solid rgba(233, 228, 214, 0.22);
+  background: rgba(38, 34, 27, 0.7); color: #d8cfc0;
+  font-size: 12.5px; font-family: inherit; cursor: pointer;
+}
+
+/* --- 主布局 --- */
+.app-main {
+  display: flex;
+  gap: 20px;                      /* 与等待画面一致 */
+  flex: 1;
+  min-height: 0;                  /* 让 board 链路可收缩 → 黑板内部滚动 */
+}
+.app-main--solo { gap: 0; }       /* hostAvatar：父页接管头像，黑板独占 */
+
+/* --- 木质外框 + 板面 + 粉笔槽 --- */
+.board-frame {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 16px;
+  padding: 14px 14px 0;
+  background: linear-gradient(160deg, #a07a4c, #85643f 22%, #5a4129);
+  box-shadow: 0 18px 40px rgba(40, 28, 14, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.board-area {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.chalk-status {
+  position: absolute;
+  top: 16px; left: 20px; z-index: 3;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'STKaiti', 'KaiTi', 'Kaiti SC', 'Songti SC', serif;
+  font-size: 15px; letter-spacing: 1px;
+  color: rgba(233, 228, 214, 0.6);
+  pointer-events: none;
+}
+.chalk-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #9fcf8f; box-shadow: 0 0 8px #9fcf8f;
+  animation: chalkPulse 2.4s ease-in-out infinite;
+}
+@keyframes chalkPulse { 0%, 100% { opacity: .45; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.15); } }
+
+.chalk-tray {
+  height: 24px; margin-top: 13px;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  background: linear-gradient(180deg, #a07a4c, #5a4129);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(40, 28, 14, 0.25);
+}
+.chalk-tray .chalk-piece {
+  position: absolute; left: 32px; top: 8px;
+  width: 40px; height: 7px; border-radius: 4px;
+  background: linear-gradient(180deg, #f3efe6, #cfc8b6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.chalk-tray .eraser {
+  position: absolute; right: 44px; top: 5px;
+  width: 44px; height: 14px; border-radius: 3px;
+  background: linear-gradient(180deg, #caa15f, #8a6a3c);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.app-avatar {
+  flex: 0 0 200px;               /* 老师固定 200px 侧栏（非 hostAvatar 时） */
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Quiz overlay --- */
+.quiz-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 26, 22, 0.62);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.quiz-modal {
+  background: #fbf7ef;
+  border-radius: 16px;
+  padding: 32px 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.quiz-question {
+  color: #191815;
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  font-family: 'Songti SC', 'STSong', serif;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-option {
+  padding: 14px 20px;
+  border: 1.5px solid #e0d7ca;
+  border-radius: 10px;
+  background: #f3eee5;
+  color: #191815;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: #de5e39;
+  background: #f7e6df;
+}

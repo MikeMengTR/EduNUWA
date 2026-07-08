@@ -1,0 +1,135 @@
+{
+  "skill_id": "S_T20260604003_v1",
+  "teacher_id": "T_20260604_003",
+  "teacher_name": "机器学习·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:14:46.352377+08:00",
+  "style_tags": [
+    {
+      "text": "自问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "多定义罗列",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "时间线清晰",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0003",
+        "f0_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "人物成果密集罗列",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0004",
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "分点式讲解",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0002",
+        "f2_seg_0007"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0002",
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "强调关键点",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f0_seg_0002",
+        "f0_seg_0006"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "课堂小结",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0008",
+        "f1_seg_0009"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 234.0,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 0.8,
+      "unit": "次/10分钟",
+      "label": "偏少互动",
+      "polarity": "low"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "机器学习",
+    "language": "zh"
+  }
+}

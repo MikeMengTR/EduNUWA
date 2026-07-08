@@ -1,0 +1,137 @@
+{
+  "skill_id": "S_T20260612001_v1",
+  "teacher_id": "T_20260612_001",
+  "teacher_name": "",
+  "display_name": "示范教师07",
+  "subject": "哲学",
+  "version": 1,
+  "generated_at": "2026-06-12T09:09:23.304265+00:00",
+  "fingerprint": {
+    "pace": {
+      "value": 0.4,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "detail": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "abstraction": {
+      "value": 0.7,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "interactivity": {
+      "value": 0.5,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "humor": {
+      "value": 0.3,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "rigor": {
+      "value": 0.8,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    }
+  },
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0001",
+        "f0_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用故事类比",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f0_seg_0006",
+        "f0_seg_0010"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "词源追溯",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "对比式讲解",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0004",
+        "f2_seg_0007"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "从生活切入哲学",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0001",
+        "f0_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "逻辑清晰",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f1_seg_0002",
+        "f2_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "强调安身立命",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0004",
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "pedagogy": {},
+  "tags": [],
+  "quality": {
+    "overall_grade": "NA"
+  }
+}

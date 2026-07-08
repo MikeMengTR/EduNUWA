@@ -1,0 +1,269 @@
+/* =========================================================================
+   平台监控台 —— 沿用 MIND/EduTwin 纸感设计系统，浅色专业数据后台
+   全部类名 pf- 前缀，避免污染师生端
+   ========================================================================= */
+
+.pf-shell { display: flex; min-height: 100vh; background: var(--paper); }
+
+/* ── 侧边栏 ── */
+.pf-side {
+  position: sticky; top: 0; align-self: flex-start;
+  width: 224px; height: 100vh; flex-shrink: 0;
+  display: flex; flex-direction: column;
+  background: var(--paper-white); border-right: 1px solid var(--line);
+  padding: 22px 14px;
+}
+.pf-side__brand { display: flex; align-items: center; gap: 9px; padding: 4px 8px 20px; }
+.pf-side__mark {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;
+  background: var(--orange); color: #fff;
+}
+.pf-side__name { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
+.pf-nav { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.pf-nav__item {
+  display: flex; align-items: center; gap: 11px;
+  padding: 10px 12px; border-radius: 10px;
+  color: var(--ink-2); text-decoration: none; font-size: 14.5px;
+  transition: background .15s, color .15s;
+}
+.pf-nav__item:hover { background: var(--paper); color: var(--ink); }
+.pf-nav__item.on { background: var(--orange-soft); color: var(--orange-deep); font-weight: 600; }
+.pf-side__logout {
+  display: flex; align-items: center; gap: 9px; justify-content: center;
+  margin-top: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 10px;
+  background: transparent; color: var(--ink-2); cursor: pointer; font-size: 13.5px;
+}
+.pf-side__logout:hover { border-color: var(--orange); color: var(--orange-deep); }
+
+.pf-main { flex: 1; min-width: 0; padding: 30px 36px 60px; }
+
+/* ── 页面骨架 ── */
+.pf-page { max-width: 1180px; margin: 0 auto; }
+.pf-h1 { font-size: 26px; margin-bottom: 4px; }
+.pf-lead { color: var(--ink-2); margin-bottom: 22px; font-size: 14.5px; }
+
+/* ── 数字卡 ── */
+.pf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+.pf-stats--mini { grid-template-columns: repeat(4, 1fr); }
+.pf-stat {
+  background: var(--paper-white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px; box-shadow: var(--shadow-sm);
+}
+.pf-stat__val { font-family: var(--font-display); font-size: 28px; font-weight: 600; line-height: 1.1; }
+.pf-stat__lbl { color: var(--ink-2); font-size: 13px; margin-top: 4px; }
+.pf-stat__hint { color: var(--ink-3); font-size: 11.5px; margin-top: 3px; }
+
+/* ── 区块 ── */
+.pf-section {
+  background: var(--paper-white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; margin-bottom: 18px; box-shadow: var(--shadow-sm);
+}
+.pf-section__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.pf-section__title { font-size: 16px; }
+.pf-section__desc { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+.pf-grid { display: grid; gap: 18px; }
+.pf-grid--2 { grid-template-columns: 1fr 1fr; }
+
+/* ── 通用文本 ── */
+.pf-muted { color: var(--ink-3); }
+.pf-strong { font-weight: 600; color: var(--ink); }
+.pf-sm { font-size: 11.5px; }
+.pf-mono { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
+.pf-empty { color: var(--ink-3); font-size: 13px; padding: 10px 0; }
+
+/* ── 表格 ── */
+.pf-tablewrap { overflow: auto; border-radius: 10px; }
+.pf-tablewrap--tall { max-height: 560px; }
+.pf-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.pf-table th {
+  position: sticky; top: 0; background: var(--paper); z-index: 1;
+  text-align: left; color: var(--ink-2); font-weight: 600; font-size: 12.5px;
+  padding: 9px 12px; border-bottom: 1px solid var(--line);
+}
+.pf-table td { padding: 9px 12px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
+.pf-table tr:last-child td { border-bottom: none; }
+.pf-row--click { cursor: pointer; }
+.pf-row--click:hover td { background: var(--orange-soft); }
+
+/* ── 表单控件 ── */
+.pf-input {
+  padding: 7px 11px; border: 1px solid var(--line); border-radius: 9px;
+  background: var(--white); color: var(--ink); font-size: 13.5px; font-family: var(--font-sans);
+  outline: none;
+}
+.pf-input:focus { border-color: var(--orange); }
+.pf-filters { display: flex; gap: 10px; }
+
+/* ── 标签 / chip ── */
+.pf-tag { padding: 2px 9px; border-radius: 20px; font-size: 11.5px; font-weight: 600; }
+.pf-tag--student { background: var(--blue-soft); color: var(--blue); }
+.pf-tag--teacher { background: var(--green-soft); color: var(--green); }
+.pf-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pf-chip { padding: 3px 9px; border-radius: 7px; background: var(--paper); border: 1px solid var(--line); font-size: 11.5px; color: var(--ink-2); }
+.pf-chip--ok { background: var(--green-soft); border-color: transparent; color: var(--green); }
+
+/* ── 横向分布条 ── */
+.pf-barsh { display: flex; flex-direction: column; gap: 9px; }
+.pf-barsh__row { display: grid; grid-template-columns: 120px 1fr 56px; align-items: center; gap: 10px; }
+.pf-barsh__lbl { font-size: 12.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-barsh__track { height: 16px; background: var(--paper); border-radius: 6px; overflow: hidden; }
+.pf-barsh__fill { display: block; height: 100%; border-radius: 6px; transition: width .4s; }
+.pf-barsh__val { font-size: 12.5px; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── 环形 ── */
+.pf-donut { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.pf-donut__total { font-family: var(--font-display); font-size: 20px; font-weight: 600; fill: var(--ink); }
+.pf-donut__cap { font-size: 10px; fill: var(--ink-3); }
+.pf-legend { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.pf-legend li { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 7px; }
+.pf-legend b { color: var(--ink); }
+.pf-legend__dot { width: 10px; height: 10px; border-radius: 3px; }
+
+/* ── 折线 ── */
+.pf-line__axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+
+/* ── 雷达 ── */
+.pf-radar { display: block; margin: 0 auto; }
+.pf-radar__lbl { font-size: 11px; fill: var(--ink-2); }
+
+/* ── 标签云 ── */
+.pf-cloud { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
+.pf-cloud__tag { line-height: 1.2; color: var(--blue); }
+
+/* ── 评价 / 对话 ── */
+.pf-stars { color: var(--brass); letter-spacing: 1px; font-size: 13px; }
+.pf-fb { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
+.pf-fb__c { flex: 1; min-width: 180px; color: var(--ink); font-size: 13.5px; }
+.pf-fb__m { color: var(--ink-3); font-size: 11.5px; }
+.pf-thread { padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.pf-thread__head { font-weight: 600; font-size: 13.5px; margin-bottom: 5px; }
+.pf-thread__head span { color: var(--ink-3); font-weight: 400; }
+.pf-qlist { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+.pf-qlist li { font-size: 13px; color: var(--ink-2); padding-left: 12px; position: relative; }
+.pf-qlist li::before { content: '“'; position: absolute; left: 0; color: var(--ink-3); }
+.pf-match { padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.pf-match__q { font-size: 13.5px; color: var(--ink); }
+.pf-match__top { font-size: 12.5px; color: var(--green); margin-top: 2px; }
+.pf-match__t { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+
+/* ── 时间线 ── */
+.pf-timeline { display: flex; flex-direction: column; gap: 12px; padding-left: 6px; }
+.pf-timeline__item { display: flex; gap: 12px; position: relative; }
+.pf-timeline__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); margin-top: 5px; flex-shrink: 0; }
+.pf-listrow { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); font-size: 13.5px; }
+
+/* ── 事件类型小标 ── */
+.pf-typechips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.pf-typechip { background: var(--paper); border: 1px solid var(--line-soft); border-radius: 6px; padding: 1px 6px; font-size: 11px; color: var(--ink-2); }
+.pf-typechip b { color: var(--ink); margin-left: 3px; }
+
+/* ── 教师卡片网格 ── */
+.pf-tgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.pf-tcard {
+  text-align: left; background: var(--paper-white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 15px; cursor: pointer; box-shadow: var(--shadow-sm);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.pf-tcard:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--orange); }
+.pf-tcard__top { display: flex; gap: 11px; align-items: center; }
+.pf-tcard__top img { width: 46px; height: 46px; border-radius: 11px; object-fit: cover; background: var(--paper); }
+.pf-tcard__ph { width: 46px; height: 46px; border-radius: 11px; display: grid; place-items: center; background: var(--paper); color: var(--ink-3); }
+.pf-tcard__name { font-family: var(--font-display); font-weight: 600; font-size: 15px; }
+.pf-tcard__sub { color: var(--ink-2); font-size: 12.5px; }
+.pf-tcard__style {
+  margin: 10px 0 2px; color: var(--ink-2); font-size: 12.5px; line-height: 1.45;
+  font-style: italic; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pf-tcard__stars { margin: 8px 0 2px; color: var(--brass); font-size: 13px; }
+.pf-tprofile__style { color: var(--ink-2); font-size: 13px; font-style: italic; margin-top: 4px; max-width: 360px; }
+
+/* ── 图库网格 ── */
+.pf-mgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.pf-mcard { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.pf-mcard img { width: 100%; height: 140px; object-fit: contain; background: var(--white); display: block; border-bottom: 1px solid var(--line-soft); }
+.pf-mcard figcaption { padding: 9px 11px; }
+.pf-mcard__topic { font-weight: 600; font-size: 13px; }
+.pf-mcard__cap { color: var(--ink-2); font-size: 11.5px; margin: 3px 0 6px; line-height: 1.4; }
+.pf-mcard__kw { display: flex; flex-wrap: wrap; gap: 4px; }
+.pf-mcard__kw span { font-size: 10.5px; color: var(--ink-3); background: var(--paper-white); border: 1px solid var(--line-soft); border-radius: 5px; padding: 1px 5px; }
+
+/* ── 抽屉 ── */
+.pf-drawer__mask { position: fixed; inset: 0; background: rgba(25,24,21,.32); z-index: 1000; display: flex; justify-content: flex-end; animation: pf-fade .18s ease; }
+.pf-drawer { width: min(560px, 94vw); height: 100%; background: var(--paper); box-shadow: var(--shadow-lg); overflow-y: auto; animation: pf-slide .22s ease; }
+.pf-drawer__head { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 18px 22px; background: var(--paper-white); border-bottom: 1px solid var(--line); }
+.pf-drawer__head h3 { font-size: 18px; }
+.pf-drawer__sub { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+.pf-drawer__body { padding: 18px 22px 40px; }
+.pf-iconbtn { background: transparent; border: none; color: var(--ink-2); cursor: pointer; padding: 4px; border-radius: 8px; }
+.pf-iconbtn:hover { background: var(--paper); color: var(--ink); }
+
+/* ── 抽屉防溢出（适用所有抽屉）──
+   抽屉是固定 min(560px,94vw) 的窄容器，但页面级多列布局的塌列断点都按「视口宽」(≤980px)触发；
+   运营常用宽屏(视口>980px) → 断点不触发 → 抽屉内 .pf-grid--2(两列)、.pf-stats--mini(四列)
+   永不塌列、长 ID/URL 不换行 → 内容被挤出抽屉右侧、超出页面。这里在抽屉作用域内按窄容器降列 +
+   长串换行 + 横向兜底，只作用抽屉、不影响主页面同名布局。 */
+.pf-drawer { overflow-x: hidden; }
+.pf-drawer__body { min-width: 0; overflow-wrap: anywhere; }
+.pf-drawer__body .pf-grid--2 { grid-template-columns: 1fr; }
+.pf-drawer__body .pf-stats,
+.pf-drawer__body .pf-stats--mini { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+.pf-drawer__body img { max-width: 100%; height: auto; }
+/* 教师画像抽屉复用学生端「教学风格」卡：.tp2-style-grid 左列固定 300px、塌单列断点按视口宽，
+   宽屏抽屉放不下 → 强制单列(雷达图在上、属性表在下)，去掉卡中卡描边使其融入抽屉。 */
+.pf-style .tp2-card { border: none; box-shadow: none; padding: 16px 0 0; margin-bottom: 6px; }
+.pf-style .tp2-style-grid { grid-template-columns: 1fr; gap: 16px; }
+.pf-style .tp2-radar-wrap { justify-self: center; }
+.pf-style .tp2-attrs { min-width: 0; }
+
+/* ── 教师画像头 ── */
+.pf-tprofile { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+.pf-tprofile__av { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; background: var(--paper-white); }
+.pf-tprofile__name { font-family: var(--font-display); font-size: 19px; font-weight: 600; }
+.pf-tprofile__meta { color: var(--ink-2); font-size: 13px; }
+
+/* ── 加载 / 错误 ── */
+.pf-loader, .pf-error { display: flex; align-items: center; gap: 8px; padding: 26px; color: var(--ink-2); font-size: 14px; }
+.pf-error { color: var(--orange-deep); }
+.pf-spin { animation: pf-rot 1s linear infinite; }
+@keyframes pf-rot { to { transform: rotate(360deg); } }
+@keyframes pf-fade { from { opacity: 0; } }
+@keyframes pf-slide { from { transform: translateX(28px); opacity: .6; } }
+
+/* ── 口令门 ── */
+.pf-gate { min-height: 100vh; display: grid; place-items: center; background: var(--board); padding: 20px; }
+.pf-gate__card { width: min(380px, 92vw); background: var(--paper-white); border-radius: var(--radius-lg); padding: 30px 28px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; }
+.pf-gate__brand { display: flex; align-items: center; gap: 8px; color: var(--orange-deep); font-weight: 600; margin-bottom: 14px; }
+.pf-gate__card h2 { font-size: 19px; }
+.pf-gate__hint { color: var(--ink-2); font-size: 12.5px; margin: 4px 0 16px; }
+.pf-gate__input { padding: 11px 13px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; outline: none; background: var(--white); }
+.pf-gate__input:focus { border-color: var(--orange); }
+.pf-gate__btn { margin-top: 12px; padding: 11px; border: none; border-radius: 10px; background: var(--orange); color: #fff; font-size: 14.5px; font-weight: 600; cursor: pointer; }
+.pf-gate__btn:hover:not(:disabled) { background: var(--orange-deep); }
+.pf-gate__btn:disabled { opacity: .5; cursor: not-allowed; }
+.pf-gate__back { margin-top: 10px; background: none; border: none; color: var(--ink-2); font-size: 12.5px; cursor: pointer; }
+.pf-gate__back:hover { color: var(--ink); }
+
+/* ── 管控操作按钮 ── */
+.pf-actions { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.pf-act {
+  padding: 3px 10px; border-radius: 7px; font-size: 12px; cursor: pointer;
+  background: var(--paper); border: 1px solid var(--line); color: var(--ink-2);
+  white-space: nowrap; transition: background .15s, color .15s, border-color .15s;
+}
+.pf-act:hover { background: var(--white); color: var(--ink); border-color: var(--ink-3); }
+.pf-act--danger { color: var(--orange-deep); border-color: var(--orange-soft); }
+.pf-act--danger:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+.pf-chip--off { background: #efe7e3; border-color: transparent; color: var(--orange-deep); }
+.pf-mcard--off img { opacity: .38; filter: grayscale(.6); }
+
+/* ── 响应式 ── */
+@media (max-width: 980px) {
+  .pf-stats, .pf-stats--mini { grid-template-columns: repeat(2, 1fr); }
+  .pf-grid--2 { grid-template-columns: 1fr; }
+  .pf-main { padding: 22px 18px 50px; }
+}
+@media (max-width: 640px) {
+  .pf-side { width: 64px; }
+  .pf-side__name, .pf-nav__item span, .pf-side__logout span { display: none; }
+}

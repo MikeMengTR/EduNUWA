@@ -1,0 +1,551 @@
+{
+  "transcript_id": "TR_T20260612004_003",
+  "teacher_id": "T_20260612_004",
+  "source_file": "lecture_003.mp4",
+  "source_audio": "",
+  "language": "zh",
+  "asr_backend": "cloud-dashscope-qwen3-asr-flash",
+  "asr_quality": {
+    "estimated_cer": 0.2,
+    "low_confidence_segments": 0
+  },
+  "ingested_at": "2026-06-12T10:41:46.930826+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start": 0.0,
+      "end": 3.0,
+      "text": "我们来谈谈管理的职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0002",
+      "start": 3.0,
+      "end": 22.09,
+      "text": "那么管理呢，是在目标确定的基础上，啊，围绕着目标的实现，啊，开展计划、组织、领导和控制的这样一系列的活动，啊，这是我们通常理解的管理的定义。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0003",
+      "start": 22.09,
+      "end": 32.18,
+      "text": "那么这里面实际上就包含了管理的四项基本职能，分别是计划、组织、领导和控制。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0004",
+      "start": 32.18,
+      "end": 35.45,
+      "text": "那我们先看一看计划职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0005",
+      "start": 35.45,
+      "end": 50.18,
+      "text": "实际上计划的职能主要指啊，对组织未来所要达到的目标以及实现目标所要开展的这些活动进行统筹和安排，这就是计划。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0006",
+      "start": 50.18,
+      "end": 53.18,
+      "text": "计划的本质是一种安排。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0007",
+      "start": 53.18,
+      "end": 55.64,
+      "text": "它的目的是什么呢？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0008",
+      "start": 55.64,
+      "end": 59.18,
+      "text": "更好的实现我们既定的目标。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0009",
+      "start": 59.18,
+      "end": 67.09,
+      "text": "所以目标在计划之前，而计划是落地实现目标的一种重要的安排。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0010",
+      "start": 67.09,
+      "end": 82.91,
+      "text": "计划职能啊通常包括啊包括啊目标的确定啊，战略方向的确定啊，当然这个一定是在对内外部环境进行充分分析基础上所提出来的。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0011",
+      "start": 82.91,
+      "end": 90.0,
+      "text": "在此基础上呢，计划职能还包括如何制定具体的实施计划。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0012",
+      "start": 90.0,
+      "end": 102.32,
+      "text": "以及这个计划实施过程中如何保证计划的有效实施，计划活动的有效实施，就它相应的保证措施是什么？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0013",
+      "start": 102.32,
+      "end": 111.7,
+      "text": "计划非常重要啊，我们古语讲凡事预则立，不预则废，讲的就是计划的重要性。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0014",
+      "start": 111.7,
+      "end": 115.71,
+      "text": "啊，还有古话讲磨刀不误砍柴工。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0015",
+      "start": 115.71,
+      "end": 123.75,
+      "text": "哎，这个磨刀的过程呢，实际上其实我们也可以理解为计划的过程。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0016",
+      "start": 123.75,
+      "end": 131.79,
+      "text": "也有人说好的计划是成功的一半，这些都体现出了计划的重要性啊。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0017",
+      "start": 131.79,
+      "end": 136.07,
+      "text": "我们就要思考啊，我们怎样什么呀？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0018",
+      "start": 136.07,
+      "end": 139.29,
+      "text": "怎样提高我们的计划能力？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0019",
+      "start": 139.29,
+      "end": 143.04,
+      "text": "啊，怎样提高我们的计划能力？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0020",
+      "start": 143.04,
+      "end": 148.93,
+      "text": "这是实现我们管理目标的前提，也是重要的基础。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0021",
+      "start": 148.93,
+      "end": 152.68,
+      "text": "那么组织职能主要讲的什么呢？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0022",
+      "start": 152.68,
+      "end": 158.84,
+      "text": "实际上我们说组织核心的命题就是把一群人什么呀？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0023",
+      "start": 158.84,
+      "end": 165.54,
+      "text": "更有效的组织起来，让大家心往一处想，劲儿往一处使。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0024",
+      "start": 165.54,
+      "end": 180.0,
+      "text": "这不是一个人的事儿，是一群人很多人的事儿，特别是超大型的组织可能十十万人数十万人都有，怎么让这些人方向一致？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0025",
+      "start": 180.0,
+      "end": 191.85,
+      "text": "步调一致，而且让这些人呢，心还朝着一个方向想，劲儿还朝着一个方向使呢，那就必须把组织职能要发挥好。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0026",
+      "start": 191.85,
+      "end": 201.53,
+      "text": "组织职能啊包含很多的内容，首先要解决这么多人怎么进行分工，怎么进行协作的问题啊。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0027",
+      "start": 201.53,
+      "end": 205.65,
+      "text": "这是我们经常说的组织要设计好结构。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0028",
+      "start": 205.65,
+      "end": 225.97,
+      "text": "同时呢，我们还经常要说要把专业的人放到合适他发挥作用的岗位上，实现专业的人干专业的事儿，实际上要做到人和岗的匹配，不管是因人设岗还是因岗找人，实际上都是一个匹配的问题。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0029",
+      "start": 225.97,
+      "end": 230.08,
+      "text": "那么这么多的人如何实现不打乱仗呢？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0030",
+      "start": 230.08,
+      "end": 240.24,
+      "text": "我们就要有流程，有相应的工作标准，有相应的奖惩机制，保证我们这个组织能够持续的运转。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0031",
+      "start": 240.24,
+      "end": 248.71,
+      "text": "那么在外部环境不断的发生变化的情况下，组织的方向目标也可能会随之调整。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0032",
+      "start": 248.71,
+      "end": 261.77,
+      "text": "在这样内外部的大的变化情况下，我们说组织往往要调整自己之前定好的这些组织规则，我们通常把这个叫做组织的变革。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0033",
+      "start": 261.77,
+      "end": 270.0,
+      "text": "这是我们讲的这个管理的组织职能，它是我们管理的最重要的职能，也是最。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0034",
+      "start": 270.0,
+      "end": 271.45,
+      "text": "核心的职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0035",
+      "start": 271.45,
+      "end": 275.32,
+      "text": "那么管理的第三个职能叫领导职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0036",
+      "start": 275.32,
+      "end": 287.66,
+      "text": "那么我们说啊，要解决人的协作问题，我们经常要讲要找到一个带头人，通过这个带头人去更好的驱动大家往前走。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0037",
+      "start": 287.66,
+      "end": 297.1,
+      "text": "实际上领导的职能更加的聚焦的是如何驱动下属更好的工作，更好的实现他的任务目标。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0038",
+      "start": 297.1,
+      "end": 309.92,
+      "text": "我们都知道下属面对一个工作的时候，呃，可能是有两个问题要解决，一个是工作意愿的问题，一个是工作能力的问题。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0039",
+      "start": 309.92,
+      "end": 316.21,
+      "text": "所以我们领导呢，你就必须得去看这个下属的特定的情况。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0040",
+      "start": 316.21,
+      "end": 321.05,
+      "text": "如果他的意愿不足呢，我们要提升他的意愿；",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0041",
+      "start": 321.05,
+      "end": 330.97,
+      "text": "如果他的能力不足呢，哎，我们要进行培训，我们要进行辅导，哎，我们还要扶上马送一程。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0042",
+      "start": 330.97,
+      "end": 335.56,
+      "text": "那么这就是领导应该发的发挥的一些角色。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0043",
+      "start": 335.56,
+      "end": 342.34,
+      "text": "领导不要把领导行为想的太简单，因为我们的管理对象不简单。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0044",
+      "start": 342.34,
+      "end": 353.47,
+      "text": "有的领导会认为领导嘛很简单，一手胡萝卜一手大棒，听话干得好给胡萝卜，不听话干得不好大棒伺候。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0045",
+      "start": 353.47,
+      "end": 360.0,
+      "text": "我觉得持有这样想法的朋友要调整一下自己的这样的想法了。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0046",
+      "start": 360.0,
+      "end": 371.61,
+      "text": "大家想一想，如果我们就是这样去领导一个人的话，我们和动物园里的驯兽员的工作有什么区别呢？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0047",
+      "start": 371.61,
+      "end": 377.68,
+      "text": "我们不能把我们的管理对象当成动物园里的动物啊。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0048",
+      "start": 377.68,
+      "end": 383.75,
+      "text": "我们的管理对象，我们的服务对象是活生生的人呢。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0049",
+      "start": 383.75,
+      "end": 401.17,
+      "text": "所以今天这个时代，实际上对领导提出了非常非常多的挑战，如何更好、更有效地开展领导工作，开展领导职能，这是需要我们每位管理者要深思的。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0050",
+      "start": 401.17,
+      "end": 406.72,
+      "text": "管理还有一个职能，第四个职能就是控制职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0051",
+      "start": 406.72,
+      "end": 417.54,
+      "text": "我们定好了计划，我们都希望实际工作能够沿着我们计划安排的路线，最终达到我们的目标。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0052",
+      "start": 417.54,
+      "end": 422.02,
+      "text": "但是这种想法呢，实际上是不现实的。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0053",
+      "start": 422.02,
+      "end": 426.51,
+      "text": "实际过程是千变万化，是动态发展的。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0054",
+      "start": 426.51,
+      "end": 437.07,
+      "text": "所以在整个过程中呢，我们可能会有各种各样的偏差，这就需要我们要进行有效的控制了。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0055",
+      "start": 437.07,
+      "end": 447.1,
+      "text": "所以控制呢，实际上是一个不断的纠偏的一个管理过程，保证我们计划目标得以实现。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0056",
+      "start": 447.1,
+      "end": 450.0,
+      "text": "当然我们说控制啊，有。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0057",
+      "start": 450.0,
+      "end": 459.81,
+      "text": "事后补救的这样一种控制，啊，叫亡羊补牢，未为晚也，是不是一种控制啊？",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0058",
+      "start": 459.81,
+      "end": 460.67,
+      "text": "当然。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0059",
+      "start": 460.67,
+      "end": 467.6,
+      "text": "当然也有事中的控制，出了问题了，我们动态地纠偏。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0060",
+      "start": 467.6,
+      "end": 470.19,
+      "text": "还有就是事前控制。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0061",
+      "start": 470.19,
+      "end": 477.4,
+      "text": "到了流感季了，哎，我们去打个疫苗，这就是事前控制。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0062",
+      "start": 477.4,
+      "end": 486.92,
+      "text": "因为事前做到了未雨绸缪，所以实际情况在执行过程中呢就少了一些烦恼。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0063",
+      "start": 486.92,
+      "end": 490.38,
+      "text": "这是我们谈的控制的职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0064",
+      "start": 490.38,
+      "end": 508.85,
+      "text": "那么在实际管理活动中，计划、组织、领导和控制是交织出现的，大家不要把它想成是一个静态的，做了计划，然后组织，然后领导，然后控制。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0065",
+      "start": 508.85,
+      "end": 514.04,
+      "text": "不是这样，而是交织在一起，互为影响。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0066",
+      "start": 514.04,
+      "end": 522.4,
+      "text": "所以就要求我们管理者要动态的、集成的使用好管理的这些职能。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    },
+    {
+      "segment_id": "seg_0067",
+      "start": 522.4,
+      "end": 525.0,
+      "text": "好，谢谢您的参与。",
+      "speaker": "teacher",
+      "confidence": 0.8
+    }
+  ]
+}

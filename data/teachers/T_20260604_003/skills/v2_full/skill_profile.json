@@ -1,0 +1,151 @@
+{
+  "skill_id": "S_T20260604003_v2",
+  "teacher_id": "T_20260604_003",
+  "teacher_name": "机器学习·某高校",
+  "version": 2,
+  "generated_at": "2026-06-04T00:00:00+08:00",
+
+  "style_tags": [
+    {
+      "text": "定义先行、多视角锚定",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": ["f0_seg_0002", "f2_seg_0002"],
+      "cluster_id": null
+    },
+    {
+      "text": "以人物串讲技术史",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0004", "f1_seg_0007"],
+      "cluster_id": null
+    },
+    {
+      "text": "开门见山直入主题",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": ["f0_seg_0001", "f2_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "信息密度高、长段落陈述",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f0_seg_0002", "f0_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "先讲后写、逐项拆公式",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f2_seg_0009", "f2_seg_0010"],
+      "cluster_id": null
+    },
+    {
+      "text": "设问自答不留白",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": ["f0_seg_0002", "f2_seg_0006"],
+      "cluster_id": null
+    },
+    {
+      "text": "单向讲授、极少互动",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0001", "f2_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "主动防错、定义后即提醒",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": ["f2_seg_0006", "f2_seg_0011"],
+      "cluster_id": null
+    },
+    {
+      "text": "擅用分类列举",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f2_seg_0002", "f2_seg_0007"],
+      "cluster_id": null
+    },
+    {
+      "text": "课末整体回顾总结",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f1_seg_0009", "f0_seg_0008"],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+
+  "base_metrics": {
+    "speech_rate": {
+      "value": 205.4,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 0.5,
+      "unit": "次/10分钟",
+      "label": "极少提问",
+      "polarity": "low"
+    }
+  },
+
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "formal-first",
+      "intuition_source": ["daily-life", "prior-knowledge"],
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "low"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets",
+      "write_timing": "after-speak",
+      "minimal_text": true
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit",
+      "timing": "after-definition"
+    }
+  },
+
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+
+  "attributes": {
+    "subject": "机器学习",
+    "language": "zh",
+    "corpus_stats": {
+      "transcripts_count": 3,
+      "total_duration_sec": 2209.36,
+      "total_text_chars": 7564
+    }
+  },
+
+  "warnings": [
+    "语料偏少模式：28 segments < 30，部分维度稳定性可能不足",
+    "question_freq 仅 0.5 次/10分钟：教师几乎不使用设问，interactivity 维度可靠性受限"
+  ],
+
+  "derived_from": "edunuwa-teacher-distiller (fork of huashu-nuwa)"
+}

@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101005_v1",
+  "teacher_id": "T_20260101_005",
+  "teacher_name": "林暖",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.404269+08:00",
+  "style_tags": [
+    {
+      "text": "娓娓道来",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "极有耐心",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "细致入微",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "鼓励式教学",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 140.0,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 3.0,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "problem-driven"
+    },
+    "intuition_building": {
+      "order": "intuition-first",
+      "before_formal": true
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "B+",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "高等数学",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

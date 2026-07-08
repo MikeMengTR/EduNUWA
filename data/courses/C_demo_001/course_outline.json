@@ -1,0 +1,21 @@
+{
+  "course_id": "C_demo_001",
+  "title": "机器学习入门（demo）",
+  "description": "用于跑通 M4 跟随式学习模式的最小演示课程，仅含 1 章 1 topic。",
+  "subject": "机器学习",
+  "created_at": "2026-05-18T00:00:00+08:00",
+  "chapters": [
+    {
+      "chapter_id": "ch_01",
+      "title": "过拟合与泛化",
+      "topics": [
+        {
+          "topic_id": "t_01",
+          "title": "什么是过拟合",
+          "doc_refs": ["topic_001_overfitting.md"],
+          "depends_on": []
+        }
+      ]
+    }
+  ]
+}

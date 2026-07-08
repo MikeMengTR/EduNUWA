@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101004_v1",
+  "teacher_id": "T_20260101_004",
+  "teacher_name": "陈衡",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.390392+08:00",
+  "style_tags": [
+    {
+      "text": "推导严密",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "重形式定义",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "逻辑滴水不漏",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "理论先行",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 150.0,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 1.0,
+      "unit": "次/10分钟",
+      "label": "偏少互动",
+      "polarity": "low"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "formal-first",
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "low"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "derivation-flow"
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "A",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "数学分析",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

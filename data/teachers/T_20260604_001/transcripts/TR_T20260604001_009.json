@@ -1,0 +1,72 @@
+{
+  "transcript_id": "TR_T20260604001_009",
+  "teacher_id": "T_20260604_001",
+  "source_file": "lecture_009.mp4",
+  "source_audio": "",
+  "language": "zh",
+  "asr_backend": "cloud-dashscope-qwen3-asr-flash",
+  "asr_quality": {
+    "estimated_cer": 0.15,
+    "low_confidence_segments": 0,
+    "refined": true
+  },
+  "ingested_at": "2026-06-04T15:17:24.232136+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start": 0.0,
+      "end": 28.8,
+      "text": "在上一讲当中我们学习了概率的一些常用性质，其中第三条说明，由概率的可列可加性公理可以推出概率具有有限可加性。但一般来说，有限可加性推不出可列可加性。为了说明有限可加性和可列可加性之间的关系，这一讲我们引入概率的连续性概念。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0004",
+      "start": 28.8,
+      "end": 90.0,
+      "text": "在给出概率的连续性定义之前，我们先来看单调事件列的定义。假设有一个事件列 $\\{A_n\\}\\subset \\mathcal{F}$。第一，如果这个事件列是单调不减的，即 $A_1 \\subset A_2 \\subset A_3 \\subset \\cdots$，则我们把它的可列并记作 $\\lim_{n\\to\\infty} A_n$，称为事件列的极限。第二，如果是单调不增的，即 $A_1 \\supset A_2 \\supset A_3 \\supset \\cdots$，则我们把它的可列交定义为事件列的极限，也记作 $\\lim_{n\\to\\infty} A_n$。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0013",
+      "start": 450.0,
+      "end": 537.45,
+      "text": "现在我们来证明概率的下连续性。对单调不减事件列 $\\{A_n\\}$，构造 $B_1 = A_1$，$B_n = A_n \\setminus A_{n-1}$（$n\\ge 2$），则 $\\{B_n\\}$ 互不相容，且 $\\bigcup_{k=1}^n B_k = A_n$，$\\bigcup_{k=1}^\\infty B_k = \\bigcup_{n=1}^\\infty A_n = \\lim A_n$。于是 $P(\\lim_{n\\to\\infty} A_n) = P\\big(\\bigcup_{k=1}^\\infty B_k\\big) = \\sum_{k=1}^\\infty P(B_k)$。这个求和可以写成部分和的极限，即 $\\sum_{k=1}^\\infty P(B_k) = \\lim_{n\\to\\infty} \\sum_{k=1}^n P(B_k)$。由于 $B_1,\\dots,B_n$ 互不相容，由有限可加性，$\\sum_{k=1}^n P(B_k) = P\\big(\\bigcup_{k=1}^n B_k\\big) = P(A_n)$。代入即得 $P(\\lim_{n\\to\\infty} A_n) = \\lim_{n\\to\\infty} P(A_n)$。这就证明了 $P$ 是下连续的。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0030",
+      "start": 537.45,
+      "end": 621.35,
+      "text": "再证上连续性。设 $\\{A_n\\}$ 是单调不增的事件列，则 $\\lim A_n = \\bigcap_{n=1}^\\infty A_n$。考虑 $P(\\lim A_n) = P\\big(\\bigcap_{n=1}^\\infty A_n\\big) = 1 - P\\big(\\big(\\bigcap_{n=1}^\\infty A_n\\big)^c\\big)$。由对偶律（德摩根公式），$(\\bigcap A_n)^c = \\bigcup A_n^c$。因为 $\\{A_n\\}$ 单调不增，故 $\\{A_n^c\\}$ 单调不减，于是应用已证的下连续性，$P\\big(\\bigcup_{n=1}^\\infty A_n^c\\big) = \\lim_{n\\to\\infty} P(A_n^c) = \\lim_{n\\to\\infty} (1 - P(A_n)) = 1 - \\lim_{n\\to\\infty} P(A_n)$。代入得 $P(\\lim A_n) = 1 - (1 - \\lim P(A_n)) = \\lim P(A_n)$。这就证明了 $P$ 满足上连续性。因此，若 $P$ 是概率，则它同时满足下连续性和上连续性。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0040",
+      "start": 621.35,
+      "end": 711.92,
+      "text": "有了上述定理，我们得到：可列可加性可推出有限可加性与下连续性；反之，有限可加性加上下连续性可推出可列可加性。这就回答了前面的问题：为什么有限可加性不能替代可列可加性。更一般地，设 $\\mu$ 是 $\\mathcal{F}$ 上的非负集函数，满足 $\\mu(\\Omega)=1$，则 $\\mu$ 满足可列可加性当且仅当 $\\mu$ 满足有限可加性和下连续性。换言之，在概率公理化定义的非负性与正则性前提下，可列可加性等价于有限可加性加下连续性。我们已证明必要性，下面只需证明充分性：若 $\\mu$ 有限可加且下连续，则必可列可加。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0051",
+      "start": 711.92,
+      "end": 834.42,
+      "text": "设 $\\{A_n\\}\\subset\\mathcal{F}$ 两两互不相容，要证 $\\mu(\\bigcup_{n=1}^\\infty A_n) = \\sum_{n=1}^\\infty \\mu(A_n)$。构造新的事件列 $B_n = \\bigcup_{k=1}^n A_k$，则 $\\{B_n\\}$ 是单调不减的事件列，且 $\\bigcup_{n=1}^\\infty B_n = \\bigcup_{n=1}^\\infty A_n$。于是利用 $\\mu$ 的下连续性，$\\mu(\\bigcup_{n=1}^\\infty A_n) = \\mu(\\bigcup_{n=1}^\\infty B_n) = \\lim_{n\\to\\infty} \\mu(B_n)$。再由 $B_n = \\bigcup_{k=1}^n A_k$ 以及 $\\mu$ 的有限可加性，得 $\\mu(B_n) = \\mu(\\bigcup_{k=1}^n A_k) = \\sum_{k=1}^n \\mu(A_k)$。因此 $\\mu(\\bigcup_{n=1}^\\infty A_n) = \\lim_{n\\to\\infty} \\sum_{k=1}^n \\mu(A_k) = \\sum_{k=1}^\\infty \\mu(A_n)$。这就证明了 $\\mu$ 满足可列可加性。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0066",
+      "start": 834.42,
+      "end": 900.0,
+      "text": "该定理说明：可列可加性可推出有限可加性与下连续性；反之，有限可加性加上下连续性等价于可列可加性。这里的大前提是非负性与正则性，但正则性中 $\\mu(\\Omega)=1$ 可放宽为有限的正常数，对于概率我们取 $\\mu(\\Omega)=1$ 即可。总结本讲，概率的连续性本质在于：对单调事件列，极限与概率两种运算可交换次序。在概率公理化定义中，可列可加性公理不能被有限可加性替代；在非负性与正则性的前提下，有限可加性和连续性一起才与可列可加性等价。这一讲就到这里。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+# ============================================================
+# EduNuwa 项目依赖
+# 按模块分块，便于按需安装与维护
+#   pip install -r requirements.txt
+# ============================================================
+
+
+# ------------------------------------------------------------
+# [0] M1 Ingest 模块 (音频提取 / ASR 转写 / 文本精修)
+# ------------------------------------------------------------
+moviepy>=2.0.0          # MP4 → WAV 音频提取
+faster-whisper>=1.0.0   # 本地 Whisper ASR
+openai>=1.0.0           # Cloud ASR (DashScope OpenAI 兼容接口)
+
+# ------------------------------------------------------------
+# [1] 通用 / Web 后端 (backend, web_demo)
+# ------------------------------------------------------------
+fastapi>=0.110.0
+uvicorn>=0.27.0
+pydantic>=2.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+
+# ------------------------------------------------------------
+# [2] Skill Distiller 模块 (modules/skill_distiller)
+#   - nuwa_distill.py / teaching_events.py
+#   - 通过 Claude Agent SDK 调用 Claude Code CLI
+#     (Anthropic 兼容协议接入 DeepSeek)
+#   - 需要先安装 Claude Code CLI:
+#       npm install -g @anthropic-ai/claude-code
+# ------------------------------------------------------------
+claude-agent-sdk>=0.1.0
+anyio>=4.0.0
+
+
+# ------------------------------------------------------------
+# [3] TTS Service 模块 (modules/tts_service/GPT_SoVITS)
+#   GPT-SoVITS 推理所需依赖
+# ------------------------------------------------------------
+
+# --- 3.1 深度学习核心 ---
+# 注意: torch / torchaudio 推荐按 CUDA 版本从官方源安装
+#   https://pytorch.org/get-started/locally/
+torch>=2.1.0
+torchaudio>=2.1.0
+torchmetrics>=1.0.0
+pytorch-lightning>=2.1.0
+
+# --- 3.2 NLP / 模型加载 ---
+transformers>=4.40.0
+huggingface_hub>=0.23.4
+peft>=0.10.0
+einops>=0.7.0
+x-transformers>=1.30.0
+typeguard>=4.0.0
+
+# --- 3.3 音频处理 ---
+librosa>=0.10.0
+soundfile>=0.12.1
+ffmpeg-python>=0.2.0
+
+# --- 3.4 数值计算 / 数据处理 ---
+numpy>=1.24.0
+scipy>=1.11.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+
+# --- 3.5 文本前端 (中英日韩多语种) ---
+gruut>=2.3.4
+regex>=2023.0.0
+
+# --- 3.6 推理 Web UI / 工具链 ---
+gradio>=4.0.0
+tqdm>=4.65.0
+pyyaml>=6.0
+packaging>=23.0
+psutil>=5.9.0
+
+# --- 3.7 BigVGAN 声码器 (modules/tts_service/GPT_SoVITS/BigVGAN) ---
+nnAudio>=0.3.2
+# 仅在重训练 BigVGAN 时才需要, 推理可不安装:
+#   tensorboard
+#   auraloss
+#   pesq
+#   ninja

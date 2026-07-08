@@ -1,0 +1,19 @@
+{
+  "teacher_id": "T_20260604_005",
+  "display_name": "示范教师05·西方园林历史与艺术",
+  "real_name": "示范教师05",
+  "subject": [
+    "西方园林历史与艺术"
+  ],
+  "school": "某高校",
+  "_note": "demo data migrated from Teacher_data_new",
+  "avatar": {
+    "pixel_url": "/api/v1/avatar/T_20260604_005/vtuber_frame_00.png",
+    "images": [
+      "vtuber_frame_00.png",
+      "vtuber_frame_01.png"
+    ]
+  },
+  "voice_id": "T005",
+  "user_id": ""
+}

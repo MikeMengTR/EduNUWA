@@ -1,0 +1,171 @@
+{
+  "skill_id": "S_T20260604006_v2",
+  "teacher_id": "T_20260604_006",
+  "teacher_name": "线性代数·某高校",
+  "version": 2,
+  "generated_at": "2026-06-04T22:00:00+08:00",
+
+  "style_tags": [
+    {
+      "text": "设问自答、引导思考",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0001", "f2_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "框架清晰、先总后分",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f0_seg_0001", "f2_seg_0080"],
+      "cluster_id": null
+    },
+    {
+      "text": "定义驱动、逐项拆解",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f0_seg_0006", "f1_seg_0028"],
+      "cluster_id": null
+    },
+    {
+      "text": "已有知识类比、连接中学数学",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0015", "f1_seg_0022", "f1_seg_0037"],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截误区、防错先行",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f1_seg_0037", "f2_seg_0036"],
+      "cluster_id": null
+    },
+    {
+      "text": "学术正式、表述严谨",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0003", "f0_seg_0006"],
+      "cluster_id": null
+    },
+    {
+      "text": "每课必总结、承上启下",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0017", "f1_seg_0043", "f2_seg_0095"],
+      "cluster_id": null
+    },
+    {
+      "text": "语速偏慢、从容讲解",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f0_seg_0003", "f2_seg_0019"],
+      "cluster_id": null
+    },
+    {
+      "text": "从具体例子引出一般结论",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f2_seg_0006", "f2_seg_0080"],
+      "cluster_id": null
+    },
+    {
+      "text": "板书以符号和步骤为主",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0028", "f2_seg_0019"],
+      "cluster_id": null
+    },
+    {
+      "text": "用几何直觉辅助抽象思维",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f2_seg_0049", "f2_seg_0087"],
+      "cluster_id": null
+    },
+    {
+      "text": "问题驱动、目的先行",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0001", "f2_seg_0001"],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+
+  "base_metrics": {
+    "speech_rate": {
+      "value": 160.2,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 4.4,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "problem-driven",
+      "signature_phrase": "这次课我们学习…这样改造的目的，就是为了从形状更简单的线性方程组来判定原方程组是否有解"
+    },
+    "intuition_building": {
+      "order": "interleaved",
+      "intuition_source": ["prior-knowledge"],
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "medium",
+      "per_concept": 0.3,
+      "domain_pool": ["中学数学"]
+    },
+    "blackboard_strategy": {
+      "primary_layout": "derivation-flow",
+      "write_timing": "after-speak",
+      "minimal_text": false
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit",
+      "timing": "after-definition"
+    }
+  },
+
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+
+  "attributes": {
+    "subject": "线性代数",
+    "language": "zh",
+    "corpus_stats": {
+      "transcripts_count": 1,
+      "total_duration_sec": 1645,
+      "total_text_chars": 4393
+    }
+  },
+
+  "warnings": [
+    "corpus_sparse: 26 segments < 30 threshold, quality confidence reduced for some dimensions",
+    "analogy_limited: all analogies from prior-knowledge (中学数学) only, no daily-life/geometric analogies",
+    "interaction_limited: transcript covers one-way lecture only, no student Q&A interaction"
+  ],
+
+  "derived_from": "edunuwa-teacher-distiller (fork of huashu-nuwa)"
+}

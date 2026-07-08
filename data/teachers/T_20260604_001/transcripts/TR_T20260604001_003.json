@@ -1,0 +1,96 @@
+{
+  "transcript_id": "TR_T20260604001_003",
+  "teacher_id": "T_20260604_001",
+  "source_file": "lecture_003.mp4",
+  "source_audio": "",
+  "language": "zh",
+  "asr_backend": "cloud-dashscope-qwen3-asr-flash",
+  "asr_quality": {
+    "estimated_cer": 0.15,
+    "low_confidence_segments": 0,
+    "refined": true
+  },
+  "ingested_at": "2026-06-04T15:12:05.126053+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_01",
+      "start": 0.0,
+      "end": 23.31,
+      "text": "在这一讲，我们继续学习概率论的基本概念。首先来看随机事件的表示与运算。本讲将介绍随机事件的运算及其相应法则。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_02",
+      "start": 23.31,
+      "end": 110.53,
+      "text": "首先来看事件之间的五种基本运算。 事件的并：若A与B至少有一个发生，则称事件A与事件B的并发生，记作 $A \\cup B$，这也正是集合论中并的符号。 事件的交：A与B同时发生，称为A与B的交。概率论中通常省略交的符号，将事件并列记为 $AB$。 事件的差：A与B的差是指事件A发生而B不发生，记作 $A \\setminus B$ 或 $A - B$。 对立事件：A的对立事件发生是指A不发生，记作 $\\overline{A}$。它等于必然事件 $\\Omega$ 减去A，即 $\\overline{A} = \\Omega \\setminus A$。 对称差：A与B的对称差定义为 $(A \\setminus B) \\cup (B \\setminus A)$，常记作 $A \\triangle B$。 需要注意的是，通常 $A \\setminus B$ 与 $B \\setminus A$ 是不同的，即事件的差不满足交换律；而对称差满足交换律：$A \\triangle B = B \\triangle A$。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_03",
+      "start": 110.53,
+      "end": 188.34,
+      "text": "事件的并、交等运算都满足与集合论中类似的运算法则。例如，并和交满足交换律：$A \\cup B = B \\cup A$，$A \\cap B = B \\cap A$；但事件的差运算不满足交换律。对称差则满足交换律：$A \\triangle B = B \\triangle A$。 事件A与B互不相容（互斥），其本质是A与B同时发生为不可能事件，即 $AB = \\emptyset$。 若A与B对立，则它们必定互不相容，但逆命题不成立。A与B对立意味着 $A \\cup B = \\Omega$ 且 $A \\cap B = \\emptyset$。 对立事件具有对合性：$\\overline{\\overline{A}} = A$。A的对立事件等于B，当且仅当 $AB = \\emptyset$ 且 $A \\cup B = \\Omega$。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_04",
+      "start": 188.34,
+      "end": 241.59,
+      "text": "为了后续讨论的方便，我们做如下约定：当A与B互不相容时，可将它们的并记作 $A + B$；当 $B \\subseteq A$（即B是A的子事件）时，可记 $A \\setminus B = A - B$。这些约定也适用于多个事件的情形。 根据上述约定，有 $\\overline{A} = \\Omega - A$；$\\overline{A} = B$ 当且仅当 $A + B = \\Omega$（此时A、B互不相容且并为 $\\Omega$）。A与B的对称差可写为 $A \\triangle B = (A \\setminus B) + (B \\setminus A)$，而 $A \\cup B$ 可写为 $(A \\triangle B) + AB$。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_05",
+      "start": 241.59,
+      "end": 278.38,
+      "text": "事件的本质是集合，其运算满足集合的运算法则，如结合律、分配律等。特别要指出的是对偶公式，也称为德摩根（De Morgan）公式： $\\overline{A \\cup B} = \\overline{A} \\cap \\overline{B}$，即并的对立等于对立的交； $\\overline{A \\cap B} = \\overline{A} \\cup \\overline{B}$，即交的对立等于对立的并。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_06",
+      "start": 278.38,
+      "end": 409.96,
+      "text": "下面证明第一个式子 $\\overline{A \\cup B} = \\overline{A} \\cap \\overline{B}$。设样本点 $\\omega \\in \\overline{A \\cup B}$，即 $A \\cup B$ 没有发生，这意味着 $\\omega \\notin A$ 且 $\\omega \\notin B$，从而A未发生且B未发生。由于对立事件在每次试验中有且仅有一个发生，故A未发生即 $\\overline{A}$ 发生，B未发生即 $\\overline{B}$ 发生，因此 $\\omega \\in \\overline{A} \\cap \\overline{B}$。这证明了 $\\overline{A \\cup B} \\subseteq \\overline{A} \\cap \\overline{B}$。反之，将上述推理倒推回去即可得到 $\\overline{A} \\cap \\overline{B} \\subseteq \\overline{A \\cup B}$。从而第一个等式成立。 对于第二个等式，对 $\\overline{A}$ 和 $\\overline{B}$ 应用第一个结论：$\\overline{\\overline{A} \\cup \\overline{B}} = \\overline{\\overline{A}} \\cap \\overline{\\overline{B}} = A \\cap B$。再对两边取对立事件，并利用 $\\overline{\\overline{A}} = A$，即得 $\\overline{A} \\cup \\overline{B} = \\overline{A \\cap B}$。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_07",
+      "start": 410.29,
+      "end": 515.26,
+      "text": "下面用A、B、C三个事件来表述八种常用的事件关系，请注意它们之间的细微差别： 1. A发生：即事件A本身。 2. 仅A发生：A发生且B、C均不发生，记作 $A \\overline{B} \\overline{C}$。 3. 恰好一个发生：即仅A发生，或仅B发生，或仅C发生。由于这三种情形互不相容，可记为 $A \\overline{B} \\overline{C} + \\overline{A} B \\overline{C} + \\overline{A} \\overline{B} C$。 4. 至少一个发生：即 $A \\cup B \\cup C$。 5. 至多一个发生：包括都不发生与恰好一个发生。 6. 都不发生：即 $\\overline{A} \\, \\overline{B} \\, \\overline{C}$（$\\overline{A} \\cap \\overline{B} \\cap \\overline{C}$）。因此至多一个发生是事件3与事件6的和。 7. 不都发生：其对立事件是“都发生”，即 $A B C$，故不都发生为 $\\overline{A B C}$。 8. 至少两个发生：可能是恰好两个发生或三个都发生，即 $AB \\cup AC \\cup BC$。这里注意，$AB$、$AC$、$BC$ 之间并不互不相容（因为可能三者同时发生），因此不能将并写成加号。还可以看出，至少两个发生恰好是至多一个发生的对立事件，即事件8与事件5互为对立事件。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_08",
+      "start": 515.26,
+      "end": 549.9,
+      "text": "下面将概率论中的记号与集合论中的概念做一对照： $\\Omega$ 在概率论中既表示样本空间，又表示必然事件；在集合论中它就是全集，包含所有样本点。 $\\emptyset$ 在集合论中为空集，在概率论中表示不可能事件，即不包含任何样本点。 其余概念如事件的包含、并、交、差、对立等，均与集合论中的相应概念一一对应，请自行对照复习。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_09",
+      "start": 549.9,
+      "end": 628.78,
+      "text": "最后再强调几个注记： 不同的基本事件互不相容，因为每个基本事件只含有一个样本点，两个不同的基本事件不可能同时发生。 所有基本事件之并为 $\\Omega$。若将每个样本点 $\\omega$ 视为一个基本事件（单点集），则 $\\Omega$ 是所有基本事件的并。 两个对立事件的交为不可能事件，并为必然事件。 任一事件与不可能事件的交为不可能事件，与不可能事件的并为该事件自身。 任一事件与必然事件的交为该事件，与必然事件的并为必然事件。 不可能事件是任何事件的子事件。对任意事件A、B，恒有 $A B \\subseteq A$（因为AB发生必导致A发生），以及 $A \\subseteq A \\cup B$（因为A发生必导致 $A \\cup B$ 发生）。任何随机事件都是必然事件 $\\Omega$ 的子事件。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_10",
+      "start": 628.78,
+      "end": 675.0,
+      "text": "本讲我们学习了随机事件的运算及其法则。希望同学们将概率论中事件的运算与集合论中集合的运算相对应起来，理解事件的运算本质上就是集合的运算，只是采用了与集合论基本一致的符号。今天就讲到这里。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    }
+  ]
+}

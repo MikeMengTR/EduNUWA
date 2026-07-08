@@ -1,0 +1,39 @@
+{
+  "transcript_id": "TR_TEST_001",
+  "teacher_id": "T_TEST_001",
+  "source_file": "short_lecture.wav",
+  "source_audio": "short_lecture.wav",
+  "language": "zh",
+  "asr_backend": "whisper-large-v3",
+  "asr_quality": {
+    "estimated_cer": 0.05,
+    "low_confidence_segments": 0
+  },
+  "ingested_at": "2026-05-24T00:00:00+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start": 0.0,
+      "end": 8.5,
+      "text": "这是一段用于测试的模拟语音内容。",
+      "speaker": "teacher",
+      "confidence": 0.95
+    },
+    {
+      "segment_id": "seg_0002",
+      "start": 8.5,
+      "end": 18.0,
+      "text": "第二段测试文本，包含更长的句子结构以验证分段逻辑。",
+      "speaker": "teacher",
+      "confidence": 0.92
+    },
+    {
+      "segment_id": "seg_0003",
+      "start": 18.0,
+      "end": 30.0,
+      "text": "第三段模拟语音转写结果，用于校验 transcript schema 的完整性。",
+      "speaker": "teacher",
+      "confidence": 0.88
+    }
+  ]
+}

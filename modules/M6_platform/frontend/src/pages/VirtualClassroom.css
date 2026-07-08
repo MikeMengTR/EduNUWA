@@ -1,0 +1,717 @@
+/* =========================================================================
+   Virtual Classroom — "温暖纸质讲义" editorial theme
+   主体为 M5 黑板舞台，右侧可折叠对话面板（仅教师风格标签 + 对话）
+   配色 token 继承自 index.css :root
+   ========================================================================= */
+.vcx {
+  --panel-w: 372px;
+  position: relative;
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  /* 极淡纸张颗粒 */
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(222,94,57,0.04), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(67,42,120,0.035), transparent 46%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+.vcx.is-collapsed { --panel-w: 0px; }
+
+/* =========================================================================
+   舞台（M5 黑板前端铺满）
+   ========================================================================= */
+.vcx__stage {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  background: var(--board);
+  /* 黑板顶部一束暖光 + 木纹边框感 */
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(222,94,57,0.10), transparent 60%),
+    radial-gradient(90% 60% at 50% 120%, rgba(80,123,152,0.08), transparent 60%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.vcx__frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--board);
+  display: block;
+  animation: vcx-fade .5s ease both;
+}
+/* 双 iframe 交叉：新内容在后台加载（不可见），加载完成后才替换旧黑板 */
+.vcx__frame--behind {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+/* 空槽（about:blank）：固定双槽方案中 iframe 元素常驻不卸载，只隐藏 */
+.vcx__frame--hidden {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 舞台左上角讲台标 */
+.vcx__stage-tag {
+  position: absolute;
+  top: 18px; left: 20px;
+  z-index: 4;
+  display: flex; align-items: center; gap: 9px;
+  padding: 7px 14px 7px 12px;
+  background: rgba(28,26,22,0.62);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(224,215,202,0.16);
+  border-radius: 999px;
+  color: #ece4d6;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: .3px;
+  animation: vcx-fade .6s ease both;
+}
+.vcx__stage-tag .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 0 rgba(222,94,57,0.55);
+  animation: vcx-pulse 1.8s ease-in-out infinite;
+}
+
+/* 待命：木框空黑板（与 M5 讲课态黑板视觉一致，避免开讲瞬间跳变） */
+.vcx__idle {
+  flex: 1; min-height: 0;
+  display: flex;
+  padding: 20px;
+  animation: vcx-fade .5s ease both;
+}
+.vcx__idle-frame {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  border-radius: 16px; padding: 14px 14px 0;
+  background: linear-gradient(160deg, #a07a4c, #85643f 22%, #5a4129);
+  box-shadow: 0 18px 40px rgba(40, 28, 14, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.vcx__idle-board {
+  position: relative;
+  flex: 1; min-height: 0;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(130% 95% at 50% 26%, rgba(255, 255, 255, 0.06), transparent 58%),
+    #232a20;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+/* 待命黑板中心：标题 + 副文案 + 冷启动示例问题 chip */
+.vcx__idle-center {
+  text-align: center; max-width: 480px; padding: 24px;
+  animation: vcx-rise .5s ease both;
+}
+.vcx__idle-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 700; letter-spacing: 4px;
+  color: rgba(243,238,229,0.82);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.vcx__idle-cap {
+  margin-top: 16px; font-family: var(--font-display);
+  font-size: 14px; letter-spacing: 1px; color: rgba(243,238,229,0.42);
+}
+.vcx__idle-chips {
+  margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+}
+.vcx__qchip {
+  font-family: var(--font-display); font-size: 14px; letter-spacing: .5px;
+  color: rgba(243,238,229,0.9); background: transparent;
+  border: 1.4px solid rgba(233,228,214,0.42); border-radius: 999px;
+  padding: 8px 16px; cursor: pointer;
+  opacity: 0; animation: vcx-rise .5s ease both;
+  transition: background .18s, border-color .18s, transform .18s;
+}
+.vcx__qchip:hover {
+  background: rgba(233,228,214,0.1);
+  border-color: rgba(233,228,214,0.85);
+  transform: translateY(-1px);
+}
+/* 粉笔槽 */
+.vcx__idle-tray {
+  height: 24px; margin-top: 13px; position: relative;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, #a07a4c, #5a4129);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(40, 28, 14, 0.25);
+}
+.vcx__idle-chalk {
+  position: absolute; left: 32px; top: 8px; width: 40px; height: 7px; border-radius: 4px;
+  background: linear-gradient(180deg, #f3efe6, #cfc8b6); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.vcx__idle-eraser {
+  position: absolute; right: 44px; top: 5px; width: 44px; height: 14px; border-radius: 3px;
+  background: linear-gradient(180deg, #caa15f, #8a6a3c); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 粉笔体状态（黑板左上角） */
+.vcx__chalk-status {
+  position: absolute; top: 16px; left: 20px; z-index: 3;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display); font-size: 15px; letter-spacing: 1px;
+  color: rgba(233, 228, 214, 0.6);
+}
+.vcx__chalk-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #9fcf8f; box-shadow: 0 0 8px #9fcf8f;
+  animation: vcx-chalk-pulse 2.4s ease-in-out infinite;
+}
+@keyframes vcx-chalk-pulse { 0%, 100% { opacity: .45; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.15); } }
+
+/* =========================================================================
+   数字人浮层（可拖动 + 可隐藏到侧栏）
+   ========================================================================= */
+.vcx__avatar-overlay {
+  position: absolute; right: 28px; bottom: 22px; z-index: 7;
+  width: 150px;
+  display: flex; flex-direction: column; align-items: center;
+  cursor: grab; touch-action: none; user-select: none;
+  animation: vcx-rise .5s ease both;
+}
+.vcx__avatar-overlay:active { cursor: grabbing; }
+.vcx__avatar-portrait {
+  position: relative; width: 132px; height: 156px;
+  border-radius: 16px 16px 12px 12px; overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+  background: linear-gradient(160deg, #e3edf4, #c2d5e6);
+  transition: border-color .12s, box-shadow .2s;
+}
+.vcx__avatar-overlay.is-speaking .vcx__avatar-portrait {
+  border-color: var(--orange);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32), 0 0 0 4px var(--orange-soft);
+}
+.vcx__avatar-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.vcx__avatar-letter {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--board); color: var(--paper);
+  font-family: var(--font-display); font-size: 52px;
+}
+.vcx__avatar-tag {
+  position: relative; margin-top: 12px;
+  display: inline-flex; align-items: center; gap: 7px; max-width: 150px;
+  padding: 5px 12px;
+  background: rgba(20, 26, 21, 0.6); color: #ece4d6;
+  border: 1px solid rgba(233, 228, 214, 0.22); border-radius: 999px;
+  font-size: 12.5px; backdrop-filter: blur(5px);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.vcx__avatar-live {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  background: #9fcf8f; box-shadow: 0 0 7px #9fcf8f;
+  animation: vcx-chalk-pulse 2.4s infinite;
+}
+.vcx__avatar-hide {
+  position: absolute; top: -7px; right: 6px;
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper-white); border: 1px solid var(--line);
+  color: var(--ink-2); font-size: 13px; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: color .15s, border-color .15s;
+}
+.vcx__avatar-hide:hover { color: var(--orange); border-color: var(--orange); }
+
+/* 隐藏后停靠右侧的 tab */
+.vcx__avatar-dock {
+  position: absolute; right: 0; bottom: 80px; z-index: 7;
+  width: 42px; height: 54px; padding: 0; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(20, 26, 21, 0.62); backdrop-filter: blur(6px);
+  border: 1px solid rgba(233, 228, 214, 0.2); border-right: none;
+  border-radius: 12px 0 0 12px; cursor: pointer;
+  box-shadow: -4px 4px 14px rgba(0, 0, 0, 0.22);
+  transition: width .18s;
+}
+.vcx__avatar-dock:hover { width: 48px; }
+.vcx__avatar-dock img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+.vcx__avatar-dock .vcx__avatar-letter { width: 34px; height: 34px; border-radius: 8px; font-size: 18px; }
+
+@media (max-width: 760px) {
+  .vcx__avatar-overlay { width: 116px; right: 14px; bottom: 14px; }
+  .vcx__avatar-portrait { width: 104px; height: 124px; }
+}
+
+/* =========================================================================
+   折叠开关
+   ========================================================================= */
+.vcx__toggle {
+  position: absolute;
+  top: 18px;
+  right: calc(var(--panel-w) + 14px);
+  z-index: 6;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper-white);
+  color: var(--ink-2);
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(25,24,21,0.14);
+  transition: right .35s cubic-bezier(.4,.0,.2,1), transform .2s, color .2s, border-color .2s;
+}
+.vcx__toggle:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+  transform: scale(1.06);
+}
+
+/* =========================================================================
+   右侧可折叠面板
+   ========================================================================= */
+.vcx__panel {
+  width: var(--panel-w);
+  flex: 0 0 var(--panel-w);
+  overflow: hidden;
+  border-left: 1px solid var(--line);
+  background: var(--paper-white);
+  transition: width .35s cubic-bezier(.4,.0,.2,1), flex-basis .35s cubic-bezier(.4,.0,.2,1), border-color .35s;
+}
+.vcx.is-collapsed .vcx__panel { border-left-color: transparent; }
+
+.vcx__panel-inner {
+  width: 372px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* —— 教师页眉（仅头像 / 姓名 / 学科 / 等级 / 风格标签） —— */
+.vcx__teacher {
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, var(--white), var(--paper-white));
+  animation: vcx-rise .5s ease both;
+}
+.vcx__teacher-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.vcx__avatar,
+.vcx__avatar-fallback {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.vcx__avatar { border: 2px solid var(--line); }
+/* 头像可点击 → 跳老师主页 */
+.vcx__avatar--link { cursor: pointer; transition: border-color .18s, box-shadow .18s, transform .18s; }
+.vcx__avatar--link:hover { border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-soft); transform: scale(1.04); }
+.vcx__avatar-fallback {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--board);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+}
+.vcx__teacher-id { min-width: 0; }
+.vcx__teacher-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: .3px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+/* 名字可点击 → 跳老师主页 */
+.vcx__teacher-name--link { cursor: pointer; display: inline-block; transition: color .18s; }
+.vcx__teacher-name--link:hover { color: var(--orange); }
+.vcx__chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 7px;
+}
+.vcx__chip {
+  font-size: 11.5px;
+  font-family: var(--font-body);
+  padding: 2px 10px;
+  border-radius: 999px;
+  letter-spacing: .2px;
+}
+.vcx__chip--subject { background: var(--blue-soft);  color: var(--blue); }
+.vcx__chip--grade   { background: var(--green-soft); color: var(--green); }
+
+/* —— 风格标签（可折叠） —— */
+.vcx__tags-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 18px;
+}
+.vcx__tags-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.vcx__tags-toggle {
+  flex-shrink: 0;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  color: var(--orange); letter-spacing: .2px; padding: 2px 2px;
+  transition: color .15s;
+}
+.vcx__tags-toggle:hover { color: var(--orange-deep); }
+.vcx__tags {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  margin-top: 10px;
+  max-height: 72px; overflow: hidden;
+  transition: max-height .3s ease;
+}
+.vcx__tags--open { max-height: 460px; }
+.vcx__tag {
+  font-size: 12.5px;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-2);
+  cursor: default;
+  transition: transform .18s, border-color .18s, color .18s, background .18s;
+  animation: vcx-rise .45s ease both;
+}
+.vcx__tag:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+  color: var(--orange);
+  background: var(--orange-soft);
+}
+.vcx__tag:nth-child(3n+2):hover { border-color: var(--blue);  color: var(--blue);  background: var(--blue-soft); }
+.vcx__tag:nth-child(3n+3):hover { border-color: var(--green); color: var(--green); background: var(--green-soft); }
+.vcx__tags-empty {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+/* =========================================================================
+   对话流
+   ========================================================================= */
+.vcx__thread {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.vcx__thread::-webkit-scrollbar { width: 8px; }
+.vcx__thread::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+.vcx__thread::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+.vcx__empty {
+  margin: auto;
+  text-align: center;
+  color: var(--ink-3);
+  padding: 30px 16px;
+}
+.vcx__empty-glyph {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--line);
+  margin-bottom: 12px;
+}
+.vcx__empty h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+.vcx__empty p { font-size: 13px; line-height: 1.6; }
+
+.vcx__bubble {
+  max-width: 88%;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.62;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-radius: 14px;
+  animation: vcx-rise .35s ease both;
+}
+.vcx__bubble--user {
+  align-self: flex-end;
+  background: var(--board);
+  color: var(--paper);
+  border-bottom-right-radius: 4px;
+}
+.vcx__bubble--assistant {
+  align-self: flex-start;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+}
+.vcx__bubble--demo {
+  border-left: 3px solid var(--green);
+}
+.vcx__demo-note {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--green);
+}
+
+/* 「回看这节课板书」按钮：讲完的 demo 气泡里浮出，点了把板书最终态静态铺回黑板 */
+.vcx__replay {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 8px;
+  padding: 5px 11px;
+  font-size: 11.5px; font-weight: 600;
+  color: var(--green);
+  background: var(--white);
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .15s;
+}
+.vcx__replay:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+.vcx__replay-ico { font-size: 12px; line-height: 1; }
+
+/* MiniMarkdown 在气泡内的排版：收紧块级外边距，避免 pre-wrap 叠加默认 margin 撑高 */
+.vcx__bubble p { margin: 0; }
+.vcx__bubble p + p { margin-top: 7px; }
+.vcx__bubble .mmd-h { font-weight: 700; color: var(--ink); margin-top: 8px; }
+.vcx__bubble p:first-child, .vcx__bubble .mmd-h:first-child { margin-top: 0; }
+.vcx__bubble .mmd-ul, .vcx__bubble .mmd-ol {
+  margin: 6px 0; padding-left: 20px;
+}
+.vcx__bubble .mmd-ul li, .vcx__bubble .mmd-ol li {
+  margin: 3px 0; line-height: 1.55;
+}
+.vcx__bubble .mmd-ul { list-style: disc; }
+.vcx__bubble .mmd-ol { list-style: decimal; }
+.vcx__bubble .mmd-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--paper); border: 1px solid var(--line-soft);
+  border-radius: 4px; padding: 0 4px;
+}
+
+/* 本节主题胶囊（每次演示的会话分隔标记） */
+.vcx__topic {
+  align-self: center;
+  font-size: 11.5px; color: var(--ink-3);
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px 14px;
+  margin: 2px 0;
+  animation: vcx-rise .35s ease both;
+}
+.vcx__topic b { color: var(--ink-2); font-weight: 600; }
+
+/* 气泡内「本节提纲」卡片（从 board 标题/小节抽取） */
+.vcx__outline {
+  margin-top: 10px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--paper-white); overflow: hidden;
+}
+.vcx__outline-h {
+  font-size: 10.5px; letter-spacing: 1.5px; font-weight: 700; text-transform: uppercase;
+  color: var(--orange-deep); background: var(--orange-soft);
+  padding: 7px 12px; border-bottom: 1px solid var(--line-soft);
+}
+.vcx__outline-list {
+  list-style: none; counter-reset: o;
+  margin: 0; padding: 6px 12px 8px;
+}
+.vcx__outline-list li {
+  counter-increment: o; position: relative;
+  padding: 5px 0 5px 26px;
+  font-size: 12.5px; line-height: 1.5; color: var(--ink-2);
+  border-bottom: 1px dashed var(--line-soft);
+}
+.vcx__outline-list li:last-child { border-bottom: none; }
+.vcx__outline-list li::before {
+  content: counter(o);
+  position: absolute; left: 0; top: 5px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--white); border: 1.5px solid var(--orange);
+  color: var(--orange-deep); font-size: 10.5px; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+/* typing 三点 */
+.vcx__typing {
+  align-self: flex-start;
+  display: flex; gap: 4px;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+}
+.vcx__typing span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ink-3);
+  animation: vcx-blink 1.4s infinite both;
+}
+.vcx__typing span:nth-child(2) { animation-delay: .2s; }
+.vcx__typing span:nth-child(3) { animation-delay: .4s; }
+
+/* =========================================================================
+   输入区
+   ========================================================================= */
+.vcx__composer {
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper-white);
+}
+.vcx__input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 4px 4px 16px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.vcx__input-row:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px var(--orange-soft);
+}
+.vcx__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--ink);
+}
+.vcx__input::placeholder { color: var(--ink-3); }
+.vcx__send {
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: transform .18s, background .2s, opacity .2s;
+}
+.vcx__send--demo {
+  padding: 9px 18px;
+  background: var(--orange);
+  color: var(--white);
+}
+.vcx__send--demo:hover:not(:disabled) { background: #c44e2d; transform: translateY(-1px); }
+.vcx__send--chat {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-size: 16px;
+  border: 1px solid var(--line);
+}
+.vcx__send--chat:hover:not(:disabled) {
+  background: var(--blue-soft);
+  color: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+.vcx__send:disabled { opacity: .45; cursor: not-allowed; }
+.vcx__composer-hint {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: .3px;
+}
+
+/* 加载态 */
+.vcx__loading {
+  margin: auto;
+  color: var(--ink-2);
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+
+/* =========================================================================
+   动画
+   ========================================================================= */
+@keyframes vcx-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vcx-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes vcx-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes vcx-blink { 0%,80%,100% { opacity: .2; } 40% { opacity: 1; } }
+@keyframes vcx-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(222,94,57,0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(222,94,57,0); }
+  100% { box-shadow: 0 0 0 0 rgba(222,94,57,0); }
+}
+
+/* =========================================================================
+   响应式：窄屏面板变抽屉
+   ========================================================================= */
+@media (max-width: 760px) {
+  .vcx { --panel-w: 0px; }
+  .vcx__panel {
+    position: absolute;
+    top: 0; right: 0;
+    height: 100%;
+    width: 320px;
+    flex-basis: 320px;
+    z-index: 5;
+    box-shadow: -8px 0 28px rgba(25,24,21,0.18);
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,.0,.2,1);
+  }
+  .vcx:not(.is-collapsed) .vcx__panel { transform: translateX(0); }
+  .vcx__panel-inner { width: 320px; }
+  .vcx__toggle { right: 14px; }
+  .vcx:not(.is-collapsed) .vcx__toggle { right: 334px; }
+}
+
+/* 课后评价条（讲课结束后浮出） */
+.vcx__rate {
+  margin: 0 14px 8px; padding: 10px 12px;
+  background: var(--paper, #faf8f4); border: 1px solid var(--line, #e3ded4);
+  border-radius: 10px;
+}
+.vcx__rate-row { display: flex; align-items: center; gap: 6px; }
+.vcx__rate-row + .vcx__rate-row { margin-top: 8px; }
+.vcx__rate-label { font-size: 12.5px; color: var(--ink-2, #555); margin-right: 2px; }
+.vcx__rate-star {
+  background: none; border: none; cursor: pointer; padding: 0 1px;
+  font-size: 18px; line-height: 1; color: var(--line, #d8d2c6);
+  transition: color .15s;
+}
+.vcx__rate-star.on, .vcx__rate-star:hover { color: var(--orange, #e8a33d); }
+.vcx__rate-close {
+  margin-left: auto; background: none; border: none; cursor: pointer;
+  font-size: 16px; color: var(--ink-3, #999); line-height: 1;
+}
+.vcx__rate-input {
+  flex: 1; min-width: 0; font-size: 12.5px;
+  padding: 6px 10px; border: 1px solid var(--line, #e3ded4); border-radius: 8px;
+  background: var(--paper-white, #fff);
+}
+.vcx__rate-submit {
+  border: none; border-radius: 8px; padding: 6px 14px; cursor: pointer;
+  font-size: 12.5px; background: var(--board, #2f4f43); color: #fff;
+}
+.vcx__rate-submit:disabled { opacity: .5; cursor: default; }

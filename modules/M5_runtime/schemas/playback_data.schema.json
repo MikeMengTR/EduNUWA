@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Playback Data",
+  "description": "Schema for playback_data.json — M5 builder output consumed by PlayerRuntime frontend",
+  "type": "object",
+  "required": ["session_id", "turn", "teacher_id", "voice_id", "timeline", "total_duration_sec"],
+  "properties": {
+    "session_id": { "type": "string" },
+    "turn": { "type": "integer", "minimum": 1 },
+    "teacher_id": { "type": "string" },
+    "skill_id": { "type": "string" },
+    "avatar": {
+      "type": "object",
+      "properties": {
+        "pixel_url": { "type": "string" },
+        "live2d_model_id": { "type": "string" }
+      }
+    },
+    "voice_id": { "type": "string" },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "event_id", "start_offset_sec"],
+        "properties": {
+          "seq": { "type": "integer", "minimum": 1 },
+          "type": { "type": "string", "enum": ["speak", "board", "formula", "table", "pause", "quiz"] },
+          "event_id": { "type": "string" },
+          "start_offset_sec": { "type": "number", "minimum": 0 },
+          "text": { "type": "string" },
+          "audio_path": { "type": "string" },
+          "duration_sec": { "type": "number" },
+          "action": { "type": "string" },
+          "content": {},
+          "latex": { "type": "string" },
+          "display_mode": { "type": "string", "enum": ["block", "inline"] },
+          "title": { "type": "string" },
+          "columns": { "type": "array", "items": { "type": "string" } },
+          "rows": { "type": "array" },
+          "question": { "type": "string" },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "blocking": { "type": "boolean" },
+          "dwell_sec": { "type": "number" }
+        }
+      }
+    },
+    "total_duration_sec": { "type": "number", "minimum": 0 }
+  }
+}

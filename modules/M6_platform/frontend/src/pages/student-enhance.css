@@ -1,0 +1,138 @@
+/* ============================================================
+   EduTwin · /student 动态与设计感增强层
+   作用域化到 .discover-page，避免外溢到 TeacherDashboard 等共用 .tcard/.chip 的页面
+   学科 = 身份色（脊柱/头像环/学科名/悬停光晕）；橙 = 行动色（走进课堂）
+   ============================================================ */
+
+/* —— 学科色板（暖、哑光，贴合纸质底） —— */
+.discover-page .tcard            { --disc: var(--ink-3); }   /* 兜底 */
+.discover-page .tcard.disc-math    { --disc:#d6573a; }       /* 数学 · 概率 · 线代 */
+.discover-page .tcard.disc-cs      { --disc:#2e7d6e; }       /* 计算机 · 机器学习 */
+.discover-page .tcard.disc-physics { --disc:#4f7a98; }       /* 物理 */
+.discover-page .tcard.disc-philo   { --disc:#7b579b; }       /* 哲学 · 思政 */
+.discover-page .tcard.disc-bio     { --disc:#4f8a5c; }       /* 生物 */
+.discover-page .tcard.disc-econ    { --disc:#b5872f; }       /* 经济 · 管理 */
+.discover-page .tcard.disc-art     { --disc:#818a3f; }       /* 艺术 · 园林 */
+.discover-page .tcard.disc-food    { --disc:#b56a52; }       /* 食品 */
+
+/* ============ 载入序列：让页面"自己写进来" ============ */
+.container.discover-page { animation: none; }   /* 关掉整体 fade-up，改分层编排 */
+@keyframes eRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.discover-page .discover__kick    { animation: eRise .6s ease both;                     animation-delay: .05s; }
+.discover-page .discover__hero h1 { animation: eRise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: .12s; }
+.discover-page .discover__lead    { animation: eRise .6s ease both;                     animation-delay: .22s; }
+.discover-page .discover__stats   { animation: eRise .6s ease both;                     animation-delay: .30s; }
+.discover-page .discover__match   { animation: eRise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: .34s; }
+.discover-page .discover__sec-lab { animation: eRise .5s ease both;                     animation-delay: .44s; }
+.discover-page .discover__bar     { animation: eRise .5s ease both;                     animation-delay: .50s; }
+
+/* 区块分隔线：从左侧画出来 */
+.discover-page .discover__sec-line { transform-origin: left center; animation: lineDraw .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: .48s; }
+@keyframes lineDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* 品牌橙句号：缓慢呼吸的微光 */
+.discover-page .discover__hero-dot { display: inline-block; animation: dotGlow 3.4s ease-in-out infinite; animation-delay: 1s; }
+@keyframes dotGlow {
+  0%, 100% { text-shadow: 0 0 0 rgba(222,94,57,0); transform: scale(1); }
+  50%      { text-shadow: 0 0 18px rgba(222,94,57,.55); transform: scale(1.06); }
+}
+
+/* ============ 深色匹配卡：缓慢极光 + 闪烁星标 ============ */
+.discover-page .discover__match::after {
+  background:
+    radial-gradient(58% 80% at 12% 0%,  rgba(222,94,57,.22), transparent 55%),
+    radial-gradient(54% 82% at 92% 100%, rgba(80,123,152,.20), transparent 55%);
+  background-size: 200% 200%, 200% 200%;
+  background-position: 0% 0%, 100% 100%;
+  animation: matchAurora 20s ease-in-out infinite alternate;
+}
+@keyframes matchAurora {
+  0%   { background-position: 0% 0%,  100% 100%; }
+  100% { background-position: 36% 24%, 64% 76%; }
+}
+.discover-page .discover__match-label .icon { transform-origin: center; animation: sparkleTwinkle 3.4s ease-in-out infinite; }
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: .78; transform: scale(.95) rotate(0);   filter: drop-shadow(0 0 0 rgba(200,162,75,0)); }
+  50%      { opacity: 1;   transform: scale(1.1) rotate(10deg); filter: drop-shadow(0 0 7px rgba(200,162,75,.6)); }
+}
+
+/* ============ 学科 chips：依次浮现 + 轻微抬起 ============ */
+.discover-page .chip { animation: eRise .5s ease backwards; transition: transform .16s ease, border-color .16s, color .16s, background .16s; }
+.discover-page .discover__chips .chip:nth-child(1) { animation-delay: .52s; }
+.discover-page .discover__chips .chip:nth-child(2) { animation-delay: .56s; }
+.discover-page .discover__chips .chip:nth-child(3) { animation-delay: .60s; }
+.discover-page .discover__chips .chip:nth-child(4) { animation-delay: .64s; }
+.discover-page .discover__chips .chip:nth-child(5) { animation-delay: .68s; }
+.discover-page .discover__chips .chip:nth-child(6) { animation-delay: .72s; }
+.discover-page .discover__chips .chip:nth-child(7) { animation-delay: .76s; }
+.discover-page .discover__chips .chip:nth-child(8) { animation-delay: .80s; }
+.discover-page .discover__chips .chip:nth-child(9) { animation-delay: .84s; }
+.discover-page .chip:hover { transform: translateY(-2px); }
+
+/* ============ 教师卡片：发牌式级联入场 ============ */
+.discover-page .tcard {
+  overflow: hidden;                                            /* 让脊柱/光晕被圆角裁切 */
+  animation: cardDeal .6s cubic-bezier(.2,.7,.2,1) backwards;  /* backwards：结束后释放 transform，悬停才生效 */
+  transition: transform .26s cubic-bezier(.2,.7,.2,1), box-shadow .26s, border-color .26s;
+}
+@keyframes cardDeal { from { opacity: 0; transform: translateY(22px) scale(.98); } to { opacity: 1; transform: none; } }
+.discover-page .agent-grid .tcard:nth-child(1)  { animation-delay: .60s; }
+.discover-page .agent-grid .tcard:nth-child(2)  { animation-delay: .66s; }
+.discover-page .agent-grid .tcard:nth-child(3)  { animation-delay: .72s; }
+.discover-page .agent-grid .tcard:nth-child(4)  { animation-delay: .78s; }
+.discover-page .agent-grid .tcard:nth-child(5)  { animation-delay: .84s; }
+.discover-page .agent-grid .tcard:nth-child(6)  { animation-delay: .90s; }
+.discover-page .agent-grid .tcard:nth-child(7)  { animation-delay: .96s; }
+.discover-page .agent-grid .tcard:nth-child(8)  { animation-delay: 1.02s; }
+.discover-page .agent-grid .tcard:nth-child(9)  { animation-delay: 1.08s; }
+.discover-page .agent-grid .tcard:nth-child(10) { animation-delay: 1.14s; }
+.discover-page .agent-grid .tcard:nth-child(11) { animation-delay: 1.20s; }
+.discover-page .agent-grid .tcard:nth-child(12) { animation-delay: 1.26s; }
+
+/* 学科色脊柱：平时安静，悬停点亮变粗 */
+.discover-page .tcard::before {
+  content: ''; position: absolute; left: 0; top: 20px; bottom: 20px; width: 3px; z-index: 1;
+  border-radius: 0 3px 3px 0; background: var(--disc); opacity: .42;
+  transition: opacity .26s, top .26s, bottom .26s, width .26s, box-shadow .26s;
+}
+/* 右上角学科色辉光（悬停淡入） */
+.discover-page .tcard::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; opacity: 0;
+  background: radial-gradient(130% 90% at 100% 0%, color-mix(in srgb, var(--disc) 18%, transparent), transparent 58%);
+  transition: opacity .3s;
+}
+.discover-page .tcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(25,24,21,.14);
+  border-color: color-mix(in srgb, var(--disc) 55%, var(--line));
+}
+.discover-page .tcard:hover::before { opacity: 1; top: 14px; bottom: 14px; width: 4px; box-shadow: 0 0 16px color-mix(in srgb, var(--disc) 70%, transparent); }
+.discover-page .tcard:hover::after  { opacity: 1; }
+
+/* 头像：学科色描边，悬停轻微放大 + 学科色光环 */
+.discover-page .tcard__avatar { border-color: color-mix(in srgb, var(--disc) 38%, var(--line)); transition: transform .26s cubic-bezier(.2,.7,.2,1), box-shadow .26s; }
+.discover-page .tcard:hover .tcard__avatar { transform: scale(1.06) rotate(-1.5deg); box-shadow: 0 0 0 3px color-mix(in srgb, var(--disc) 22%, transparent); }
+
+/* 学科名用学科色（与墨色混合保证对比度） */
+.discover-page .tcard__meta-subject { color: color-mix(in srgb, var(--disc) 80%, #191815); }
+.discover-page .tcard__name { transition: color .2s; }
+.discover-page .tcard:hover .tcard__name { color: color-mix(in srgb, var(--disc) 70%, #191815); }
+
+/* 走进课堂：卡片悬停即滑出箭头（行动色保持品牌橙） */
+.discover-page .tcard:hover .tcard__enter { gap: 9px; }
+.discover-page .tcard:hover .tcard__enter .icon { transform: translateX(3px); transition: transform .26s; }
+
+/* ============ 尊重"减少动态"系统偏好 ============ */
+@media (prefers-reduced-motion: reduce) {
+  .discover-page .discover__kick, .discover-page .discover__hero h1, .discover-page .discover__lead,
+  .discover-page .discover__stats, .discover-page .discover__match, .discover-page .discover__hero-dot,
+  .discover-page .discover__match::after, .discover-page .discover__match-label .icon,
+  .discover-page .discover__sec-lab, .discover-page .discover__sec-line, .discover-page .discover__bar,
+  .discover-page .chip, .discover-page .tcard, .discover-page .tcard__twin-dot, .discover-page .discover__pulse {
+    animation: none !important;
+  }
+  .discover-page .tcard, .discover-page .tcard__avatar, .discover-page .chip { transition: none !important; }
+  .discover-page .tcard::before { opacity: .42; }
+  .discover-page .discover__sec-line { transform: none; }
+}

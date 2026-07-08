@@ -1,0 +1,122 @@
+{
+  "skill_id": "S_T20260604005_v1",
+  "teacher_id": "T_20260604_005",
+  "teacher_name": "西方园林历史与艺术·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:15:01.811679+08:00",
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "系统结构清晰",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.95,
+      "evidence": [
+        "f0_seg_0005",
+        "f1_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "历史叙事生动",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f3_seg_0050"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "强调因果逻辑",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f2_seg_0002",
+        "f4_seg_0006"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "娓娓道来",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f4_seg_0001",
+        "f4_seg_0006"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 210.1,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 0.0,
+      "unit": "次/10分钟",
+      "label": "偏少互动",
+      "polarity": "low"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "西方园林历史与艺术",
+    "language": "zh"
+  }
+}

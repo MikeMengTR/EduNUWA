@@ -1,0 +1,136 @@
+{
+  "skill_id": "S_T20260604001_v1",
+  "teacher_id": "T_20260604_001",
+  "teacher_name": "概率论·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:14:18.708593+08:00",
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "生活化类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f4_seg_0005",
+        "f5_seg_0013"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "拦截易错点",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f4_seg_0003",
+        "f2_seg_07"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "条分缕析",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f2_seg_07",
+        "f7_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "对比辨析",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": [
+        "f0_seg_0002",
+        "f4_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "承上启下",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0001",
+        "f7_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "严谨推导",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f7_seg_0004",
+        "f8_seg_0013"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "举例丰富",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0008",
+        "f5_seg_0013"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 212.3,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 4.4,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "概率论",
+    "language": "zh"
+  }
+}

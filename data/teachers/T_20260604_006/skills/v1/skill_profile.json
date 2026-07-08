@@ -1,0 +1,130 @@
+{
+  "skill_id": "S_T20260604006_v1",
+  "teacher_id": "T_20260604_006",
+  "teacher_name": "线性代数·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:15:15.347836+08:00",
+  "style_tags": [
+    {
+      "text": "结构清晰",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 1.0,
+      "evidence": [
+        "f1_seg_0015",
+        "f1_seg_0037"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0015"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "渐进演示",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0019"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "形象比喻",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f2_seg_0049"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f2_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "强调符号规范",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0028"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "严谨条件",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0006"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 131.8,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 2.7,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "线性代数",
+    "language": "zh"
+  }
+}

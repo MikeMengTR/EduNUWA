@@ -1,0 +1,48 @@
+/* =========================================================================
+   视频管理
+   ========================================================================= */
+.vid-upload {
+  background: var(--paper-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.vid-upload h3 { display: flex; align-items: center; gap: 8px; font-size: 17px; margin-bottom: 16px; }
+.vid-upload__row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.vid-upload__row .form-group { flex: 1; min-width: 180px; margin-bottom: 0; }
+.vid-upload__row .btn { flex-shrink: 0; }
+
+.vid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 18px;
+}
+.vid-card {
+  display: flex; flex-direction: column;
+  background: var(--paper-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s, box-shadow .2s;
+  animation: fade-up .5s ease both;
+}
+.vid-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.vid-card__cover {
+  height: 118px;
+  background: var(--board);
+  color: rgba(243,238,229,0.4);
+  display: flex; align-items: center; justify-content: center;
+  background-image: radial-gradient(70% 80% at 50% 0%, rgba(222,94,57,0.12), transparent 60%);
+}
+.vid-card__body { flex: 1; padding: 16px; }
+.vid-card__body h3 { font-size: 16px; margin-bottom: 8px; }
+.vid-card__body p {
+  font-size: 13px; color: var(--ink-2); line-height: 1.55; margin: 8px 0;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.vid-card__meta { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink-3); }
+.vid-card__foot { padding: 0 16px 16px; }
+.vid-card__foot .btn { width: 100%; }

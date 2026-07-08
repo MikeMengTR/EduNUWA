@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101001_v1",
+  "teacher_id": "T_20260101_001",
+  "teacher_name": "示例老师",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.348389+08:00",
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "先直觉后定义",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 233.7,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 8.0,
+      "unit": "次/10分钟",
+      "label": "频繁互动",
+      "polarity": "high"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "problem-driven"
+    },
+    "intuition_building": {
+      "order": "intuition-first",
+      "before_formal": true
+    },
+    "analogy_density": {
+      "level": "high"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "A-",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "高等数学",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

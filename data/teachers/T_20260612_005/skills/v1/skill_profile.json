@@ -1,0 +1,134 @@
+{
+  "skill_id": "S_T20260612005_v1",
+  "teacher_id": "T_20260612_005",
+  "teacher_name": "",
+  "display_name": "经济学_某高校",
+  "subject": "经济学",
+  "version": 1,
+  "generated_at": "2026-06-12T09:11:20.619289+00:00",
+  "fingerprint": {
+    "pace": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "detail": {
+      "value": 0.7,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "abstraction": {
+      "value": 0.4,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "interactivity": {
+      "value": 0.8,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "humor": {
+      "value": 0.3,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "rigor": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    }
+  },
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0067"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0001",
+        "f0_seg_0018"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "板书极简",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f0_seg_0027"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "互动提问频繁",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0041",
+        "f0_seg_0057"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "概念定义先行",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0048",
+        "f0_seg_0078"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "框架感强",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0009"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "节奏明快",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f0_seg_0128"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "pedagogy": {},
+  "tags": [],
+  "quality": {
+    "overall_grade": "NA"
+  }
+}

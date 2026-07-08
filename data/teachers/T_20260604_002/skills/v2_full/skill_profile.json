@@ -1,0 +1,172 @@
+{
+  "skill_id": "S_T20260604002_v2",
+  "teacher_id": "T_20260604_002",
+  "teacher_name": "高等数学·某高校",
+  "version": 2,
+  "generated_at": "2026-06-04T14:33:00+08:00",
+
+  "style_tags": [
+    {
+      "text": "先直观后严格",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0003", "f1_seg_0004", "f1_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "善用几何直观辅助理解",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0007", "f2_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "定义逐项拆解、细致讲解",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0004", "f1_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "以具体数值过渡抽象符号",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0004", "f1_seg_0008"],
+      "cluster_id": null
+    },
+    {
+      "text": "联系已学知识推进新知",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f0_seg_0002", "f0_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截常见误区",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f0_seg_0004", "f1_seg_0006", "f2_seg_0002"],
+      "cluster_id": null
+    },
+    {
+      "text": "节奏稳重、娓娓道来",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f0_seg_0001", "f2_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "设问自答、引导思考",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.70,
+      "evidence": ["f1_seg_0003", "f0_seg_0004"],
+      "cluster_id": null
+    },
+    {
+      "text": "反证法讲性质的唯一性与保序性",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.70,
+      "evidence": ["f2_seg_0001", "f2_seg_0003"],
+      "cluster_id": null
+    },
+    {
+      "text": "板书关键定义与公式骨架",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f0_seg_0001", "f0_seg_0005"],
+      "cluster_id": null
+    },
+    {
+      "text": "习惯用「我们来看」开启讲解",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f0_seg_0001", "f1_seg_0001", "f1_seg_0008", "f2_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "以「需要强调的是」标记重点与易错",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0004", "f1_seg_0006"],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+
+  "base_metrics": {
+    "speech_rate": {
+      "value": 152.8,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 0.89,
+      "unit": "次/10分钟",
+      "label": "较少提问",
+      "polarity": "low"
+    }
+  },
+
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "phenomenon-driven",
+      "signature_phrase": "我们先看…"
+    },
+    "intuition_building": {
+      "order": "intuition-first",
+      "intuition_source": ["prior-knowledge", "geometric"],
+      "before_formal": true
+    },
+    "analogy_density": {
+      "level": "medium",
+      "per_concept": 0,
+      "domain_pool": ["中学已学知识", "几何图像"]
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets",
+      "write_timing": "after-speak",
+      "minimal_text": true
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit",
+      "timing": "after-definition",
+      "signature_phrase": "需要强调的是，…"
+    }
+  },
+
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+
+  "attributes": {
+    "subject": "高等数学",
+    "language": "zh",
+    "corpus_stats": {
+      "transcripts_count": 3,
+      "total_duration_sec": 2026.79,
+      "total_text_chars": 5161
+    }
+  },
+
+  "derived_from": "edunuwa-teacher-distiller (fork of huashu-nuwa)",
+
+  "warnings": [
+    "语料偏少：仅 20 个 segments（<30），部分维度标签的置信度受限于样本量",
+    "计算 speech_rate 时三份文件（f0/f1/f2）的 segments 时间戳相互独立，总时长为各文件时长之和",
+    "question_freq 偏低（0.89 次/10 分钟），设问句多出现在段首引入处而非段中互动"
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "skill_id": "S_T20260612003_v1",
+  "teacher_id": "T_20260612_003",
+  "teacher_name": "",
+  "display_name": "植物学_某高校",
+  "subject": "生物",
+  "version": 1,
+  "generated_at": "2026-06-12T09:10:24.353817+00:00",
+  "fingerprint": {
+    "pace": {
+      "value": 0.4,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "detail": {
+      "value": 0.6,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "abstraction": {
+      "value": 0.5,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "interactivity": {
+      "value": 0.3,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "humor": {
+      "value": 0.2,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    },
+    "rigor": {
+      "value": 0.7,
+      "confidence": 0.7,
+      "source": [
+        "auto"
+      ]
+    }
+  },
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0001",
+        "f0_seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "生活化类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0005",
+        "f0_seg_0016"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "数据驱动",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0003",
+        "f2_seg_0009"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "历史脉络清晰",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0002",
+        "f4_seg_0001"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "激发使命感",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f2_seg_0009",
+        "f3_seg_0010"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "善用对比",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0012",
+        "f0_seg_0016"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "总结性强",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0016",
+        "f0_seg_0027"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "权威引证",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f4_seg_0004",
+        "f4_seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "pedagogy": {},
+  "tags": [],
+  "quality": {
+    "overall_grade": "NA"
+  }
+}

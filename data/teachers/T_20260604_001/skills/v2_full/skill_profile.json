@@ -1,0 +1,135 @@
+{
+  "skill_id": "S_T20260604001_v2",
+  "teacher_id": "T_20260604_001",
+  "teacher_name": "概率论·某高校",
+  "version": 2,
+  "generated_at": "2026-06-04T12:00:00+08:00",
+
+  "style_tags": [
+    {
+      "text": "设问自答、引导思考",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0005", "f3_seg_0002"],
+      "cluster_id": null
+    },
+    {
+      "text": "先直觉后形式、归纳式教学",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": ["f0_seg_0002", "f0_seg_0003", "f0_seg_0004"],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比、接地气",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0003", "f0_seg_0008"],
+      "cluster_id": null
+    },
+    {
+      "text": "板书极简、只写骨架",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": ["f0_seg_0007", "f0_seg_0010"],
+      "cluster_id": null
+    },
+    {
+      "text": "主动防错、提醒频密",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": ["f0_seg_0006", "f2_seg_07"],
+      "cluster_id": null
+    },
+    {
+      "text": "以集合论为认知框架",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": ["f0_seg_0010", "f1_seg_0005", "f2_seg_08"],
+      "cluster_id": null
+    },
+    {
+      "text": "节奏舒缓、好跟随",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f0_seg_0001", "f2_seg_01"],
+      "cluster_id": null
+    },
+    {
+      "text": "每讲必总结、结构明晰",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0010", "f2_seg_10"],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+
+  "base_metrics": {
+    "speech_rate": {
+      "value": 124.4,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 3.65,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "phenomenon-driven",
+      "signature_phrase": "在自然界和人类社会当中，存在两类不同的现象…"
+    },
+    "intuition_building": {
+      "order": "intuition-first",
+      "intuition_source": ["daily-life", "prior-knowledge"],
+      "before_formal": true
+    },
+    "analogy_density": {
+      "level": "high",
+      "per_concept": 1,
+      "domain_pool": ["日常生活场景", "已学知识（集合论）"]
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets",
+      "secondary_layout": "comparison-table",
+      "write_timing": "with-speak",
+      "minimal_text": true
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit",
+      "timing": "after-example",
+      "signature_phrase": "大家注意……"
+    }
+  },
+
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+
+  "attributes": {
+    "subject": "概率论",
+    "language": "zh",
+    "corpus_stats": {
+      "transcripts_count": 4,
+      "total_duration_sec": 2139.4,
+      "total_text_chars": 8081
+    }
+  },
+
+  "derived_from": "edunuwa-teacher-distiller (fork of huashu-nuwa)"
+}

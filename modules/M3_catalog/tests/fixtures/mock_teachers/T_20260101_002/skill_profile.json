@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101002_v1",
+  "teacher_id": "T_20260101_002",
+  "teacher_name": "李博",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.361389+08:00",
+  "style_tags": [
+    {
+      "text": "干脆利落",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "直击考点",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "重解题套路",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "节奏明快",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 320.0,
+      "unit": "字/分",
+      "label": "偏快",
+      "polarity": "fast"
+    },
+    "question_freq": {
+      "value": 1.5,
+      "unit": "次/10分钟",
+      "label": "偏少互动",
+      "polarity": "low"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "formal-first",
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "low"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "derivation-flow"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "B+",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "高等数学",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

@@ -1,0 +1,29 @@
+.live2d-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #26221b 0%, #1c1a16 100%);
+  border: 1px solid rgba(224, 215, 202, 0.1);
+  border-radius: 14px;
+}
+
+.live2d-canvas {
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+}
+
+.live2d-teacher-name {
+  margin: 12px 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ece4d6;
+  font-family: 'Songti SC', 'STSong', serif;
+}
+
+.live2d-stub-label {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8a8276;
+  font-style: italic;
+}

@@ -1,0 +1,36 @@
+{
+  "teacher_id": "T_20260612_006",
+  "display_name": "示范教师12·食品化学",
+  "subject": "食品科学",
+  "description": "示范教师12 - 食品科学教学",
+  "avatar": {
+    "images": [
+      "vtuber_frame_00.png",
+      "vtuber_frame_01.png"
+    ],
+    "pixel_url": "/api/v1/avatar/T_20260612_006/vtuber_frame_00.png"
+  },
+  "voice_id": "",
+  "grade": "B",
+  "fingerprint": {
+    "speech_rate": {
+      "value": 0.4,
+      "confidence": 0.7
+    },
+    "question_freq": {
+      "value": 0.3,
+      "confidence": 0.7
+    }
+  },
+  "pedagogy": {
+    "analogy_density": "medium",
+    "concept_entry": "definition-first"
+  },
+  "tags": [
+    "新教师",
+    "食品科学",
+    "待蒸馏"
+  ],
+  "user_id": "",
+  "real_name": "示范教师12"
+}

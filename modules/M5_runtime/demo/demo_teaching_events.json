@@ -1,0 +1,135 @@
+{
+  "event_file_id": "demo_functions_intro",
+  "question_id": "q_demo_001",
+  "session_id": "SES_demo_20260522",
+  "turn": 1,
+  "events": [
+    {
+      "event_id": "evt_0001",
+      "type": "speak",
+      "seq": 1,
+      "text": "同学们好，今天我们一起来学习函数这个基本概念。"
+    },
+    {
+      "event_id": "evt_0002",
+      "type": "board",
+      "seq": 2,
+      "action": "write_title",
+      "content": "函数 Function"
+    },
+    {
+      "event_id": "evt_0003",
+      "type": "speak",
+      "seq": 3,
+      "text": "我们先来看一个生活中的例子，帮助大家建立直觉。"
+    },
+    {
+      "event_id": "evt_0004",
+      "type": "board",
+      "seq": 4,
+      "action": "write_bullets",
+      "content": ["每个学生 → 一个学号", "每件商品 → 一个价格", "每个时间点 → 一个温度"]
+    },
+    {
+      "event_id": "evt_0005",
+      "type": "speak",
+      "seq": 5,
+      "text": "这些例子的共同特点是什么？给定一个输入，就有唯一确定的输出与之对应。"
+    },
+    {
+      "event_id": "evt_0006",
+      "type": "pause",
+      "seq": 6,
+      "duration_sec": 2.0
+    },
+    {
+      "event_id": "evt_0007",
+      "type": "speak",
+      "seq": 7,
+      "text": "下面我们给出函数的正式定义。"
+    },
+    {
+      "event_id": "evt_0008",
+      "type": "formula",
+      "seq": 8,
+      "latex": "f: X \\to Y, \\quad \\forall x \\in X, \\exists! y \\in Y \\text{ s.t. } y = f(x)",
+      "display_mode": "block"
+    },
+    {
+      "event_id": "evt_0009",
+      "type": "speak",
+      "seq": 9,
+      "text": "简单来说，给定一个x，就有唯一确定的y与之对应，这就是函数。"
+    },
+    {
+      "event_id": "evt_0010",
+      "type": "board",
+      "seq": 10,
+      "action": "write_subtitle",
+      "content": "定义域、值域、对应法则——函数三要素"
+    },
+    {
+      "event_id": "evt_0011",
+      "type": "speak",
+      "seq": 11,
+      "text": "我们来看一个表格，对比一下几种常见的表示方法。"
+    },
+    {
+      "event_id": "evt_0012",
+      "type": "table",
+      "seq": 12,
+      "title": "函数表示方法对比",
+      "columns": ["表示方法", "优点", "缺点"],
+      "rows": [
+        ["解析式 y=x²", "精确", "不直观"],
+        ["表格", "一目了然", "数据有限"],
+        ["图像", "直观", "不够精确"]
+      ]
+    },
+    {
+      "event_id": "evt_0013",
+      "type": "speak",
+      "seq": 13,
+      "text": "同学们需要特别注意，不是所有的对应关系都是函数。"
+    },
+    {
+      "event_id": "evt_0014",
+      "type": "board",
+      "seq": 14,
+      "action": "write_steps",
+      "content": ["① 检查定义域是否完整", "② 每个x只能对应一个y", "③ 值域是定义域的像集"]
+    },
+    {
+      "event_id": "evt_0015",
+      "type": "speak",
+      "seq": 15,
+      "text": "好，我们来做一个小测验，看看大家理解了没有。"
+    },
+    {
+      "event_id": "evt_0016",
+      "type": "quiz",
+      "seq": 16,
+      "question": "下列哪个不是函数的基本要素？",
+      "options": ["定义域", "值域", "图像", "对应法则"]
+    },
+    {
+      "event_id": "evt_0017",
+      "type": "speak",
+      "seq": 17,
+      "text": "答案是图像。函数的三要素是定义域、值域和对应法则，图像只是函数的可视化表示。"
+    },
+    {
+      "event_id": "evt_0018",
+      "type": "board",
+      "seq": 18,
+      "action": "write_summary",
+      "content": "小结：函数 = 定义域 + 对应法则 + 值域"
+    },
+    {
+      "event_id": "evt_0019",
+      "type": "speak",
+      "seq": 19,
+      "text": "今天的课就到这里，同学们记得做课后练习，我们下次再见。"
+    }
+  ]
+}

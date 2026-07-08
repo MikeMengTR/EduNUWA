@@ -1,0 +1,114 @@
+{
+  "skill_id": "S_T20260604004_v1",
+  "teacher_id": "T_20260604_004",
+  "teacher_name": "思想道德与法治·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:14:54.159496+08:00",
+  "style_tags": [
+    {
+      "text": "设问自答",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0003",
+        "f0_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用生活类比",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f2_seg_0003",
+        "f2_seg_0008"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0006",
+        "f2_seg_0007"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "引经据典",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f0_seg_0002",
+        "f0_seg_0006"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "互动设计",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f2_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "结构清晰",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f0_seg_0001",
+        "f1_seg_0001"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 259.6,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 4.0,
+      "unit": "次/10分钟",
+      "label": "时常提问",
+      "polarity": "mid"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "思想道德与法治",
+    "language": "zh"
+  }
+}

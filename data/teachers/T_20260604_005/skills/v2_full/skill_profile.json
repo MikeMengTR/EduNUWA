@@ -1,0 +1,172 @@
+{
+  "skill_id": "S_T20260604005_v2",
+  "teacher_id": "T_20260604_005",
+  "teacher_name": "西方园林历史与艺术·某高校",
+  "version": 2,
+  "generated_at": "2026-06-04T22:45:00+08:00",
+
+  "style_tags": [
+    {
+      "text": "系统脉络先行",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0003", "f0_seg_0006"],
+      "cluster_id": null
+    },
+    {
+      "text": "分类逐项讲解",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f3_seg_0001", "f3_seg_0004"],
+      "cluster_id": null
+    },
+    {
+      "text": "多维度背景铺垫",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0002", "f1_seg_0003", "f1_seg_0007"],
+      "cluster_id": null
+    },
+    {
+      "text": "图文对照辅助理解",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0008", "f3_seg_0066"],
+      "cluster_id": null
+    },
+    {
+      "text": "正式学术口吻",
+      "dimension": null,
+      "source": "auto",
+      "confidence": 0.90,
+      "evidence": ["f0_seg_0001", "f0_seg_0002"],
+      "cluster_id": null
+    },
+    {
+      "text": "设问引导思考",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.75,
+      "evidence": ["f1_seg_0002", "f3_seg_0079"],
+      "cluster_id": null
+    },
+    {
+      "text": "先定义后展开",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0005", "f2_seg_0003"],
+      "cluster_id": null
+    },
+    {
+      "text": "阶段小结承上启下",
+      "dimension": "pace",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f0_seg_0007", "f3_seg_0001"],
+      "cluster_id": null
+    },
+    {
+      "text": "爱用包容性第一人称",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f0_seg_0001", "f0_seg_0002", "f0_seg_0006"],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截认知误区",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f1_seg_0002", "f0_seg_0004"],
+      "cluster_id": null
+    },
+    {
+      "text": "引用经典文献史料",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": ["f1_seg_0003", "f2_seg_0003"],
+      "cluster_id": null
+    },
+    {
+      "text": "古今中外对比视角",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.80,
+      "evidence": ["f0_seg_0006", "f1_seg_0005"],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+
+  "base_metrics": {
+    "speech_rate": {
+      "value": 216,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 0.6,
+      "unit": "次/10分钟",
+      "label": "极少提问",
+      "polarity": "low"
+    },
+    "info_density": {
+      "value": 0.4,
+      "unit": "新概念/分钟",
+      "label": "适中",
+      "polarity": "mid"
+    }
+  },
+
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "history-driven",
+      "intuition_source": ["historical-origin", "comparative-contrast"],
+      "before_formal": true
+    },
+    "intuition_building": {
+      "order": "intuition-first",
+      "intuition_source": ["historical-knowledge", "literature-mythology", "geography"],
+      "before_formal": true
+    },
+    "analogy_density": {
+      "level": "low",
+      "per_concept": 0.3,
+      "domain_pool": ["宗教文学（伊甸园）", "地理命名（上/下埃及）", "生产生活（罗马谷仓）"]
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets",
+      "write_timing": "before-speak",
+      "minimal_text": true
+    },
+    "misconception_alert": {
+      "mode": "proactive-explicit",
+      "timing": "after-definition"
+    }
+  },
+
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+
+  "attributes": {
+    "subject": "西方园林历史与艺术",
+    "language": "zh",
+    "corpus_stats": {
+      "transcripts_count": 1,
+      "total_duration_sec": 2170,
+      "total_text_chars": 7799
+    }
+  },
+
+  "derived_from": "edunuwa-teacher-distiller (fork of huashu-nuwa)"
+}

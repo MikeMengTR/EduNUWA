@@ -1,0 +1,100 @@
+{
+  "skill_id": "S_T20260101006_v1",
+  "teacher_id": "T_20260101_006",
+  "teacher_name": "赵问",
+  "version": 1,
+  "generated_at": "2026-06-04T20:52:49.418174+08:00",
+  "style_tags": [
+    {
+      "text": "苏格拉底式",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "步步追问",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "引导思考",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "从不直接给答案",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "seg_0001",
+        "seg_0005"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 210.0,
+      "unit": "字/分",
+      "label": "适中",
+      "polarity": "mid"
+    },
+    "question_freq": {
+      "value": 12.0,
+      "unit": "次/10分钟",
+      "label": "频繁互动",
+      "polarity": "high"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "problem-driven"
+    },
+    "intuition_building": {
+      "order": "interleaved",
+      "before_formal": false
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "mind-map"
+    },
+    "misconception_alert": {
+      "mode": "proactive-implicit"
+    }
+  },
+  "quality": {
+    "stability": {
+      "declared_observed_consistency": 0.85,
+      "cross_probe_consistency": 0.9,
+      "cross_layer_consistency": 0.82
+    },
+    "overall_grade": "A-",
+    "publishable": true
+  },
+  "attributes": {
+    "subject": "线性代数",
+    "language": "zh"
+  },
+  "derived_from": "gen_mock_teachers (demo fixture)"
+}

@@ -1,0 +1,129 @@
+{
+  "skill_id": "S_T20260604002_v1",
+  "teacher_id": "T_20260604_002",
+  "teacher_name": "高等数学·某高校",
+  "version": 1,
+  "generated_at": "2026-06-04T22:14:31.778298+08:00",
+  "style_tags": [
+    {
+      "text": "注重严格定义",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f1_seg_0005",
+        "f0_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "擅长对比辨析",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f1_seg_0002",
+        "f2_seg_0002",
+        "f2_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "善用反例",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f0_seg_0004",
+        "f1_seg_0002",
+        "f2_seg_0002"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "主动拦截易错点",
+      "dimension": "detail",
+      "source": "auto",
+      "confidence": 0.85,
+      "evidence": [
+        "f0_seg_0004",
+        "f1_seg_0006",
+        "f2_seg_0004"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "逻辑严谨证明详细",
+      "dimension": "rigor",
+      "source": "auto",
+      "confidence": 0.9,
+      "evidence": [
+        "f2_seg_0001",
+        "f2_seg_0002",
+        "f2_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "强调几何直观",
+      "dimension": "abstraction",
+      "source": "auto",
+      "confidence": 0.8,
+      "evidence": [
+        "f1_seg_0007",
+        "f2_seg_0003"
+      ],
+      "cluster_id": null
+    },
+    {
+      "text": "引导自主推导",
+      "dimension": "interactivity",
+      "source": "auto",
+      "confidence": 0.7,
+      "evidence": [
+        "f1_seg_0006"
+      ],
+      "cluster_id": null
+    }
+  ],
+  "style_embeddings_model": "bge-base-zh-v1.5",
+  "base_metrics": {
+    "speech_rate": {
+      "value": 148.2,
+      "unit": "字/分",
+      "label": "偏慢",
+      "polarity": "slow"
+    },
+    "question_freq": {
+      "value": 0.8,
+      "unit": "次/10分钟",
+      "label": "偏少互动",
+      "polarity": "low"
+    }
+  },
+  "pedagogy": {
+    "concept_entry": {
+      "primary": "definition-first"
+    },
+    "intuition_building": {
+      "order": "interleaved"
+    },
+    "analogy_density": {
+      "level": "medium"
+    },
+    "blackboard_strategy": {
+      "primary_layout": "title-bullets"
+    },
+    "misconception_alert": {
+      "mode": "reactive-only"
+    }
+  },
+  "quality": {
+    "overall_grade": "NA",
+    "publishable": false
+  },
+  "attributes": {
+    "subject": "高等数学",
+    "language": "zh"
+  }
+}

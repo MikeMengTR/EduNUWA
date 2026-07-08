@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edunuwa/schemas/skill_profile_v2.schema.json",
+  "title": "EduNUWA skill_profile_v2",
+  "description": "Single source of truth for the skill_profile_v2.json contract (v2.0). Produced by M2, consumed by M3 and M4. v2.0: open-vocabulary style_tags + base_metrics replace the old 6-dim numeric fingerprint. crowd tags live in a separate style_tags_live.json (see style_tags_live.schema.json).",
+  "type": "object",
+  "required": [
+    "skill_id", "teacher_id", "version", "generated_at",
+    "style_tags", "style_embeddings_model", "base_metrics",
+    "pedagogy", "quality", "attributes"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "skill_id":      { "type": "string", "pattern": "^S_T[A-Za-z0-9]+_v[0-9]+$" },
+    "teacher_id":    { "type": "string", "pattern": "^T_[0-9]{8}_[0-9]+$" },
+    "teacher_name":  { "type": "string" },
+    "version":       { "type": "integer", "minimum": 1 },
+    "generated_at":  { "type": "string", "format": "date-time" },
+
+    "style_tags": {
+      "type": "array",
+      "description": "Open-vocabulary style descriptors distilled from transcript (source=auto). crowd tags are NOT here (see style_tags_live.json).",
+      "items": { "$ref": "#/$defs/styleTag" }
+    },
+
+    "style_embeddings_model": {
+      "type": "string",
+      "description": "Embedding model+version used for style_tags vectors. MUST match M3 query embedding model (M2 H6 / M3 H6)."
+    },
+
+    "base_metrics": {
+      "type": "object",
+      "description": "Objective, measurable base metrics only (speech_rate etc). Subjective style goes to style_tags. Known keys listed; additional measurable metrics allowed.",
+      "properties": {
+        "speech_rate":   { "$ref": "#/$defs/baseMetric" },
+        "question_freq": { "$ref": "#/$defs/baseMetric" },
+        "info_density":  { "$ref": "#/$defs/baseMetric" }
+      },
+      "additionalProperties": { "$ref": "#/$defs/baseMetric" }
+    },
+
+    "pedagogy": {
+      "type": "object",
+      "required": ["concept_entry", "intuition_building", "analogy_density", "blackboard_strategy", "misconception_alert"],
+      "properties": {
+        "concept_entry": {
+          "type": "object",
+          "required": ["primary"],
+          "properties": {
+            "primary": { "enum": ["problem-driven", "phenomenon-driven", "definition-first", "contrast-driven", "history-driven"] },
+            "fallback": { "type": "string" },
+            "signature_phrase": { "type": "string" }
+          }
+        },
+        "intuition_building": {
+          "type": "object",
+          "required": ["order"],
+          "properties": {
+            "order": { "enum": ["intuition-first", "formal-first", "interleaved"] },
+            "intuition_source": {
+              "type": "array",
+              "items": { "enum": ["daily-life", "geometric", "physical", "prior-knowledge"] }
+            },
+            "before_formal": { "type": "boolean" }
+          }
+        },
+        "analogy_density": {
+          "type": "object",
+          "required": ["level"],
+          "properties": {
+            "level": { "enum": ["high", "medium", "low", "zero"] },
+            "per_concept": { "type": "integer", "minimum": 0 },
+            "domain_pool": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "blackboard_strategy": {
+          "type": "object",
+          "required": ["primary_layout"],
+          "properties": {
+            "primary_layout": { "enum": ["title-bullets", "derivation-flow", "comparison-table", "mind-map", "minimal"] },
+            "secondary_layout": { "enum": ["title-bullets", "derivation-flow", "comparison-table", "mind-map", "minimal"] },
+            "write_timing": { "enum": ["before-speak", "with-speak", "after-speak"] },
+            "minimal_text": { "type": "boolean" }
+          }
+        },
+        "misconception_alert": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": { "enum": ["proactive-explicit", "proactive-implicit", "reactive-only", "absent"] },
+            "timing": { "enum": ["before-definition", "after-definition", "after-example"] },
+            "signature_phrase": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "quality": {
+      "type": "object",
+      "description": "stability is OPTIONAL: present only when probe eval ran. When skip_probe_eval=True, omit stability and set overall_grade='NA', publishable=false (M2 §3.7).",
+      "required": ["overall_grade", "publishable"],
+      "properties": {
+        "stability": {
+          "type": "object",
+          "required": ["declared_observed_consistency", "cross_probe_consistency", "cross_layer_consistency"],
+          "properties": {
+            "declared_observed_consistency": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "cross_probe_consistency":       { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "cross_layer_consistency":       { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+          }
+        },
+        "overall_grade": { "enum": ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "NA"] },
+        "publishable": { "type": "boolean" },
+        "eval_report_path": { "type": "string" }
+      }
+    },
+
+    "attributes": {
+      "type": "object",
+      "required": ["subject", "language"],
+      "properties": {
+        "subject":  { "type": "string" },
+        "language": { "type": "string" },
+        "corpus_stats": {
+          "type": "object",
+          "properties": {
+            "transcripts_count":  { "type": "integer", "minimum": 0 },
+            "total_duration_sec": { "type": "number",  "minimum": 0 },
+            "total_text_chars":   { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "derived_from": { "type": "string" }
+  },
+
+  "$defs": {
+    "styleTag": {
+      "type": "object",
+      "description": "Style tag inside skill_profile (distillation snapshot). source is auto/self only; crowd tags live in style_tags_live.json (M2 H14). embedding is computed at load time in MVP; embedding_ref is an optional Phase-2 persistence handle. cluster_id is owned by M3 (global clustering); M2 leaves it null.",
+      "required": ["text", "source", "confidence"],
+      "properties": {
+        "text":      { "type": "string", "minLength": 1 },
+        "dimension": {
+          "description": "Optional soft grouping (pace/detail/abstraction/interactivity/humor/rigor). null = uncategorized (open vocabulary).",
+          "type": ["string", "null"]
+        },
+        "source":    { "enum": ["auto", "self"] },
+        "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "evidence": {
+          "type": "array",
+          "description": "Transcript segment ids backing this tag. Required non-empty for source=auto (M2 H5 anti-manipulation).",
+          "items": { "type": "string" }
+        },
+        "embedding_ref": {
+          "description": "Optional. Phase-2 vector-store handle. MVP leaves absent (vectors computed at load time).",
+          "type": "string"
+        },
+        "cluster_id":    {
+          "description": "Owned by M3 global clustering. M2 always writes null.",
+          "type": ["string", "null"]
+        }
+      },
+      "allOf": [
+        {
+          "if":   { "properties": { "source": { "const": "auto" } } },
+          "then": { "required": ["evidence"], "properties": { "evidence": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "baseMetric": {
+      "type": "object",
+      "required": ["value", "label"],
+      "properties": {
+        "value":    { "type": "number" },
+        "unit":     { "type": "string" },
+        "label":    { "type": "string" },
+        "polarity": { "type": "string" }
+      }
+    }
+  }
+}

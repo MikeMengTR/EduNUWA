@@ -1,0 +1,56 @@
+{
+  "transcript_id": "TR_T20260604006_001",
+  "teacher_id": "T_20260604_006",
+  "source_file": "lecture_001.mp4",
+  "source_audio": "",
+  "language": "zh",
+  "asr_backend": "cloud-dashscope-qwen3-asr-flash",
+  "asr_quality": {
+    "estimated_cer": 0.15,
+    "low_confidence_segments": 0,
+    "refined": true
+  },
+  "ingested_at": "2026-06-04T15:29:40.641138+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start": 0.0,
+      "end": 51.77,
+      "text": "同学们好，在本章中我们将学习线性方程组的求解理论。我们将分五个部分展开：第一部分说明线性方程组的一般形式；第二部分介绍求解方法；第三部分探讨线性方程组有解的条件及解的形式；第四部分讲解求解过程的简化；第五部分引入一个贯穿本课程的重要的量。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0003",
+      "start": 51.77,
+      "end": 98.26,
+      "text": "我们先从线性方程组的形式及相关概念开始讨论。假设 $m, n$ 为正整数，数域 $P$ 上的一个 $n$ 元线性方程组通常写成由 $m$ 个方程所组成的如下形式。在这些方程中，$x_1, x_2, \\dots, x_n$ 表示未知量，其余的量表示已知量。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0006",
+      "start": 98.26,
+      "end": 164.95,
+      "text": "为保证未知量发挥作用，我们约定每个未知量前面的系数不全为零。称 $a_{ij}x_j$ 为线性方程组中的项，该项前面的数称为未知量的系数或该项的系数。我们使用双指标来刻画系数的位置：第一个指标表示该系数所在的方程，第二个指标表示它是哪一个未知量的系数。等号右边的量称为常数项。当常数项全为零时，称该方程组为齐次线性方程组；当常数项不全为零时，称该方程组为非齐次线性方程组。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0013",
+      "start": 164.95,
+      "end": 208.03,
+      "text": "什么是方程组的解？取数域 $P$ 中的一组数，未知量有 $n$ 个，我们便取 $n$ 个数，用它们代替未知量。代入线性方程组后，若每个方程的等号都成立，则称这一组数为线性方程组的一个解（或一组解）。所有解构成的集合称为解集。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0017",
+      "start": 208.03,
+      "end": 219.0,
+      "text": "线性方程组的形式以及相关的概念就介绍到这里，下次再见。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    }
+  ]
+}

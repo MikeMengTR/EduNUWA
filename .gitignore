@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+dist/
+build/
+.vite/
+
+# Environment（绝不提交密钥）
+.env
+.env.local
+
+# Claude Code：保留项目级 skills/commands，忽略含密钥的本地覆盖
+.claude/settings.local.json
+
+# ---- 模型权重（体积大，用户自行下载/训练，绝不入库）----
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+data/whisper_models/
+data/vosk-model-*/
+
+# ---- 音视频产物 ----
+*.mp4
+*.mkv
+*.flv
+*.mov
+*.wav
+*.mp3
+*.aac
+*.ogg
+*.flac
+*.zip
+
+# ---- 运行时数据（多租户产物，随使用生成）----
+data/users.json
+data/conversations.json
+data/sessions/
+data/feedback/
+data/match_log/
+data/audio_output/
+data/sliced_audio/
+data/raw_audio/
+
+# 教师目录：示例教师的卡片/转写/skill 入库，运行时产物不入库
+data/teachers/**/voice/
+data/teachers/**/uploads/
+data/teachers/**/candidates/
+data/teachers/**/audio_samples/
+data/teachers/**/evolution/
+data/teachers/**/style_tags_live.json
+data/**/_logs/
+
+# ---- 测试输出与日志 ----
+test_output/
+*.log
+tmp_*/
+
+# ---- IDE / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+
+# ---- 备份文件 ----
+*.OLD
+*.bak

@@ -1,0 +1,56 @@
+{
+  "transcript_id": "TR_T20260604001_004",
+  "teacher_id": "T_20260604_001",
+  "source_file": "lecture_004.mp4",
+  "source_audio": "",
+  "language": "zh",
+  "asr_backend": "cloud-dashscope-qwen3-asr-flash",
+  "asr_quality": {
+    "estimated_cer": 0.15,
+    "low_confidence_segments": 0,
+    "refined": true
+  },
+  "ingested_at": "2026-06-04T15:12:50.857940+08:00",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start": 0.0,
+      "end": 152.47,
+      "text": "上一讲我们学习了随机事件是样本空间的子集。在实际应用当中，有时并不能把样本空间 $\\Omega$ 的所有子集都作为随机事件来处理，否则可能会给后面定义事件发生的概率带来一些不必要的麻烦。同时，为了使事件经过某些运算后依然是随机事件，我们需要对考虑的随机事件施加一定的约束，为此引入事件域的概念。下面给出事件域的定义：设 $\\Omega$ 是某随机试验的样本空间，$\\mathcal{F}$ 是由 $\\Omega$ 的部分事件组成的事件类。若 $\\mathcal{F}$ 满足以下三个条件，则称 $\\mathcal{F}$ 为 $\\Omega$ 上的事件域：(1) 必然事件（全集）$\\Omega \\in \\mathcal{F}$；(2) 若事件 $A \\in \\mathcal{F}$，则其对立事件 $\\overline{A} \\in \\mathcal{F}$；(3) 若有一列事件 $\\{A_n\\} \\subset \\mathcal{F}$，则它们的可列并 $\\bigcup_{n} A_n \\in \\mathcal{F}$。简单地说，条件(2)要求 $\\mathcal{F}$ 对对立运算封闭，条件(3)要求 $\\mathcal{F}$ 对可列并运算封闭。注意第三条中的 $A_n$ 可以是相同的事件。满足上述三个条件的集合类 $\\mathcal{F}$ 就称为事件域，其本质是由 $\\Omega$ 的某些子集所构成的集类。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0002",
+      "start": 152.47,
+      "end": 267.11,
+      "text": "举一个例子：设样本空间 $\\Omega = \\{a, b, c\\}$，包含三个样本点。可以验证，事件类 $\\mathcal{F}_0, \\mathcal{F}_1, \\mathcal{F}_2, \\mathcal{F}_3$ 均是 $\\Omega$ 上的事件域，其中的元素均为 $\\Omega$ 的子集且满足上述三个条件。对于任意给定的 $\\Omega$，$\\mathcal{F}_0$ 是所有事件域的子集；事实上，$\\mathcal{F}_1, \\mathcal{F}_2, \\mathcal{F}_3$ 中均包含全集 $\\Omega$，且在对立运算下封闭。同时，由于事件域中的元素都是 $\\Omega$ 的子集，故任何事件域都是 $\\mathcal{F}_3$ 的子集，因为 $\\mathcal{F}_3$ 恰由 $\\Omega$ 的所有子集构成。这里自然产生一个问题：为什么不直接将 $\\mathcal{F}_3$ 作为事件域？一般地，当 $\\Omega$ 为不可数集（即连续样本空间）时，若将 $\\Omega$ 的全体子集构成的类 $\\mathcal{F}_3$ 作为事件域，会给我们随后定义事件的概率带来本质性的困难。关于这一点的详细说明，需要学习了实变函数论之后才能充分理解。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0003",
+      "start": 267.11,
+      "end": 369.32,
+      "text": "下面给出一个重要的注记。若 $\\mathcal{F}$ 是 $\\Omega$ 上的事件域，可以验证 $\\mathcal{F}$ 对有限交、可列交以及有限并运算也都是封闭的。有限交是指有限个事件的交仍在 $\\mathcal{F}$ 中；可列交是指可列个事件的交仍在 $\\mathcal{F}$ 中；有限并是指有限个事件的并仍在 $\\mathcal{F}$ 中。以可列交为例，利用德·摩根对偶律，可将可列交转化为可列个对立事件的并的补集，即可列交可以通过可列并运算与对立运算的复合得到，由事件域的定义便知其关于可列交运算是封闭的。通常，我们把二元组 $(\\Omega, \\mathcal{F})$ 称为可测空间。这里“可测”的含义是：$\\mathcal{F}$ 中的元素（即事件）是可以度量的，度量所指的就是事件发生可能性的大小，也就是我们将在下一讲定义的事件的概率。自今往后，凡提及随机事件，均指事件域 $\\mathcal{F}$ 中的元素；在给定了可测空间 $(\\Omega, \\mathcal{F})$ 之后，所说的随机事件都是 $\\mathcal{F}$ 中的元素。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0004",
+      "start": 369.32,
+      "end": 425.22,
+      "text": "最后介绍样本空间的分割（也称为划分）。设 $n$ 个事件 $A_1, A_2, \\dots, A_n \\in \\mathcal{F}$，满足以下两个条件：(1) 对任意两个不同的指标 $i \\neq j$，$A_i$ 与 $A_j$ 互不相容（即 $A_i \\cap A_j = \\varnothing$）；(2) 它们的并等于必然事件 $\\bigcup_{i=1}^{n} A_i = \\Omega$。此时，称 $A_1, A_2, \\dots, A_n$ 为样本空间 $\\Omega$ 的一组分割（划分）。显然，样本空间的分割不是唯一的，例如对任意事件 $A$，$\\{A, \\overline{A}\\}$ 就是 $\\Omega$ 的一个分割。这一概念在后面将会用到；实际上，不仅样本空间可以分割，任何一个随机事件也可以进行类似的分割。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    },
+    {
+      "segment_id": "seg_0005",
+      "start": 425.22,
+      "end": 450.0,
+      "text": "本节的内容就介绍到这里。最后请同学们注意：今后我们仅考虑事件域 $\\mathcal{F}$ 中的元素发生的可能性；如果某个 $\\Omega$ 的子集不在 $\\mathcal{F}$ 中，我们不将其视为随机事件。因此，当我们提到随机事件时，均默认指事件域 $\\mathcal{F}$ 中的元素。这一讲就到这里。",
+      "speaker": "teacher",
+      "confidence": 0.85
+    }
+  ]
+}
