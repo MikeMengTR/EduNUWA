@@ -8,19 +8,16 @@
 <meta property="og:title" content="EduNUWA — 教学风格蒸馏 · 流式虚拟课堂">
 <meta property="og:description" content="把教师的教学能力蒸馏为可复用的数字资产，让 AI 教师真正「像那位老师」一样讲课。">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23122a20'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23f2efe6' font-family='Georgia'%3E%E5%A8%B2%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316100A'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23D85A30' font-family='Georgia'%3E%E5%A8%B2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zhi+Mang+Xing&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- 粉笔尘粒子画布 -->
-<canvas id="dust" aria-hidden="true"></canvas>
-
 <!-- ====== 导航 ====== -->
-<nav class="nav">
+<nav class="nav" id="nav">
   <a class="nav-brand" href="#top">
     <span class="brand-mark">娲</span>
     <span class="brand-name">EduNUWA</span>
@@ -28,8 +25,8 @@
   <div class="nav-links">
     <a href="#what" data-i18n="nav.what">它做什么</a>
     <a href="#pipeline" data-i18n="nav.pipeline">链路</a>
+    <a href="#product" data-i18n="nav.product">产品</a>
     <a href="#demos" data-i18n="nav.demos">演示</a>
-    <a href="#features" data-i18n="nav.features">特性</a>
     <a href="#start" data-i18n="nav.start">上手</a>
   </div>
   <div class="nav-actions">
@@ -40,68 +37,89 @@
   </div>
 </nav>
 
-<!-- ====== HERO ====== -->
+<!-- ====== HERO：讲义星系 ====== -->
 <header id="top" class="hero">
-  <!-- 漂浮公式 -->
-  <div class="floating-formulas" aria-hidden="true">
-    <span style="--fx:8%;  --fy:18%; --fd:0s;  --fs:1.6rem;">∫<sub>a</sub><sup>b</sup> f(x)dx</span>
-    <span style="--fx:85%; --fy:14%; --fd:2s;  --fs:2.0rem;">e<sup>iπ</sup>+1=0</span>
-    <span style="--fx:78%; --fy:64%; --fd:4s;  --fs:1.4rem;">F = ma</span>
-    <span style="--fx:6%;  --fy:70%; --fd:1s;  --fs:1.5rem;">Σ xᵢp(xᵢ)</span>
-    <span style="--fx:60%; --fy:8%;  --fd:3s;  --fs:1.3rem;">∂L/∂θ</span>
-    <span style="--fx:20%; --fy:42%; --fd:5s;  --fs:1.2rem;">N(μ, σ²)</span>
-    <span style="--fx:90%; --fy:40%; --fd:2.5s;--fs:1.3rem;">λ = h/p</span>
+  <div class="hero-stage" id="heroStage" aria-hidden="true">
+    <div class="hero-glow"></div>
+    <div class="hero-glow hero-glow--cool"></div>
+    <svg class="hero-field" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
+      <g transform="translate(760,430)">
+        <g class="orbit orbit--1">
+          <circle class="ring" r="150"/>
+          <circle class="node" cx="150" cy="0" r="3"/>
+          <circle class="node node--hot" cx="-104" cy="108" r="4.5"/>
+        </g>
+        <g class="orbit orbit--2">
+          <circle class="ring" r="255"/>
+          <circle class="node" cx="255" cy="0" r="3"/>
+          <circle class="node node--brass" cx="-180" cy="-181" r="4"/>
+          <circle class="node" cx="-45" cy="251" r="2.5"/>
+        </g>
+        <g class="orbit orbit--3">
+          <circle class="ring" r="375"/>
+          <circle class="node node--hot" cx="375" cy="0" r="3.5"/>
+          <circle class="node" cx="-263" cy="267" r="3"/>
+        </g>
+        <g class="orbit orbit--4">
+          <circle class="ring" r="520"/>
+          <circle class="node" cx="520" cy="0" r="3"/>
+          <circle class="node node--brass" cx="-368" cy="-367" r="3.5"/>
+          <circle class="node" cx="96" cy="-511" r="2.5"/>
+        </g>
+      </g>
+    </svg>
+    <div class="hero-sparks" id="sparks"></div>
   </div>
 
-  <p class="hero-kicker" data-i18n="hero.kicker">AI × 教育 · 研究原型</p>
-  <h1 class="hero-title">EduNUWA</h1>
-  <svg class="hero-underline" viewBox="0 0 420 24" aria-hidden="true">
-    <path id="underlinePath" d="M8,14 Q110,4 210,13 T412,10" fill="none" stroke-linecap="round"/>
-  </svg>
-  <p class="hero-sub">
-    <span id="typewriter"></span><span class="cursor">▍</span>
-  </p>
-  <p class="hero-desc" data-i18n="hero.desc">
-    学生提出问题，数字教师以真实教师的讲解风格作答——克隆音色开口讲课，虚拟黑板逐句写下提纲、公式与插图，边生成边播放。
-  </p>
-  <div class="hero-cta">
-    <a class="btn btn-chalk" href="#demos" data-i18n="hero.watch">▶ 观看演示</a>
-    <a class="btn btn-ghost" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub →</a>
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="kicker-flame">◆</span><span data-i18n="hero.kicker">EDUNUWA · 开源研究原型</span></p>
+    <h1 class="hero-headline" id="headline">
+      <span class="ln">把教师的教学能力，</span>
+      <span class="ln"><em class="ignite">蒸馏</em>为数字资产<span class="dot">。</span></span>
+    </h1>
+    <p class="hero-desc" data-i18n="hero.desc">
+      学生提出问题，数字教师以真实教师的讲解风格作答——克隆音色开口讲课，虚拟黑板逐句写下提纲、公式与插图，边生成边播放。
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" href="#product"><span data-i18n="hero.watch">看看产品</span><span class="ar">→</span></a>
+      <a class="btn btn-ghost-dark" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><em>6</em><span data-i18n="stats.modules">模块流水线</span></div>
+      <div class="stat"><em>7</em><span data-i18n="stats.events">类教学事件</span></div>
+      <div class="stat"><em>12</em><span data-i18n="stats.teachers">位示例教师</span></div>
+      <div class="stat"><em data-i18n="stats.streamNum">秒级</em><span data-i18n="stats.stream">首句开口延迟</span></div>
+    </div>
   </div>
-
-  <div class="hero-stats">
-    <div class="stat"><em>6</em><span data-i18n="stats.modules">模块流水线</span></div>
-    <div class="stat"><em>7</em><span data-i18n="stats.events">类教学事件</span></div>
-    <div class="stat"><em>12</em><span data-i18n="stats.teachers">位示例教师</span></div>
-    <div class="stat"><em data-i18n="stats.streamNum">秒级</em><span data-i18n="stats.stream">首句开口延迟</span></div>
-  </div>
-
-  <a class="scroll-hint" href="#what" aria-label="scroll down">⌄</a>
+  <p class="hero-foot">EDUNUWA · TEACHING-STYLE DISTILLATION · MIT</p>
 </header>
 
 <main>
 
-<!-- ====== 它做什么 ====== -->
+<!-- ====== 一、它做什么 ====== -->
 <section id="what" class="section">
-  <h2 class="sec-title"><span class="sec-no" data-i18n="what.no">一、</span><span data-i18n="what.title">它做什么</span></h2>
+  <div class="sec-head">
+    <p class="sec-kicker" data-i18n="what.kicker">WHAT IT DOES</p>
+    <h2 class="sec-title"><span data-i18n="what.title">它做什么</span><span class="dot">。</span></h2>
+  </div>
   <div class="cards3">
     <article class="card reveal">
-      <div class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 48 48"><path d="M10 38 V14 q0-4 4-4 h20 q4 0 4 4 v10" fill="none"/><path d="M16 18 h16 M16 24 h12 M16 30 h8" fill="none"/><path d="M30 34 q6-2 8 4 q2 6-4 6 q-6 0-4-6" fill="none"/></svg>
+      <div class="card-ic ic-green">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></svg>
       </div>
       <h3 data-i18n="what.c1.t">蒸馏讲解风格</h3>
       <p data-i18n="what.c1.p">从授课视频中提炼教师「怎么讲」：如何引入概念、建立直觉、设计板书、主动防错——产出七段契约的 TeacherSkill，而不只是知识问答。</p>
     </article>
-    <article class="card reveal" style="--rd:.12s">
-      <div class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="24" rx="2" fill="none"/><path d="M14 18 h12 M14 24 h20" fill="none"/><path d="M18 40 h12 M24 34 v6" fill="none"/><path d="M34 16 l4 4 -4 4" fill="none"/></svg>
+    <article class="card reveal" style="--rd:.1s">
+      <div class="card-ic ic-blue">
+        <svg viewBox="0 0 24 24"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 11v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 9v5"/></svg>
       </div>
       <h3 data-i18n="what.c2.t">流式虚拟课堂</h3>
       <p data-i18n="what.c2.p">LLM 流式产出教学事件，TTS 逐句合成并预取下一句：首句开口 ≈ 首句生成 + 首句合成。黑板、公式、插图与语音同步推进。</p>
     </article>
-    <article class="card reveal" style="--rd:.24s">
-      <div class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 48 48"><path d="M24 8 a16 16 0 1 1 -11 27" fill="none"/><path d="M8 30 l5 5 5-5" fill="none"/><path d="M24 16 v8 l6 4" fill="none"/></svg>
+    <article class="card reveal" style="--rd:.2s">
+      <div class="card-ic ic-orange">
+        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
       </div>
       <h3 data-i18n="what.c3.t">反馈自进化</h3>
       <p data-i18n="what.c3.p">学生评价通过「文本梯度」回流：众评风格标签按确定性公式累积置信度，Skill 修订经教师确认后生效——数字分身越用越像。</p>
@@ -109,100 +127,154 @@
   </div>
 </section>
 
-<!-- ====== 链路 ====== -->
+<!-- ====== 二、链路 ====== -->
 <section id="pipeline" class="section">
-  <h2 class="sec-title"><span class="sec-no" data-i18n="pipe.no">二、</span><span data-i18n="pipe.title">一条数据契约驱动的流水线</span></h2>
-  <p class="sec-lead" data-i18n="pipe.lead">六个模块通过「文件路径 + 函数调用」解耦，每个交接文件都有入库的 JSON Schema。</p>
+  <div class="sec-head">
+    <p class="sec-kicker" data-i18n="pipe.kicker">PIPELINE</p>
+    <h2 class="sec-title"><span data-i18n="pipe.title">一条数据契约驱动的流水线</span><span class="dot">。</span></h2>
+    <p class="sec-lead" data-i18n="pipe.lead">六个模块通过「文件路径 + 函数调用」解耦，每个交接文件都有入库的 JSON Schema。</p>
+  </div>
 
   <div class="pipeline reveal" id="pipelineBox">
     <div class="pipe-row">
       <div class="pipe-node"><b>M1</b><span data-i18n="pipe.m1">摄取 · ASR 转写</span></div>
-      <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>transcript.json</code></div>
+      <div class="pipe-arrow"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>transcript.json</code></div>
       <div class="pipe-node"><b>M2</b><span data-i18n="pipe.m2">蒸馏 · TeacherSkill</span></div>
-      <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>skill_profile.json</code></div>
+      <div class="pipe-arrow"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>skill_profile.json</code></div>
       <div class="pipe-node"><b>M3</b><span data-i18n="pipe.m3">目录 · 双轨发现</span></div>
     </div>
-    <div class="pipe-row pipe-row2">
+    <div class="pipe-row">
       <div class="pipe-node pipe-q"><b>Q</b><span data-i18n="pipe.q">学生提问</span></div>
-      <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg></div>
+      <div class="pipe-arrow"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg></div>
       <div class="pipe-node"><b>M4</b><span data-i18n="pipe.m4">编排 · 教学事件</span></div>
-      <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>events.json</code></div>
+      <div class="pipe-arrow"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg><code>events.json</code></div>
       <div class="pipe-node"><b>M5</b><span data-i18n="pipe.m5">运行时 · TTS + 黑板</span></div>
-      <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg></div>
+      <div class="pipe-arrow"><svg viewBox="0 0 60 20"><path class="draw" d="M2,10 h44 m-8,-6 l8,6 -8,6" fill="none"/></svg></div>
       <div class="pipe-node pipe-live"><b>▶</b><span data-i18n="pipe.live">流式课堂</span></div>
     </div>
     <p class="pipe-note"><b>M6</b> <span data-i18n="pipe.m6">平台层把 M1–M5 缝合成完整产品（Flask + React）</span></p>
   </div>
 
   <div class="event-chips reveal">
-    <span class="chip-label" data-i18n="pipe.events">教学事件类型：</span>
+    <span class="chip-label" data-i18n="pipe.events">教学事件类型</span>
     <code>speak</code><code>board</code><code>formula</code><code>table</code><code>pause</code><code>quiz</code><code>image</code>
   </div>
 </section>
 
-<!-- ====== 演示 ====== -->
-<section id="demos" class="section">
-  <h2 class="sec-title"><span class="sec-no" data-i18n="demo.no">三、</span><span data-i18n="demo.title">现场演示</span></h2>
-  <p class="sec-lead" data-i18n="demo.lead">下面是系统真实运行录屏：从教师上传素材，到风格蒸馏，再到学生在虚拟课堂里提问听课。</p>
+<!-- ====== 三、产品界面 ====== -->
+<section id="product" class="section section-wide">
+  <div class="sec-head">
+    <p class="sec-kicker" data-i18n="prod.kicker">THE PRODUCT</p>
+    <h2 class="sec-title"><span data-i18n="prod.title">走进讲义馆</span><span class="dot">。</span></h2>
+    <p class="sec-lead" data-i18n="prod.lead">从登录到课堂的完整产品体验——温暖纸质的设计语言，承载一条严肃的技术链路。</p>
+  </div>
 
-  <!-- 主打：课堂实录 -->
-  <figure class="featured-video reveal">
-    <div class="board-frame">
+  <div class="gallery reveal">
+    <figure class="browser">
+      <div class="browser-bar">
+        <i></i><i></i><i></i>
+        <span class="browser-url" id="galleryUrl">edutwin.local / login</span>
+      </div>
+      <div class="browser-body">
+        <img id="galleryMain" src="assets/img/m6-login.jpg" alt="EduNUWA 产品界面">
+      </div>
+    </figure>
+    <figcaption class="gallery-cap">
+      <b id="galleryTitle">登录 · 讲义星系</b>
+      <span id="galleryDesc">深咖啡宇宙里的知识轨道，一句「蒸馏为数字资产」点燃入口。</span>
+    </figcaption>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+</section>
+
+<!-- ====== 四、演示（深色带） ====== -->
+<section id="demos" class="band">
+  <div class="section section-wide">
+    <div class="sec-head">
+      <p class="sec-kicker sec-kicker--dark" data-i18n="demo.kicker">LIVE DEMOS</p>
+      <h2 class="sec-title sec-title--dark"><span data-i18n="demo.title">现场演示</span><span class="dot">。</span></h2>
+      <p class="sec-lead sec-lead--dark" data-i18n="demo.lead">系统真实运行录屏：从教师上传素材，到风格蒸馏，再到学生在虚拟课堂里提问听课。</p>
+    </div>
+
+    <figure class="featured-video reveal">
       <video id="featuredVideo" controls preload="metadata" poster="assets/video/classroom-gaussian.jpg">
         <source src="assets/video/classroom-gaussian.mp4" type="video/mp4">
       </video>
+      <figcaption>
+        <b data-i18n="demo.feat.t">虚拟课堂 · 「什么是高斯分布？」</b>
+        <span data-i18n="demo.feat.p">克隆音色开口讲课，黑板逐句写下推导与图示——全程流式生成，无预录音频。</span>
+      </figcaption>
+    </figure>
+
+    <div class="video-grid">
+      <figure class="vcard reveal" data-video="assets/video/upload-material.mp4">
+        <div class="vthumb"><img src="assets/video/upload-material.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>01</i><b data-i18n="demo.v1.t">素材上传</b><span data-i18n="demo.v1.p">教师上传授课视频，系统自动切分与登记</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-video="assets/video/transcript-refine.mp4" data-loop style="--rd:.06s">
+        <div class="vthumb"><img src="assets/video/transcript-refine.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>02</i><b data-i18n="demo.v2.t">文字稿处理</b><span data-i18n="demo.v2.p">ASR 转写 + LLM 精修，产出可蒸馏的文字稿</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-video="assets/video/style-distill.mp4" data-loop style="--rd:.12s">
+        <div class="vthumb"><img src="assets/video/style-distill.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>03</i><b data-i18n="demo.v3.t">风格蒸馏</b><span data-i18n="demo.v3.p">从转写中提炼 TeacherSkill 七段契约</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-video="assets/video/distill-result.mp4" style="--rd:.18s">
+        <div class="vthumb"><img src="assets/video/distill-result.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>04</i><b data-i18n="demo.v4.t">蒸馏结果</b><span data-i18n="demo.v4.p">风格指纹、教学法策略与质量评估</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-video="assets/video/ppt-extract.mp4" style="--rd:.24s">
+        <div class="vthumb"><img src="assets/video/ppt-extract.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>05</i><b data-i18n="demo.v5.t">PPT 抽图入库</b><span data-i18n="demo.v5.p">拖入课件，视觉模型筛图并自动标注检索元数据</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-video="assets/video/classroom-capacitor.mp4" style="--rd:.3s">
+        <div class="vthumb"><img src="assets/video/classroom-capacitor.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
+        <figcaption><i>06</i><b data-i18n="demo.v6.t">虚拟课堂 · 讲解电容</b><span data-i18n="demo.v6.p">物理课示例：公式、图示与语音同步推进</span></figcaption>
+      </figure>
     </div>
-    <figcaption>
-      <b data-i18n="demo.feat.t">虚拟课堂 · 「什么是高斯分布？」</b>
-      <span data-i18n="demo.feat.p">克隆音色开口讲课，黑板逐句写下推导与图示——全程流式生成，无预录音频。</span>
-    </figcaption>
-  </figure>
-
-  <!-- 流程画廊 -->
-  <div class="video-grid">
-    <figure class="vcard reveal" data-video="assets/video/upload-material.mp4">
-      <div class="vthumb"><img src="assets/video/upload-material.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>01</i><b data-i18n="demo.v1.t">素材上传</b><span data-i18n="demo.v1.p">教师上传授课视频，系统自动切分与登记</span></figcaption>
-    </figure>
-    <figure class="vcard reveal" data-video="assets/video/transcript-refine.mp4" data-loop style="--rd:.08s">
-      <div class="vthumb"><img src="assets/video/transcript-refine.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>02</i><b data-i18n="demo.v2.t">文字稿处理</b><span data-i18n="demo.v2.p">ASR 转写 + LLM 精修，产出可蒸馏的文字稿</span></figcaption>
-    </figure>
-    <figure class="vcard reveal" data-video="assets/video/style-distill.mp4" data-loop style="--rd:.16s">
-      <div class="vthumb"><img src="assets/video/style-distill.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>03</i><b data-i18n="demo.v3.t">风格蒸馏</b><span data-i18n="demo.v3.p">从转写中提炼 TeacherSkill 七段契约</span></figcaption>
-    </figure>
-    <figure class="vcard reveal" data-video="assets/video/distill-result.mp4" style="--rd:.24s">
-      <div class="vthumb"><img src="assets/video/distill-result.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>04</i><b data-i18n="demo.v4.t">蒸馏结果</b><span data-i18n="demo.v4.p">风格指纹、教学法策略与质量评估</span></figcaption>
-    </figure>
-    <figure class="vcard reveal" data-video="assets/video/ppt-extract.mp4" style="--rd:.32s">
-      <div class="vthumb"><img src="assets/video/ppt-extract.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>05</i><b data-i18n="demo.v5.t">PPT 抽图入库</b><span data-i18n="demo.v5.p">拖入课件，视觉模型筛图并自动标注检索元数据</span></figcaption>
-    </figure>
-    <figure class="vcard reveal" data-video="assets/video/classroom-capacitor.mp4" style="--rd:.4s">
-      <div class="vthumb"><img src="assets/video/classroom-capacitor.jpg" alt="" loading="lazy"><span class="vplay">▶</span></div>
-      <figcaption><i>06</i><b data-i18n="demo.v6.t">虚拟课堂 · 讲解电容</b><span data-i18n="demo.v6.p">物理课示例：公式、图示与语音同步推进</span></figcaption>
-    </figure>
   </div>
 </section>
 
-<!-- ====== 特性 ====== -->
+<!-- ====== 五、核心特性 ====== -->
 <section id="features" class="section">
-  <h2 class="sec-title"><span class="sec-no" data-i18n="feat.no">四、</span><span data-i18n="feat.title">核心特性</span></h2>
+  <div class="sec-head">
+    <p class="sec-kicker" data-i18n="feat.kicker">CORE FEATURES</p>
+    <h2 class="sec-title"><span data-i18n="feat.title">核心特性</span><span class="dot">。</span></h2>
+  </div>
   <div class="feat-grid">
-    <div class="feat reveal"><h4 data-i18n="feat.f1.t">✍ 七段 Skill 契约</h4><p data-i18n="feat.f1.p">教学理念 / 讲解模式 / 板书策略 / 语言风格……蒸馏产物是结构化契约，直接注入每一次讲课的 prompt。</p></div>
-    <div class="feat reveal" style="--rd:.06s"><h4 data-i18n="feat.f2.t">⚡ 全链路流式</h4><p data-i18n="feat.f2.p">SSE 事件流 + 逐句 TTS 预取 + 双槽 iframe 推流，不等全文生成，开口即讲。</p></div>
-    <div class="feat reveal" style="--rd:.12s"><h4 data-i18n="feat.f3.t">🎙 音色克隆与降级</h4><p data-i18n="feat.f3.p">GPT-SoVITS 少样本克隆教师音色；无 GPU / 无模型时自动降级 edge-tts，普通笔记本可跑。</p></div>
-    <div class="feat reveal" style="--rd:.18s"><h4 data-i18n="feat.f4.t">🖼 教学插图检索</h4><p data-i18n="feat.f4.p">图库检索 → LLM 按 ID 引用 → 防幻觉闸门定稿 URL，配图零额外首句延迟。</p></div>
-    <div class="feat reveal" style="--rd:.24s"><h4 data-i18n="feat.f5.t">🔍 双轨教师发现</h4><p data-i18n="feat.f5.p">按姓名找名师，或按风格指纹匹配「适合你的讲法」——同时承载名师效应与长尾发现。</p></div>
-    <div class="feat reveal" style="--rd:.3s"><h4 data-i18n="feat.f6.t">📈 众评标签进化</h4><p data-i18n="feat.f6.p">推荐 → 反馈 → 归因 → 标签晋升的完整闭环；置信度由确定性公式计算，不采 LLM 拍脑袋。</p></div>
+    <div class="feat feat--blue reveal">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M9 14h6M9 18h6"/></svg></div>
+      <div><h4 data-i18n="feat.f1.t">七段 Skill 契约</h4><p data-i18n="feat.f1.p">教学理念 / 讲解模式 / 板书策略 / 语言风格……蒸馏产物是结构化契约，直接注入每一次讲课的 prompt。</p></div>
+    </div>
+    <div class="feat feat--orange reveal" style="--rd:.05s">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></div>
+      <div><h4 data-i18n="feat.f2.t">全链路流式</h4><p data-i18n="feat.f2.p">SSE 事件流 + 逐句 TTS 预取 + 双槽 iframe 推流，不等全文生成，开口即讲。</p></div>
+    </div>
+    <div class="feat feat--green reveal" style="--rd:.1s">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <div><h4 data-i18n="feat.f3.t">音色克隆与降级</h4><p data-i18n="feat.f3.p">GPT-SoVITS 少样本克隆教师音色；无 GPU / 无模型时自动降级 edge-tts，普通笔记本可跑。</p></div>
+    </div>
+    <div class="feat feat--purple reveal" style="--rd:.15s">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+      <div><h4 data-i18n="feat.f4.t">教学插图检索</h4><p data-i18n="feat.f4.p">图库检索 → LLM 按 ID 引用 → 防幻觉闸门定稿 URL，配图零额外首句延迟。</p></div>
+    </div>
+    <div class="feat feat--blue reveal" style="--rd:.2s">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div><h4 data-i18n="feat.f5.t">双轨教师发现</h4><p data-i18n="feat.f5.p">按姓名找名师，或按风格指纹匹配「适合你的讲法」——同时承载名师效应与长尾发现。</p></div>
+    </div>
+    <div class="feat feat--orange reveal" style="--rd:.25s">
+      <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></div>
+      <div><h4 data-i18n="feat.f6.t">众评标签进化</h4><p data-i18n="feat.f6.p">推荐 → 反馈 → 归因 → 标签晋升的完整闭环；置信度由确定性公式计算，不采 LLM 拍脑袋。</p></div>
+    </div>
   </div>
 </section>
 
-<!-- ====== 快速上手 ====== -->
+<!-- ====== 六、快速上手 ====== -->
 <section id="start" class="section">
-  <h2 class="sec-title"><span class="sec-no" data-i18n="start.no">五、</span><span data-i18n="start.title">五分钟跑起来</span></h2>
+  <div class="sec-head">
+    <p class="sec-kicker" data-i18n="start.kicker">GET STARTED</p>
+    <h2 class="sec-title"><span data-i18n="start.title">五分钟跑起来</span><span class="dot">。</span></h2>
+  </div>
   <div class="terminal reveal">
     <div class="term-bar"><i></i><i></i><i></i><span>bash</span></div>
     <pre><code>git clone https://github.com/MikeMengTR/EduNUWA.git
@@ -215,16 +287,17 @@ cd modules/M6_platform/frontend &amp;&amp; npm install &amp;&amp; npm run dev</c
     <button class="copy-btn" data-i18n="start.copy">复制</button>
   </div>
   <p class="start-note" data-i18n="start.note">仓库内置 12 位匿名化示例教师与自制教学图库，无重型模型也能体验完整链路（TTS 自动走 edge-tts）。</p>
-  <div class="hero-cta">
-    <a class="btn btn-chalk" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener" data-i18n="start.star">★ 去 GitHub 点个 Star</a>
+  <div class="start-cta">
+    <a class="btn btn-accent" href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener"><span data-i18n="start.star">去 GitHub 点个 Star</span><span class="ar">→</span></a>
   </div>
 </section>
 
 </main>
 
 <footer class="footer">
-  <p>EduNUWA · <span data-i18n="footer.lic">MIT 开源</span> · <a href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub</a></p>
+  <p class="footer-main">EduNUWA · <span data-i18n="footer.lic">MIT 开源</span> · <a href="https://github.com/MikeMengTR/EduNUWA" target="_blank" rel="noopener">GitHub</a></p>
   <p class="footer-sub" data-i18n="footer.ethics">示例数据已匿名化；如需摄取真实课程，请先取得教师本人授权。</p>
+  <p class="footer-mono">EDUNUWA · TEACHING-STYLE DISTILLATION · OPEN SOURCE</p>
 </footer>
 
 <!-- 视频灯箱 -->
