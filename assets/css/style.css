@@ -129,7 +129,7 @@ a { color: var(--blue); text-decoration: none; }
   position: relative; z-index: 2;
   width: min(1330px, 100%); margin: 0 auto;
   display: grid; grid-template-columns: minmax(0, 1fr) 352px; gap: 1.15rem;
-  height: clamp(540px, calc(100vh - 172px), 708px);
+  height: clamp(600px, calc(100vh - 172px), 708px);
 }
 .stage { position: relative; display: flex; flex-direction: column; min-width: 0; }
 
@@ -186,9 +186,9 @@ a { color: var(--blue); text-decoration: none; }
 
 /* 板角项目组名单：手绘粉笔框 + 竖排右起（值日生框） */
 .board-roster {
-  position: absolute; top: 3.9rem; right: 2.2rem; z-index: 2;
-  padding: .7rem .85rem .95rem;
-  border: 1.5px solid rgba(243,238,229,.3);
+  position: absolute; top: 3.4rem; right: 2rem; z-index: 2;
+  padding: .5rem .72rem .62rem;
+  border: 1.5px solid rgba(243,238,229,.28);
   /* 不对称圆角 = 手绘歪斜方框 */
   border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
   transform: rotate(.5deg);
@@ -196,28 +196,28 @@ a { color: var(--blue); text-decoration: none; }
 }
 @keyframes rosterin { to { opacity: 1; } }
 .roster-title {
-  display: flex; align-items: baseline; justify-content: center; gap: .5rem;
-  font-family: var(--font-serif); font-weight: 900; font-size: .74rem;
-  letter-spacing: .3em; color: rgba(243,238,229,.66);
-  padding-bottom: .5rem; margin-bottom: .6rem;
-  border-bottom: 1px dashed rgba(243,238,229,.22);
+  display: flex; align-items: baseline; justify-content: center; gap: .45rem;
+  font-family: var(--font-serif); font-weight: 900; font-size: .64rem;
+  letter-spacing: .28em; color: rgba(243,238,229,.62);
+  padding-bottom: .35rem; margin-bottom: .45rem;
+  border-bottom: 1px dashed rgba(243,238,229,.2);
 }
 .roster-title em {
   font-style: normal; font-family: var(--font-mono); font-weight: 400;
-  font-size: .56rem; letter-spacing: .18em; color: rgba(243,238,229,.32);
+  font-size: .5rem; letter-spacing: .16em; color: rgba(243,238,229,.3);
 }
-.roster-cols { display: flex; flex-direction: row-reverse; justify-content: center; gap: .95rem; }
+.roster-cols { display: flex; flex-direction: row-reverse; justify-content: center; gap: .7rem; }
 .rcol {
   writing-mode: vertical-rl; text-orientation: upright;
-  font-family: var(--font-serif); font-size: .78rem; letter-spacing: 3px;
-  color: rgba(243,238,229,.78); line-height: 1.5;
+  font-family: var(--font-serif); font-size: .64rem; letter-spacing: 1.5px;
+  color: rgba(243,238,229,.76); line-height: 1.32;
 }
 .rcol b {
-  font-weight: 400; font-size: .62rem; letter-spacing: 2px;
+  font-weight: 400; font-size: .52rem; letter-spacing: 1px;
   color: rgba(243,238,229,.4);
-  margin-inline-end: .7em;
+  margin-inline-end: .55em;
 }
-.rcol span { margin-inline-start: .65em; }
+.rcol span { margin-inline-start: .5em; }
 .rcol span:first-of-type { margin-inline-start: 0; }
 
 .hero-kicker {
